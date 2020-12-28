@@ -241,10 +241,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../FMODFolder/NewAgaveVRProject/NewAgaveVRProject.fspro
-  sourceBankPath: ..\FMODFolder\NewAgaveVRProject\Build
+  sourceBankPath: ../FMODFolder/Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -265,7 +265,12 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - ConejoBankTest
+  - CoyoteSFX
+  - Environment
+  - Music
+  - Player
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
