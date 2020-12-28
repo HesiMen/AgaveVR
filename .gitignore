@@ -58,3 +58,26 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+
+### FMOD Unity Integration ###
+# Never ignore DLLs in the FMOD subfolder, so make sure that the FMOD-folder is in the correct path.
+!AgaveVR/[Aa]ssets/Plugins/FMOD/**/*.dll
+
+# Don't ignore images and gizmos used by FMOD in the Unity Editor
+!AgaveVR/[Aa}ssets/Gizmos/FMOD/*
+!AgaveVR/[Aa}ssets/Editor Default Resources/FMOD/*
+
+# Ignore the Cache-file since it is updated locally either way
+AgaveVR/[Aa]ssets/**/FMODStudioCache.asset
+AgaveVR/[Aa]ssets/**/FMODStudioCache.asset.meta
+AgaveVR/[Aa]ssets/Plugins/FMOD/Cache.meta
+AgaveVR/[Aa]ssets/Plugins/FMOD/Cache/Editor.meta
+
+# Log-files
+fmod.log
+fmod_editor.log
+
+# FMOD 1.10.x (Legacy)
+AgaveVR/Assets/FMODAssets/*
+AgaveVR/Assets/FMODStudioCache.meta
