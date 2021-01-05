@@ -7,22 +7,27 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Weather_Mat_FlameParticles
+  m_Name: AlphaTransparent_Fire
   m_Shader: {fileID: 4800000, guid: a1d6b1b2235d54fd8bbda85a561ba674, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _CUTOFFTOGGLE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
+    m_Floats:
+    - _Alpha: 0
+    - _Cutoff: 0
+    - _CutoffToggle: 1
+    - _MainTexToggle: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Colro: {r: 1, g: 1, b: 1, a: 1}
