@@ -60,7 +60,7 @@ Material:
     - _CameraNearFadeDistance: 1
     - _ColorMode: 1
     - _Cull: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0.794
     - _CutoffToggle: 1
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
