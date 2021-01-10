@@ -69,12 +69,9 @@
                 #endif
 
                 #if CUTOFF_ON
-                    clip(col.a - (_Cutoff * _CutoffToggle));
+                    clip(col.a - (_Cutoff));
                 #endif
 
-                //col.a = _Alpha;
-
-                //tex2D(_MainTex, i.uv);
                 return col;
             }
             ENDCG
