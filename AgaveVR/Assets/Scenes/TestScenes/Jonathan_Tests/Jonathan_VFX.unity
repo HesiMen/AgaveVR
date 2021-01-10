@@ -285,6 +285,11 @@ PrefabInstance:
       propertyPath: ShapeModule.alignToDirection
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5073056271782453926, guid: 4bcf4f04dd311447ca0ad62d1d0f8f96,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     - target: {fileID: 8571793729807307832, guid: 4bcf4f04dd311447ca0ad62d1d0f8f96,
         type: 3}
       propertyPath: m_LocalPosition.x
