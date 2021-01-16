@@ -8,9 +8,10 @@ public class XROffsetGrabInteractable : XRGrabInteractable
     private Vector3 initialAttachLocalPos;
     private Quaternion initialAttachLocalRot;
 
-    // Start is called before the first frame update
     void Start()
     {
+
+      
         // Create attach point
         if (!attachTransform)
         {
@@ -25,7 +26,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
 
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
-        if(interactor is XRDirectInteractor)
+        if (interactor is XRDirectInteractor)
         {
             attachTransform.position = interactor.transform.position;
             attachTransform.rotation = interactor.transform.rotation;
@@ -37,6 +38,46 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         }
 
         base.OnSelectEntered(interactor);
+    }
+
+    //ignore player collision if being grabbed
+
+ 
+    protected override void OnSelectExiting(XRBaseInteractor interactor)// This fucks up a bit when passing from one hand to another since that reads as exiting
+    {
+        base.OnSelectExiting(interactor);
+
+
+        IgnorePlayerCollision(false);
+
+    }
+
+    private List<Collider> playerCollider = new List<Collider>();
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !playerCollider.Contains(collision.collider)) // if is player and collider is not in the list add and ignore it. 
+        {
+            playerCollider.Add(collision.collider);
+            IgnorePlayerCollision(true);
+
+        }
+    }
+
+    private void IgnorePlayerCollision(bool _active) 
+    {
+        Debug.Log("Ignoring PlayerCollision: " + _active);
+        if (playerCollider != null)
+        {
+            foreach (var coll in colliders)
+            {
+                foreach (var playerCol in playerCollider)
+                {
+                    Physics.IgnoreCollision(coll, playerCol, _active);
+                }
+            }
+        }
+        
     }
 
 
@@ -51,6 +92,6 @@ public class XROffsetGrabInteractable : XRGrabInteractable
     //        GetComponent<Rigidbody>().isKinematic = true;
     //    }
 
- //   }
-   
+    //   }
+
 }
