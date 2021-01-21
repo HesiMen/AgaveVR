@@ -2,35 +2,150 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+//Plan
+//OpenHole
+//Seed the hole
+//Check which seed it is.
+//instantiate the plant object that will make it grow. 
 public class SeedsHolePhysics : BeatEvent
 {
 
-    public float secondsToWaitEvent = 3f;
+    
+    public enum HoleState { Close, Open, SeededOpen, SeededClosed, None }
+    [Tooltip("HoleState")]
+    public HoleState holeState;
 
+    public float secondsToWaitEvent = 3f;
+  
+
+    private bool _HasBeenSeeded = false;
+    private int _SeedCount = 0;
+
+    public GameObject completeHole;
+
+
+
+    private List<AgaveObject> seedsInHole = new List<AgaveObject>();
+    public void HoleStateChange(HoleState holeState)
+    {
+        switch (holeState)
+        {
+            case HoleState.Close:
+                completeHole.SetActive(false);
+                break;
+
+            case HoleState.Open:
+                completeHole.SetActive(true);
+                break;
+
+            case HoleState.SeededOpen:
+
+                break;
+
+            case HoleState.SeededClosed:
+                //Instantiate
+                //Here Hide Hole and make a litle bump to show something has been planted
+                break;
+            
+        }
+    }
+
+
+    private void Start()
+    {
+        
+    }
+
+    public void CloseHole()
+    {
+        switch (_SeedCount)
+        {
+            case 0:
+                //NoSeed
+                HoleStateChange(HoleState.SeededClosed);
+                break;
+            case 1:
+                //Seed With One Seed Check which Seed
+                if (seedsInHole.Count > 1)
+                {
+
+                }
+                else
+                {
+                    Debug.Log("Seeds are nott being added to list");
+                }
+                _HasBeenSeeded = true;
+                HoleStateChange(HoleState.SeededClosed);
+                break;
+
+            default:
+                if (_SeedCount > 1 && seedsInHole.Count> 1)
+                {
+                    int thisRandomSeed = Random.Range(0, seedsInHole.Count); // index of randomSeed
+
+                    _HasBeenSeeded = true;
+                    HoleStateChange(HoleState.SeededClosed);
+
+                    //Randomize and get one of the seeds
+                }
+                break;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<AgaveObject>() != null && other.gameObject.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
-        {
-            Debug.Log(other.gameObject.name);
-            other.gameObject.layer = 14;
 
-            StartCoroutine(SeedWasPlanted(secondsToWaitEvent));
+
+       
+        if (other.gameObject.GetComponent<AgaveObject>() != null && other.gameObject.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
+        {
+         
+            AgaveObject seed = other.gameObject.GetComponent<AgaveObject>();
+
+             Debug.Log(other.gameObject.name);
+
+            other.gameObject.layer = 11;//hole
+            //Change material when inside hole
+            //Physics.IgnoreCollision(seed.col, groundColliderTest, true);
+            if (_SeedCount > 0 &&  !seedsInHole.Contains(seed))// if seed count is grater than 0, and if the seed is not in the list 
+            {
+                HoleStateChange(HoleState.SeededOpen);
+                seedsInHole.Add(seed);
+                _SeedCount += 1;
+            }
+
+
+
+            //StartCoroutine(SeedWasPlanted(secondsToWaitEvent));
 
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<AgaveObject>() != null &&  other.gameObject.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
+        if (other.gameObject.GetComponent<AgaveObject>() != null && other.gameObject.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
         {
-            other.gameObject.layer = 13;
+            AgaveObject seed = other.gameObject.GetComponent<AgaveObject>();
+
+            other.gameObject.layer = 8;// grab
+           // Physics.IgnoreCollision(seed.col, groundColliderTest, false);
+            if (_SeedCount > 0)
+            {
+                seedsInHole.Remove(seed);
+                _SeedCount -= 1;
+            }
+            else
+            {
+                HoleStateChange(HoleState.Open);
+            }
         }
     }
 
 
 
-    
-    IEnumerator SeedWasPlanted(float seconds)
+
+    IEnumerator SeedWasPlanted(float seconds) // Thow this when there is a planted action
     {
 
         yield return new WaitForSeconds(seconds);

@@ -46,7 +46,7 @@ public class BeatEventSystem : MonoBehaviour
         Debug.Log(whichTask);
         switch (whichBeat)
         {
-            case BeatEvent.Beats.Beat1:
+            case BeatEvent.Beats.IntroTeachingPlanting:
 
                 switch (whichTask)
                 {
@@ -70,7 +70,7 @@ public class BeatEventSystem : MonoBehaviour
                 }
                 break;
 
-            case BeatEvent.Beats.Beat2:
+            case BeatEvent.Beats.TeachingMakingFire:
 
                 switch (whichTask)
                 {
@@ -90,11 +90,11 @@ public class BeatEventSystem : MonoBehaviour
 
                 break;
 
-            case BeatEvent.Beats.Beat3:
+            case BeatEvent.Beats.TeachingCrafting:
 
                 break;
 
-            case BeatEvent.Beats.Beat4:
+            case BeatEvent.Beats.PlantingCycle:
 
                 break;
 
