@@ -1,4 +1,4 @@
-﻿Shader "Custom/Distort"
+﻿Shader "Custom/LindenReid/Distort"
 {
     Properties
     {
@@ -27,6 +27,7 @@
         {
             ZTest Always
             Cull Off
+            ZWrite On
 
             CGPROGRAM
             #pragma vertex vert

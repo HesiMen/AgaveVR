@@ -1,67 +1,87 @@
-﻿Shader "Agave/Unlit/DistortionShader"
+﻿Shader "Custom/Vfx/Distort"
 {
     Properties
     {
-        _Distortion ("Distortion", Range(0,1)) = 0
+        _Noise("Noise", 2D) = "white" {}
+        //_StrengthFilter("Strength Filter", 2D) = "white" {}
+        _Strength("Distort Strength", float) = 1.0
+        _Speed("Distort Speed", float) = 1.0
     }
+
     SubShader
     {
         Tags 
         {
-            //"RenderType"="Transparent" 
-            "Queue"="Transparent"
+            "Queue" = "Transparent"
             "DisableBatching" = "True"
         }
 
+        // Grab the screen behind the object into _BackgroundTexture
         GrabPass
         {
-            "_BackgroundTex"
+            "_BackgroundTexture"
         }
 
+        // Render the object with the texture generated above, and invert the colors
         Pass
         {
+            ZTest Always
+            Cull Off
+            ZWrite On
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-
             #include "UnityCG.cginc"
 
-            struct appdata
+            // Properties
+            sampler2D _Noise;
+            //sampler2D _StrengthFilter;
+            sampler2D _BackgroundTexture;
+            float     _Strength;
+            float     _Speed;
+
+            struct vertexInput
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
+                float3 texCoord : TEXCOORD0;
             };
 
-            struct v2f
+            struct vertexOutput
             {
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+                float4 pos : SV_POSITION;
+                float4 grabPos : TEXCOORD0;
             };
 
-            fixed _Distortion;
-            sampler2D _BackgroundTex;
-
-            v2f vert (appdata v)
+            vertexOutput vert(vertexInput input)
             {
-                v2f o;
-                //o.vertex = v.vertex;
-                //Billboard Shader
-                float4 pos = v.vertex;
-                pos = mul(UNITY_MATRIX_P,
-                      UnityObjectToViewPos(float4(0,0,0,1))
-                        + float4 (pos.x, pos.z, 0, 0));
-                o.vertex = pos;
-                //o.vertex = UnityObjectToClipPos(o.vertex);
+                vertexOutput output;
+                
+                // billboard to camera
+                output.pos = UnityObjectToClipPos(input.vertex);                
+                //output.pos = UnityObjectToClipPos(input.vertex);
 
-                return o;
+                // use ComputeGrabScreenPos function from UnityCG.cginc
+                // to get the correct texture coordinate
+                output.grabPos = ComputeGrabScreenPos(output.pos);
+
+                // distort based on noise & strength filter
+                float noise = tex2Dlod(_Noise, float4(input.texCoord, 0)).rgb;
+                //float3 filt = tex2Dlod(_StrengthFilter, float4(input.texCoord, 0)).rgb;
+                output.grabPos.x += cos(noise*_Time.x*_Speed) * _Strength;
+                output.grabPos.y += sin(noise*_Time.x*_Speed) * _Strength;
+
+                return output;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag(vertexOutput input) : COLOR
             {
-                fixed4 col = float4 (1,1,1,1);
-                return col;
+                //return float4(1,1,1,1); // billboard test
+                return tex2Dproj(_BackgroundTexture, input.grabPos);
             }
+
             ENDCG
         }
+
     }
 }

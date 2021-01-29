@@ -181,6 +181,11 @@ PrefabInstance:
       propertyPath: InitialModule.maxNumParticles
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6292933751193750155, guid: ed1d766fc9fcc4288bb1bc0e8319cd8c,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7586080636899263004, guid: ed1d766fc9fcc4288bb1bc0e8319cd8c,
         type: 3}
       propertyPath: m_Name
@@ -209,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 7396825990255255665, guid: c85b34c2885d546b1aaf79471d9ae87e,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7396825990255255665, guid: c85b34c2885d546b1aaf79471d9ae87e,
         type: 3}
