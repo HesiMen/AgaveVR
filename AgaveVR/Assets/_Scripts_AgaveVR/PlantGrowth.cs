@@ -20,9 +20,15 @@ public class PlantGrowth : MonoBehaviour
 
     public float[] growthTime = new float[4];
 
+    //public GameObject materialParent;
+    private List<Renderer> allMats = new List<Renderer>();
+
     //public Material[] // I need to do the fade in fade out
     // Start is called before the first frame update
-
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -68,13 +74,33 @@ public class PlantGrowth : MonoBehaviour
         }
     }
 
+    private void FadeOut()
+    {
+
+    }
+
+    private void FadeIn(int curr)
+    {
+        allMats.Clear();
+        objectToScale[curr].GetComponentsInChildren(allMats);
+
+        Debug.Break();
+        foreach (var mat in allMats)
+        {
+            mat.material.DOFade(0f, 1f).OnComplete(DeactivateNow);
+        }
+    }
+     private void DeactivateNow()
+    {
+        objectToScale[(int)currPlantState].gameObject.SetActive(true);
+    }
     private void ActivateCurrentDeactivatePrev(int curr)
     {
 
         //Debug.Log(curr);
         if (curr == 0)
         {
-            objectToScale[curr].gameObject.SetActive(true);
+            FadeIn(curr);
         }
         else if (curr < 4)
         {
@@ -110,8 +136,7 @@ public class PlantGrowth : MonoBehaviour
     {
 
 
-
-
+        
 
         if ((int)currPlantState < 4 && usingMultipleModels)
         {
