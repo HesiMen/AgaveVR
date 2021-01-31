@@ -27,7 +27,7 @@ public class PlantGrowth : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+        ChangePlantState(PlantState.Baby);
     }
     private void Update()
     {
@@ -35,6 +35,12 @@ public class PlantGrowth : MonoBehaviour
         {
             ChangePlantState(PlantState.Baby);
         }
+    }
+
+
+    public void StartGrowig()
+    {
+        ChangePlantState(PlantState.Baby);
     }
     public virtual void ChangePlantState(PlantState plantState)
     {
@@ -84,11 +90,11 @@ public class PlantGrowth : MonoBehaviour
         allMats.Clear();
         objectToScale[curr].GetComponentsInChildren(allMats);
 
-        Debug.Break();
-        foreach (var mat in allMats)
-        {
-            mat.material.DOFade(0f, 1f).OnComplete(DeactivateNow);
-        }
+        //Debug.Break();
+        //foreach (var mat in allMats)
+        //{
+        //    mat.material.DOFade(0f, 1f).OnComplete(DeactivateNow);
+        //}
     }
      private void DeactivateNow()
     {

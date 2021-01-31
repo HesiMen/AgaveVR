@@ -24,8 +24,8 @@ public class HoleGestureFollow : MonoBehaviour
         yPos = transform.position.y;// initialPos
         xPos = transform.position.x;
 
-        Debug.Log(zMax);
-        Debug.Log(zMin);
+        //Debug.Log(zMax);
+        //Debug.Log(zMin);
 
 
 
