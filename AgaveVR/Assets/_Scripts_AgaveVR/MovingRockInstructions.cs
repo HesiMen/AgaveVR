@@ -51,8 +51,9 @@ public class MovingRockInstructions : MonoBehaviour
         {
             case BeatPosition.Moving:
                 Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
-                transform.DOLookAt(targetPos, lookAtSpeed);
-                bool closeToNext = Vector3.Distance(transform.position, nextPos) < .01f;
+                agent.transform.DOLookAt(targetPos, lookAtSpeed);
+                bool closeToNext = Vector3.Distance(agent.transform.position, nextPos) < .01f;
+                //Debug.Log(Vector3.Distance(transform.position, nextPos));
                 if (closeToNext)
                 {
                     switch (whichBeatCount)

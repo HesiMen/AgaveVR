@@ -51,6 +51,7 @@ public class EmergeScript : MonoBehaviour
 
     public void EmergeNowEventActive()
     {
+        Debug.Log("EmergeNow");
         //_emergeNow = true;
         Emerge(endValueY);
         
@@ -71,7 +72,7 @@ public class EmergeScript : MonoBehaviour
     private void Emerge(float ammountY)
     {
 
-
+        
         Sequence emergeSequence = DOTween.Sequence();
 
         emergeSequence.Append(rock.transform.DOShakePosition(emergeTime, directionShake, vibrato, randomness, false, false))
