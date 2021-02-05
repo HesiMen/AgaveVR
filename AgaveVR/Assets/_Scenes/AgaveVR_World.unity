@@ -2578,7 +2578,7 @@ PrefabInstance:
     - target: {fileID: 9011035978595691727, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9011035978638535787, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
@@ -9126,6 +9126,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 793578337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &795794715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9011035977722866405, guid: 9373f69e167d50246b365124cce419e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 151249292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &795794717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795794715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775b95db09050824081fc4f256901378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grab
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: b77c5a14-274f-46f5-8439-d0afe18fc9cc
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: -6741861626604130601, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  GrabButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 795794718}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  GrabButtonRel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 795794718}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &795794718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9011035977722866407, guid: 9373f69e167d50246b365124cce419e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 151249292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795794715}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &801286983
 Mesh:
   m_ObjectHideFlags: 0
@@ -9379,6 +9449,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 803787088}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &808345647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9011035978595691725, guid: 9373f69e167d50246b365124cce419e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 151249292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &808345649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808345647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775b95db09050824081fc4f256901378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grab
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3bdd37b0-b7d8-40d5-8211-cd7b246ee62f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: 7513816945386403749, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  GrabButtonPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 808345650}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  GrabButtonRel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 808345650}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &808345650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9011035978595691727, guid: 9373f69e167d50246b365124cce419e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 151249292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808345647}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &809327152
 PrefabInstance:
   m_ObjectHideFlags: 0
