@@ -16,8 +16,21 @@ public class SeedWasPlantedChoose : MonoBehaviour
         switch (seed.whichSeed)
         {
             case AgaveObject.WhichSeed.Agave:
-                Instantiate(plants[0],transform.position, Quaternion.identity, transform);
+                Instantiate(plants[(int)Plants.Agave],transform.position, Quaternion.identity, transform);
                // plants[0].StartGrowig();
+                break;
+
+            case AgaveObject.WhichSeed.Nopal:
+                Instantiate(plants[(int)Plants.PricklyCactus], transform.position, Quaternion.identity, transform);
+                // plants[0].StartGrowig();
+                break;
+            case AgaveObject.WhichSeed.Papalo:
+                Instantiate(plants[(int)Plants.Papalo], transform.position, Quaternion.identity, transform);
+                // plants[0].StartGrowig();
+                break;
+            case AgaveObject.WhichSeed.Sunflower:
+                Instantiate(plants[(int)Plants.SunFlower], transform.position, Quaternion.identity, transform);
+                // plants[0].StartGrowig();
                 break;
         }
     }

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
-  m_ShaderKeywords: DR_RIM_ON _CELPRIMARYMODE_SINGLE _FLAT_RIM_ENABLED _FLAT_SHADOWS_ENABLED
+  m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _FLAT_RIM_ENABLED _FLAT_SHADOWS_ENABLED
     _FLAT_SPECULAR_ENABLED _TEXTUREBLENDINGMODE_MULTIPLY _UNITYSHADOWMODE_MULTIPLY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 1b2a281c8d0636147aee577a7b10e5c6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 989846b732410e7478adca7c403e0da1, type: 3}
         m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _CelCurveTexture:
@@ -78,7 +78,7 @@ Material:
     - _FlatRimAmount: 0.5
     - _FlatRimEdgeSmoothness: 0
     - _FlatRimEnabled: 1
-    - _FlatRimLightAlign: 0.27
+    - _FlatRimLightAlign: 1
     - _FlatRimSize: 0
     - _FlatShadowsEnabled: 1
     - _FlatSmoothness: 0.362
@@ -86,7 +86,7 @@ Material:
     - _FlatSpecularEnabled: 1
     - _FlatSpecularSize: 0.712
     - _FlatSpecularSmoothness: 0.5
-    - _Flatness: 0
+    - _Flatness: 0.367
     - _FlatnessExtra: 1
     - _FlatnessSecondary: 1
     - _GlossMapScale: 1
@@ -112,12 +112,12 @@ Material:
     - _OverrideShadowsEnabled: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RimEnabled: 1
+    - _RimEnabled: 0
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
-    - _SelfShadingSize: 0.46
+    - _SelfShadingSize: 0.439
     - _SelfShadingSizeExtra: 0.5
-    - _ShadowEdgeSize: 0.044
+    - _ShadowEdgeSize: 0.037
     - _ShadowEdgeSizeExtra: 0.05
     - _ShadowEdgeSmoothness: 0.01
     - _ShadowFalloff: 0.01

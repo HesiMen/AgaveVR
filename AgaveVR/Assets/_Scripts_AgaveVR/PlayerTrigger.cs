@@ -11,6 +11,7 @@ public class PlayerTrigger : MonoBehaviour
     public PlayerOnTriggerEnvet onPlayerTrigger;
     public PlayerOnTriggerEnvet onPlayerOffTrigger;
 
+    public bool _HasSeed = false;
 
 
     private void OnTriggerEnter(Collider other)
