@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
+using UnityEngine.Events;
+
+[Serializable]
+public class PlantEvent : UnityEvent { }
 
 public class PlantGrowth : MonoBehaviour
 {
@@ -23,11 +28,17 @@ public class PlantGrowth : MonoBehaviour
     //public GameObject materialParent;
     private List<Renderer> allMats = new List<Renderer>();
 
+    public GameObject activateGesture;
+
+    public PlantEvent ReadyForSeeds;
+
     //public Material[] // I need to do the fade in fade out
     // Start is called before the first frame update
     private void Start()
     {
-        ChangePlantState(PlantState.Baby);
+        if (currPlantState == PlantState.None)
+            ChangePlantState(PlantState.Baby);
+
     }
     private void Update()
     {
@@ -40,6 +51,7 @@ public class PlantGrowth : MonoBehaviour
 
     public void StartGrowig()
     {
+
         ChangePlantState(PlantState.Baby);
     }
     public virtual void ChangePlantState(PlantState plantState)
@@ -96,7 +108,7 @@ public class PlantGrowth : MonoBehaviour
         //    mat.material.DOFade(0f, 1f).OnComplete(DeactivateNow);
         //}
     }
-     private void DeactivateNow()
+    private void DeactivateNow()
     {
         objectToScale[(int)currPlantState].gameObject.SetActive(true);
     }
@@ -142,14 +154,23 @@ public class PlantGrowth : MonoBehaviour
     {
 
 
-        
+        if (!usingMultipleModels)
+        {
+            activateGesture.SetActive(true);
+            ReadyForSeeds.Invoke();
+        }
 
         if ((int)currPlantState < 4 && usingMultipleModels)
         {
             ChangePlantState(currPlantState + 1);
         }
 
-
+        if (currPlantState == PlantState.Old && usingMultipleModels)
+        {
+            activateGesture.SetActive(true);
+            ReadyForSeeds.Invoke();
+        }
     }
+
 
 }

@@ -200,4 +200,9 @@ public class MovingRockInstructions : MonoBehaviour
         return playerWasFound;
     }
 
+
+    public void WhichBeatComplete(int beat) // use this in an event when beat is complete
+    {
+        beatComplete[beat] = true;
+    }
 }

@@ -1501,6 +1501,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gesture: 0
   meshToShow: {fileID: 1164427683}
+  whichSeed: 0
+  hasGivenSeed: 0
+  seeSpawnPos: {fileID: 0}
+  seedPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1624826808
 Transform:
   m_ObjectHideFlags: 0
