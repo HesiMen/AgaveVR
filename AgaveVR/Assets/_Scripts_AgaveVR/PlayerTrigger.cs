@@ -16,7 +16,12 @@ public class PlayerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        //if (other.GetComponentInParent<AgaveObject>() !=null && other.GetComponentInParent<AgaveObject>()._isHeld)
+        //{
+        //    _HasSeed = true;
+        //}
+
+        if (other.CompareTag("Player") && !_HasSeed)
         {
             onPlayerTrigger.Invoke();
         }

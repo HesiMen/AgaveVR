@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FireReadyEvent : BeatEvent
 {
-
-    [SerializeField] Text countText;
+    public int ammountOfSticks = 3;
+    [SerializeField] TextMeshPro countText;
     public bool showText = false;
     public List<AgaveObject> agaveObjects = new List<AgaveObject>();
 
 
-
+    private void Start()
+    {
+        countText.text = agaveObjects.Count.ToString();
+    }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Count of AgaveObjects" + agaveObjects.Count);
-        if (agaveObjects.Count > 2)
+        if (agaveObjects.Count >= ammountOfSticks)
         {
             TaskDone();
             if (showText)

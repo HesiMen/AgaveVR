@@ -5310,7 +5310,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2880716920750449614}
+      - m_Target: {fileID: 2880716920359337394}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -5397,12 +5397,7 @@ MonoBehaviour:
   meshToShow: {fileID: 2880716920359337394}
   whichSeed: 1
   hasGivenSeed: 0
-  seeSpawnPos: {fileID: 8164928767967837065}
-  seedPrefab:
-  - {fileID: 88803736952877226, guid: 0575b422173eb974f90d311a9aeac5b8, type: 3}
-  - {fileID: 88803736952877226, guid: 0575b422173eb974f90d311a9aeac5b8, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  seedSpawnPos: {fileID: 8164928767967837065}
 --- !u!114 &2880716920567162110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5433,11 +5428,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2880716920567162109}
-        m_MethodName: 
+        m_MethodName: StopShowing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

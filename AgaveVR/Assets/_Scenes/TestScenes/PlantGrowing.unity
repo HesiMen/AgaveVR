@@ -263,6 +263,7 @@ MonoBehaviour:
   agaveObject: 4
   whichSeed: 1
   _isEdible: 1
+  _isHeld: 0
 --- !u!135 &489927670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -897,6 +898,7 @@ MonoBehaviour:
   agaveObject: 6
   whichSeed: 4
   _isEdible: 0
+  _isHeld: 0
 --- !u!114 &914965335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,7 +1445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1442750394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,12 +1505,7 @@ MonoBehaviour:
   meshToShow: {fileID: 1164427683}
   whichSeed: 0
   hasGivenSeed: 0
-  seeSpawnPos: {fileID: 0}
-  seedPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  seedSpawnPos: {fileID: 0}
 --- !u!4 &1624826808
 Transform:
   m_ObjectHideFlags: 0
@@ -1795,17 +1792,17 @@ PrefabInstance:
     - target: {fileID: 3359429151789279884, guid: 58e3ec39e44c4f940a2af4317228834b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.264
+      value: -6.24
       objectReference: {fileID: 0}
     - target: {fileID: 3359429151789279884, guid: 58e3ec39e44c4f940a2af4317228834b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: 3359429151789279884, guid: 58e3ec39e44c4f940a2af4317228834b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: -4.42
       objectReference: {fileID: 0}
     - target: {fileID: 3359429151789279884, guid: 58e3ec39e44c4f940a2af4317228834b,
         type: 3}
@@ -1857,6 +1854,11 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1442750394}
+    - target: {fileID: 4826878833494994777, guid: 58e3ec39e44c4f940a2af4317228834b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e3ec39e44c4f940a2af4317228834b, type: 3}
 --- !u!1001 &9011035978356257385
@@ -1954,7 +1956,7 @@ PrefabInstance:
     - target: {fileID: 9011035977782009757, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9011035977782009758, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}

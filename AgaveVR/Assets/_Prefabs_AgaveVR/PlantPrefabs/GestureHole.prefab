@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1984508108564772804}
-  - component: {fileID: 1984508108564772827}
+  - component: {fileID: 5338296038092694421}
   m_Layer: 0
   m_Name: GestureHole
   m_TagString: Untagged
@@ -171,7 +171,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
---- !u!114 &1984508108564772827
+--- !u!114 &5338296038092694421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984508108564772826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d1b59fbe98dda64693938120d98dbbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 80ee9dec5f791154483a7561f30e6487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gesture: 2

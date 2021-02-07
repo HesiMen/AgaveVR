@@ -15,11 +15,12 @@ public class AgaveObject : MonoBehaviour
     public WhichSeed whichSeed = WhichSeed.NotASeed;
 
     public bool _isEdible = false;
+    public bool _isHeld = false;
 
-
-    private void Start()
+    public void ObjectHeld(bool held)
     {
-      //  rb = GetComponent<Rigidbody>();
+        _isHeld = held;
     }
+   
 
 }

@@ -5,9 +5,16 @@ using UnityEngine;
 public class GestureForSeeds : GestureBase
 {
     public AgaveObject.WhichSeed whichSeed;
+    public AgaveObject.AgaveObjectsInteractables wutToGive;
+
     public bool hasGivenSeed = false;
-    public Transform seeSpawnPos;
-    public GameObject[] seedPrefab = new GameObject[4];
+    public Transform seedSpawnPos;
+
+    
+
+
+    
+    // public ParticleSystem[] seedPrefab = new ParticleSystem[4];
 
     public void SeedHasBeenGiven()
     {
@@ -15,25 +22,32 @@ public class GestureForSeeds : GestureBase
         switch (whichSeed)
         {
             case AgaveObject.WhichSeed.Nopal:
-                Instantiate(seedPrefab[0], seeSpawnPos.position, seeSpawnPos.rotation, transform);
+                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Nopal);
+
+                //Instantiate(seedPrefab[0], seeSpawnPos.position, seeSpawnPos.rotation, transform); // Instantiate will make the game lag. 
                 break;
 
             case AgaveObject.WhichSeed.Agave:
-                Instantiate(seedPrefab[1], seeSpawnPos.position, seeSpawnPos.rotation, transform);
+                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Agave);
+                //Instantiate(seedPrefab[1], seeSpawnPos.position, seeSpawnPos.rotation, transform);
 
                 break;
 
             case AgaveObject.WhichSeed.Sunflower:
-
+                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sunflower);
                 break;
 
             case AgaveObject.WhichSeed.Papalo:
+                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Papalo);
                 break;
         }
 
 
         hasGivenSeed = true;
     }
+
+  
+
     public override void ShowMesh()
     {
         if (!hasGivenSeed)
