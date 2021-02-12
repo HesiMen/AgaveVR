@@ -53,7 +53,7 @@ public class MovingRockInstructions : MonoBehaviour
                 Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
                 agent.transform.DOLookAt(targetPos, lookAtSpeed);
                 bool closeToNext = Vector3.Distance(agent.transform.position, nextPos) < .01f;
-                //Debug.Log(Vector3.Distance(transform.position, nextPos));
+                Debug.Log(Vector3.Distance(transform.position, nextPos));
                 if (closeToNext)
                 {
                     switch (whichBeatCount)
@@ -153,9 +153,10 @@ public class MovingRockInstructions : MonoBehaviour
             nextPos = hit.position;
             //positionState = BeatPosition.Moving;
             foundPos = true;
-
+            Debug.DrawLine(agent.transform.position, hit.position);
             return foundPos;
         }
+      
 
         // NavMesh.SamplePosition(possiblePos, out hit, 1.0f, NavMesh.AllAreas)
 
@@ -172,10 +173,11 @@ public class MovingRockInstructions : MonoBehaviour
         int numColl = Physics.OverlapSphereNonAlloc(agaveCenter.position, radiousCheck, hitColliders, layerToHit);
         for (int i = 0; i < numColl; i++)
         {
-            // Debug.Log(hitColliders[i]);
+             //Debug.Log(hitColliders[i]);
 
             if (hitColliders[i].CompareTag("Player"))
             {
+
                 possiblePos = (3 * UnityEngine.Random.insideUnitSphere) + (hitColliders[0].transform.position + (hitColliders[0].transform.forward * 2));
 
                 //Debug.Log("I have possible Pos:" + possiblePos);

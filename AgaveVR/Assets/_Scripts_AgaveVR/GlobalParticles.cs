@@ -6,7 +6,7 @@ public class GlobalParticles : MonoBehaviour
 {
     public static GlobalParticles i;
 
-    public enum SeedParticles { Agave, Nopal, Sunflower, Papalo }
+    public enum SeedParticles { Agave, Nopal, Sunflower, Papalo,Sticks }
 
     public ParticleSystem[] seedsPrefabs = new ParticleSystem[4];
     private void Awake()

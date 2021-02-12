@@ -48,7 +48,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         base.OnSelectExiting(interactor);
 
 
-        IgnorePlayerCollision(false);
+        //IgnorePlayerCollision(false);// moving this when object is held
 
     }
 
@@ -59,12 +59,12 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         if (collision.gameObject.CompareTag("Player") && !playerCollider.Contains(collision.collider)) // if is player and collider is not in the list add and ignore it. 
         {
             playerCollider.Add(collision.collider);
-            IgnorePlayerCollision(true);
+            //IgnorePlayerCollision(true);
 
         }
     }
 
-    private void IgnorePlayerCollision(bool _active) 
+    public void IgnorePlayerCollision(bool _active) 
     {
         Debug.Log("Ignoring PlayerCollision: " + _active);
         if (playerCollider != null)

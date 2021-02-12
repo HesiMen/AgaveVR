@@ -37,6 +37,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpAmt: 128
-    - _Speed: 650
-    - _Strength: 0.025
+    - _Speed: 500
+    - _Strength: 0.0025
     m_Colors: []

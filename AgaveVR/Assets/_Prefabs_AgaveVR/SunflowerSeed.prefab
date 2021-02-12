@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4436678062102737031}
   - component: {fileID: 4436678062102737028}
   m_Layer: 8
-  m_Name: AgaveSeed
+  m_Name: NopalSeed 1
   m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   rb: {fileID: 4436678062102737030}
   col: []
   agaveObject: 4
-  whichSeed: 1
+  whichSeed: 2
   _isEdible: 1
   _isHeld: 0
 --- !u!54 &4436678062102737030

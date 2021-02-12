@@ -9,19 +9,23 @@ public class MyTasksEvents : UnityEvent { }
 public class BeatEventSystem : MonoBehaviour
 {
     [Header("Beat Events Go Here")]
-    [Tooltip ("Add the BeatEvents Here!")]// writing this because I(hesi)forgot where to add it
+    [Tooltip("Add the BeatEvents Here!")]// writing this because I(hesi)forgot where to add it
     public BeatEvent[] beatEvents;
-
+    [Header ("Events For Learning How To Plant")]
     public MyTasksEvents HoldingSeeds;
     public MyTasksEvents PlantingSeeds;
     public MyTasksEvents PlantingReward;
-    public MyTasksEvents RewardInStone;
+    public MyTasksEvents RewardInStonePlanting;
+    [Header("Events For Learning How To MakeFire")] // Should also teach Weather System Here
     public MyTasksEvents FiveSticks;
     public MyTasksEvents FireStickAndStickReady;
     public MyTasksEvents StickToMakeFire;
     public MyTasksEvents FireReward;
+    public MyTasksEvents RewardInStoneFire;
 
-
+    [Header("Events For Learning How To MakeFire")]
+    public MyTasksEvents EatingReward;
+    public MyTasksEvents RewardInStoneEating;
 
     private void OnEnable()
     {
@@ -56,6 +60,7 @@ public class BeatEventSystem : MonoBehaviour
                         break;
 
                     case BeatEvent.WhichTask.PlantingSeeds:
+                        Debug.Log("PlantingSeedsDone");
                         PlantingSeeds.Invoke();
                         break;
 
@@ -63,8 +68,8 @@ public class BeatEventSystem : MonoBehaviour
                         PlantingReward.Invoke();
                         break;
 
-                    case BeatEvent.WhichTask.RewardInStone:
-                        RewardInStone.Invoke();
+                    case BeatEvent.WhichTask.RewardInStonePlanting:
+                        RewardInStonePlanting.Invoke();
                         break;
 
                 }
@@ -86,24 +91,32 @@ public class BeatEventSystem : MonoBehaviour
                     case BeatEvent.WhichTask.FireReward:
                         FireReward.Invoke();
                         break;
+
+                    case BeatEvent.WhichTask.RewardInStoneFire:
+                        RewardInStoneFire.Invoke();
+                        break;
                 }
 
                 break;
 
-            case BeatEvent.Beats.TeachingCrafting:
+            case BeatEvent.Beats.TeachingEating:
 
+                switch (whichTask)
+                {
+                    case BeatEvent.WhichTask.EatingReward:
+                        EatingReward.Invoke();
+                        break;
+
+                    case BeatEvent.WhichTask.RewardInStoneEat:
+                        RewardInStoneEating.Invoke();
+                        break;
+
+                }
                 break;
 
-            case BeatEvent.Beats.PlantingCycle:
-
-                break;
-
-            case BeatEvent.Beats.Beat5:
-
-                break;
 
 
-            case BeatEvent.Beats.Beat6:
+            case BeatEvent.Beats.TeachingComplete:
 
                 break;
         }

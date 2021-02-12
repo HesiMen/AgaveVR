@@ -17,14 +17,15 @@ public class FireStickTrigger : MonoBehaviour
     {
         Debug.Log(other.name);
 
-        if(other.GetComponent<AgaveObject>() != null && other.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.FireStick)
+        if(other.GetComponentInParent<AgaveObject>() != null && other.GetComponentInParent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.FireStick)
         {
             FireStickReady.Invoke();
-            Destroy(other.GetComponent<XROffsetGrabInteractable>());
-            other.GetComponent<Rigidbody>().isKinematic = true;
-            other.GetComponent<Collider>().enabled = false;
-            GameObject stick = other.gameObject;
-            
+            Destroy(other.GetComponentInParent<XROffsetGrabInteractable>());
+            other.GetComponentInParent<Rigidbody>().isKinematic = true;
+            other.GetComponentInParent<Collider>().enabled = false;
+            GameObject stick = other.GetComponentInParent<Transform>().gameObject;
+
+            Debug.Log("FireStickInTrigger");
 
             MoveStickTween(stick);
             

@@ -40,6 +40,10 @@ public class GestureForSeeds : GestureBase
             case AgaveObject.WhichSeed.Papalo:
                 GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Papalo);
                 break;
+            case AgaveObject.WhichSeed.NotASeed:
+                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sticks);
+                break;
+
         }
 
 
