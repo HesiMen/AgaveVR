@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class FireReadyEvent : BeatEvent
 {
     public int ammountOfSticks = 3;
-    [SerializeField] TextMeshPro countText;
+   // [SerializeField] TextMeshPro countText;
     public bool showText = false;
     public List<AgaveObject> agaveObjects = new List<AgaveObject>();
 
 
     private void Start()
     {
-        countText.text = agaveObjects.Count.ToString();
+        //countText.text = agaveObjects.Count.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,8 +22,8 @@ public class FireReadyEvent : BeatEvent
         if (agaveObjects.Count >= ammountOfSticks)
         {
             TaskDone();
-            if (showText)
-                countText.text = "Ready to make Fire";
+            //if (showText)
+            //    countText.text = "Ready to make Fire";
 
         }
         else
@@ -36,8 +36,8 @@ public class FireReadyEvent : BeatEvent
                 {
                     agaveObjects.Add(agaveObject);
                 }
-                if (showText)
-                    countText.text = agaveObjects.Count.ToString();
+                //if (showText)
+                //    countText.text = agaveObjects.Count.ToString();
 
             }
         }
@@ -56,8 +56,8 @@ public class FireReadyEvent : BeatEvent
                 agaveObjects.Remove(agaveObject);
             }
 
-            if (showText)
-                countText.text = agaveObjects.Count.ToString();
+            //if (showText)
+            //    countText.text = agaveObjects.Count.ToString();
         }
     }
 }
