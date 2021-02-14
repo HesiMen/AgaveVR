@@ -15,7 +15,7 @@ public class FireStickTrigger : MonoBehaviour
     public StickInTriggerEvent MakeFire;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+       // Debug.Log(other.name);
 
         if(other.GetComponentInParent<AgaveObject>() != null && other.GetComponentInParent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.FireStick)
         {
@@ -25,7 +25,7 @@ public class FireStickTrigger : MonoBehaviour
             other.GetComponentInParent<Collider>().enabled = false;
             GameObject stick = other.GetComponentInParent<Transform>().gameObject;
 
-            Debug.Log("FireStickInTrigger");
+           // Debug.Log("FireStickInTrigger");
 
             MoveStickTween(stick);
             
@@ -56,7 +56,7 @@ public class FireStickTrigger : MonoBehaviour
     public void TurnRight()
     {
 
-        if (turnCounter > 3)
+        if (turnCounter > 1)
         {
             MakeFire.Invoke();
         }

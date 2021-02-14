@@ -46,8 +46,8 @@ public class BeatEventSystem : MonoBehaviour
 
     private void TaskCompleted(BeatEvent.Beats whichBeat, BeatEvent.WhichTask whichTask)
     {
-        Debug.Log(whichBeat);
-        Debug.Log(whichTask);
+        //Debug.Log(whichBeat);
+        //Debug.Log(whichTask);
         switch (whichBeat)
         {
             case BeatEvent.Beats.IntroTeachingPlanting:

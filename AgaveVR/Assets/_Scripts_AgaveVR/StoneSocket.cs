@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using DG.Tweening;
+using System;
+using UnityEngine.Events;
 
+[Serializable] public class RewardStoneEvent : UnityEvent { }
 public class StoneSocket : MonoBehaviour
 {
+
+    public RewardStoneEvent ReardInStone;
     private void OnTriggerEnter(Collider other)
     {
        // Debug.Log(other.name);
@@ -53,5 +58,7 @@ public class StoneSocket : MonoBehaviour
     {
         rb.useGravity = false;
         rb.isKinematic = true;
+
+        ReardInStone.Invoke();
     }
 }

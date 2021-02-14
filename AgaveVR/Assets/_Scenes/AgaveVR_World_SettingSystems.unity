@@ -2795,12 +2795,22 @@ PrefabInstance:
     - target: {fileID: 9011035977782009744, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
       propertyPath: m_Radius
-      value: 0.34
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 9011035977782009744, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
       propertyPath: m_SlopeLimit
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011035977782009744, guid: 9373f69e167d50246b365124cce419e7,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011035977782009745, guid: 9373f69e167d50246b365124cce419e7,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9011035977782009757, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
@@ -6574,18 +6584,7 @@ MonoBehaviour:
         m_CallState: 2
   ArraviedTeachingFire:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 766588019}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   ArraviedTeachingFood:
     m_PersistentCalls:
       m_Calls:
@@ -11127,6 +11126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549e2783a63256143bc0a1f85fb1bc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReardInStone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!135 &599163927
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12061,6 +12063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700186820522711799, guid: 37799fd9104245546ad9f5a7ce3500f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5700186820523232258, guid: 37799fd9104245546ad9f5a7ce3500f8,
         type: 3}
@@ -15553,12 +15560,13 @@ GameObject:
   - component: {fileID: 903374899}
   - component: {fileID: 903374898}
   - component: {fileID: 903374900}
+  - component: {fileID: 903374901}
   m_Layer: 0
   m_Name: TeachingEventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &903374898
 MonoBehaviour:
@@ -15577,9 +15585,10 @@ MonoBehaviour:
   - {fileID: 896904820}
   - {fileID: 766588023}
   - {fileID: 487281046}
-  - {fileID: 1992170437}
+  - {fileID: 1992170440}
   - {fileID: 599163928}
   - {fileID: 998806876}
+  - {fileID: 2100268185}
   HoldingSeeds:
     m_PersistentCalls:
       m_Calls: []
@@ -15681,7 +15690,7 @@ MonoBehaviour:
   FireReward:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 487281042}
+      - m_Target: {fileID: 1662348642}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -15692,20 +15701,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  RewardInStoneFire:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 531926610}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RewardInStoneFire:
+    m_PersistentCalls:
+      m_Calls: []
   EatingReward:
     m_PersistentCalls:
       m_Calls: []
@@ -15738,6 +15747,103 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05fd6ec95043584f9b131ab7eeb1b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 903374901}
+--- !u!82 &903374901
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903374897}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6ad01e87a37d0594eb0b9007d8ef4726, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &903375743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29585,16 +29691,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662348642}
-  m_LocalRotation: {x: -0, y: -0.6702486, z: -0, w: 0.7421367}
-  m_LocalPosition: {x: 0, y: 0, z: 5.297}
-  m_LocalScale: {x: 0.34066, y: 0.34066, z: 0.34066}
+  m_LocalRotation: {x: -0, y: 0.6483006, z: -0, w: 0.76138455}
+  m_LocalPosition: {x: 0, y: 0, z: 4.69}
+  m_LocalScale: {x: 0.6711002, y: 0.6711002, z: 0.6711002}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: -84.173004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 80.827, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.598, y: 2.06}
+  m_AnchoredPosition: {x: 26.27, y: 4.57}
   m_SizeDelta: {x: 43.694344, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662348644
@@ -39785,9 +39891,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1992170436}
-  - component: {fileID: 1992170437}
   - component: {fileID: 1992170438}
   - component: {fileID: 1992170439}
+  - component: {fileID: 1992170440}
   m_Layer: 0
   m_Name: RewardBeatEventPlanting
   m_TagString: Untagged
@@ -39809,20 +39915,6 @@ Transform:
   m_Father: {fileID: 2024923005}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1992170437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992170435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8601b4a6b17ff6d49bff7f53b2a32d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whichBeat: 0
-  whichTask: 3
 --- !u!135 &1992170438
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39848,6 +39940,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549e2783a63256143bc0a1f85fb1bc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReardInStone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1992170440}
+        m_MethodName: TaskDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1992170440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992170435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4be1f02cdb1a42974724f008663c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whichBeat: 0
+  whichTask: 3
 --- !u!1 &1993702102
 GameObject:
   m_ObjectHideFlags: 0
@@ -41384,6 +41504,7 @@ GameObject:
   - component: {fileID: 2100268183}
   - component: {fileID: 2100268182}
   - component: {fileID: 2100268181}
+  - component: {fileID: 2100268185}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -41437,6 +41558,17 @@ MonoBehaviour:
       - m_Target: {fileID: 808646334}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2100268185}
+        m_MethodName: TaskDone
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -41505,6 +41637,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100268179}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2100268185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100268179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d4be1f02cdb1a42974724f008663c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whichBeat: 1
+  whichTask: 7
 --- !u!1 &2103783212
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Manager_Pause : MonoBehaviour
 {
     // Update is called once per frame
+    public AudioSource music;
     void Update()
     {
         //pause if in oculus home universal menu, and if headset not worn
@@ -16,15 +17,19 @@ public class Manager_Pause : MonoBehaviour
         {
             Time.timeScale = 0.0f; //stops FixedUpdate
 
+            if (music.isPlaying)
+                music.Pause();
             //also need to stop all sound
-            AudioListener.pause = true;
+            //AudioListener.pause = true;
             //AudioStateMachine.instance.masterVolume = 0.0f;
         }
         else
         {
             Time.timeScale = 1.0f;
+            if (!music.isPlaying)
+                music.Play();
 
-            AudioListener.pause = false;
+            //AudioListener.pause = false;
             //AudioStateMachine.instance.masterVolume = 1.35f;
         }
 
