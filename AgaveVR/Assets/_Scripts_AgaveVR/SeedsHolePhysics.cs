@@ -59,6 +59,10 @@ public class SeedsHolePhysics : BeatEvent
     }
 
 
+    public void HoleOpens()
+    {
+        HoleStateChange(HoleState.Open);
+    }
     private void Start()
     {
 
