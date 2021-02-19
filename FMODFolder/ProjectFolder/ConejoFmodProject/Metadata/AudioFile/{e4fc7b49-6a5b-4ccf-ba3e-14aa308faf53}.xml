@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{e4fc7b49-6a5b-4ccf-ba3e-14aa308faf53}">
+		<property name="assetPath">
+			<value>Coyote (Not Maguey)/Dog_Barking_Double_2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.74990929705215414</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f6897975-54f6-43b3-8b5c-6d5e8d75476b}</destination>
+		</relationship>
+	</object>
+</objects>

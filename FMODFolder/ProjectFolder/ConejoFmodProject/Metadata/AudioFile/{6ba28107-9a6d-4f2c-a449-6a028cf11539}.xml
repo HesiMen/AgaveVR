@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6ba28107-9a6d-4f2c-a449-6a028cf11539}">
+		<property name="assetPath">
+			<value>Environment/Stone/StoneLaunch.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.75</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f6897975-54f6-43b3-8b5c-6d5e8d75476b}</destination>
+		</relationship>
+	</object>
+</objects>
