@@ -67,7 +67,7 @@ public class BodyTempTracker : MonoBehaviour
 
         if ((int)timer % intervalToChangeTempinSeconds == 0) // every minute
         {
-            // modify based on conditions
+            // modify based on conditions, such as weather state or intensity
             TempChange(intervalToSurvive / normalTemp);
            
         }
