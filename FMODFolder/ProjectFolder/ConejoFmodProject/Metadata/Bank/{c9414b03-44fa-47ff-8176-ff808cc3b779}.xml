@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="Bank" id="{c9414b03-44fa-47ff-8176-ff808cc3b779}">
+		<property name="name">
+			<value>CoyoteSFX</value>
+		</property>
+		<relationship name="folder">
+			<destination>{95da5d4e-c0ba-495d-b50f-e2a004c406fa}</destination>
+		</relationship>
+	</object>
+</objects>

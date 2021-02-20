@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{487e5cf1-4230-461f-961a-2ac12d403eae}">
+		<property name="assetPath">
+			<value>Coyote (Not Maguey)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f6897975-54f6-43b3-8b5c-6d5e8d75476b}</destination>
+		</relationship>
+	</object>
+</objects>

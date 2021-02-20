@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{a6858dd8-7995-4700-b540-3cf1472f381c}">
+		<property name="name">
+			<value>EndStoneLoop</value>
+		</property>
+		<relationship name="folder">
+			<destination>{62b40191-351c-43d0-96a3-a3201a229c43}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{077f67d1-228c-4e56-8bf1-b4641fd67817}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{077f67d1-228c-4e56-8bf1-b4641fd67817}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Value A</value>
+			<value>Value B</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -9,10 +9,10 @@ public class SpawnItems : MonoBehaviour
     {
         // This is a testing script to instantiate crafting components to be deleted later
         var stickPrefab = Resources.Load("Crafting/Stick");
-        GameObject stickObject = Instantiate(stickPrefab, new Vector3(3.5f, -0.5f, 0f), Quaternion.identity) as GameObject;
+        GameObject stickObject = Instantiate(stickPrefab, new Vector3(1.0f, 0.5f, 1.0f), Quaternion.identity) as GameObject;
 
         var stonePrefab = Resources.Load("Crafting/Stone");
-        GameObject stoneObject = Instantiate(stonePrefab, new Vector3(2.5f, -0.5f, 0f), Quaternion.identity) as GameObject;
+        GameObject stoneObject = Instantiate(stonePrefab, new Vector3(0.0f, 0.5f, 1.0f), Quaternion.identity) as GameObject;
 
     }
 

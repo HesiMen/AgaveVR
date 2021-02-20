@@ -4992,31 +4992,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3468091205571343904}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &652640794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652640793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f673e26ced2844c29663a0ab54a9da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generalControl: {fileID: 11400000, guid: b99012da085304c908bc93e74a19b863, type: 2}
-  _normalizedIntensity: {fileID: 11400000, guid: 5767ecf2298d14f55a0fb01b28a51b10,
-    type: 2}
-  system: {fileID: 1099683080}
-  _debugIntensity: 0
-  _intensity: 0
-  _maxParticles: 200
-  simSpeedOverride: 0
-  simSpeedMin: 0
-  simSpeedMax: 0
-  _secondObject: {fileID: 0}
-  _propertyNames: []
-  _propertyValues: []
 --- !u!1 &666050985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5791,12 +5766,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6407069012597634459}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &1099683080 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2922908174760162811, guid: 4a027bb090af141dd969079578712b18,
-    type: 3}
-  m_PrefabInstance: {fileID: 3468091205571343904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104960512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,12 +6114,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1505034355 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4945508749801980703, guid: 4d47858c7cc1b494192c129c3f635af8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1764269189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514715797 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8658876335987780013, guid: b1fa97a480d8f4218aa04d1fd0787462,
@@ -6244,97 +6207,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4945508749801980703, guid: 4d47858c7cc1b494192c129c3f635af8,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4945508749801980703, guid: 4d47858c7cc1b494192c129c3f635af8,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429836321573847889, guid: 4d47858c7cc1b494192c129c3f635af8,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429836321573847889, guid: 4d47858c7cc1b494192c129c3f635af8,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8845970878709310010, guid: 4d47858c7cc1b494192c129c3f635af8,
         type: 3}
       propertyPath: m_Name
       value: Weather_Vfx_Wind
-      objectReference: {fileID: 0}
-    - target: {fileID: 8845970878709310010, guid: 4d47858c7cc1b494192c129c3f635af8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d47858c7cc1b494192c129c3f635af8, type: 3}
 --- !u!1 &1764269190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8845970878709310010, guid: 4d47858c7cc1b494192c129c3f635af8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1764269189}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1764269191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764269190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f673e26ced2844c29663a0ab54a9da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generalControl: {fileID: 11400000, guid: b99012da085304c908bc93e74a19b863, type: 2}
-  _normalizedIntensity: {fileID: 11400000, guid: 4236fe5f660e34159a03a98eb3925084,
-    type: 2}
-  system: {fileID: 1853587199}
-  _debugIntensity: 1
-  _intensity: 0
-  _maxParticles: 2
-  simSpeedOverride: 1
-  simSpeedMin: 1
-  simSpeedMax: 5
-  _secondObject: {fileID: 0}
-  _propertyNames: []
-  _propertyValues: []
---- !u!114 &1764269192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764269190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f673e26ced2844c29663a0ab54a9da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _generalControl: {fileID: 11400000, guid: b99012da085304c908bc93e74a19b863, type: 2}
-  _normalizedIntensity: {fileID: 11400000, guid: 4236fe5f660e34159a03a98eb3925084,
-    type: 2}
-  system: {fileID: 1505034355}
-  _debugIntensity: 1
-  _intensity: 0
-  _maxParticles: 2
-  simSpeedOverride: 1
-  simSpeedMin: 1
-  simSpeedMax: 5
-  _secondObject: {fileID: 0}
-  _propertyNames: []
-  _propertyValues: []
---- !u!198 &1853587199 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6429836321573847889, guid: 4d47858c7cc1b494192c129c3f635af8,
     type: 3}
   m_PrefabInstance: {fileID: 1764269189}
   m_PrefabAsset: {fileID: 0}
@@ -7263,29 +7145,6 @@ PrefabInstance:
       propertyPath: _weatherSystem.Array.data[2]
       value: 
       objectReference: {fileID: 1764269190}
-    - target: {fileID: 2063600005611634125, guid: 2868002278fdb4c6a9a480e9750fddae,
-        type: 3}
-      propertyPath: weatherSystemComms.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5767ecf2298d14f55a0fb01b28a51b10,
-        type: 2}
-    - target: {fileID: 2063600005611634125, guid: 2868002278fdb4c6a9a480e9750fddae,
-        type: 3}
-      propertyPath: weatherSystemComms.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7207919faf0964f328fbecac541a0c3c,
-        type: 2}
-    - target: {fileID: 2063600005611634125, guid: 2868002278fdb4c6a9a480e9750fddae,
-        type: 3}
-      propertyPath: weatherSystemComms.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4236fe5f660e34159a03a98eb3925084,
-        type: 2}
-    - target: {fileID: 2063600005611634125, guid: 2868002278fdb4c6a9a480e9750fddae,
-        type: 3}
-      propertyPath: intensityTarget
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2063600005611634126, guid: 2868002278fdb4c6a9a480e9750fddae,
         type: 3}
       propertyPath: m_Name
@@ -7571,14 +7430,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weather_Vfx_Rain
       objectReference: {fileID: 0}
-    - target: {fileID: 3835152322311996491, guid: 4a027bb090af141dd969079578712b18,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2243362965633980494, guid: 4a027bb090af141dd969079578712b18, type: 3}
-    - {fileID: 1051490136740773701, guid: 4a027bb090af141dd969079578712b18, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a027bb090af141dd969079578712b18, type: 3}
 --- !u!1001 &4305537413696405195
 PrefabInstance:
@@ -7686,11 +7538,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weather_Vfx_Snow
       objectReference: {fileID: 0}
-    - target: {fileID: 301693757021570373, guid: 4c3823953d48349108e4b3a76bb3e187,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1131795998331282544, guid: 4c3823953d48349108e4b3a76bb3e187,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7746,11 +7593,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1192919091738090706, guid: 4c3823953d48349108e4b3a76bb3e187,
-        type: 3}
-      propertyPath: _generalControl
-      value: 
-      objectReference: {fileID: 11400000, guid: b99012da085304c908bc93e74a19b863,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3823953d48349108e4b3a76bb3e187, type: 3}

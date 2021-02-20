@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8d86e2b6173404196df4991cd24a88, type: 3}
   m_Name: NormalizedWeatherIntensity
   m_EditorClassIdentifier: 
-  normalizedIntensity: 0.559
+  normalizedIntensity: 0
