@@ -31,6 +31,7 @@ public class SurvivalSystem : MonoBehaviour
     public TextMeshPro hungerDisplay;
     public TextMeshPro healthDisplay;
 
+    public NormalizedIntensitySO normalizedIntensity;
     // Health hidden from player, but necessary for survival purposes
     private float baseHealth = 80.0f;
     private float maxHealth = 100.0f;
@@ -100,7 +101,7 @@ public class SurvivalSystem : MonoBehaviour
     void Update()
     {
         // Check weather status each frame to update temperature interval loss
-        temperatureIntervalLoss = -4.0f;
+        temperatureIntervalLoss = -2f * normalizedIntensity.normalizedIntensity; //-4.0f;
 
         temperatureDisplay.text = ((int)currentTemperature).ToString();
         hungerDisplay.text = ((int)currentHunger).ToString();
