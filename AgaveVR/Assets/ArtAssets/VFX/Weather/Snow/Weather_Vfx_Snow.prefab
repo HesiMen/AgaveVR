@@ -50,7 +50,7 @@ MonoBehaviour:
   system: {fileID: 478665847820861042}
   _debugIntensity: 0
   _intensity: 0
-  _maxParticles: 100
+  _maxParticles: 30
   simSpeedOverride: 0
   simSpeedMin: 0
   simSpeedMax: 0
@@ -100,6 +100,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snow_Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: ShapeModule.m_Rotation.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694763111165309621, guid: 53a87754fe89e4696a356be3b2b6dc79,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7786061603679068025, guid: 53a87754fe89e4696a356be3b2b6dc79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -108,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 7786061603679068025, guid: 53a87754fe89e4696a356be3b2b6dc79,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 14.72
       objectReference: {fileID: 0}
     - target: {fileID: 7786061603679068025, guid: 53a87754fe89e4696a356be3b2b6dc79,
         type: 3}

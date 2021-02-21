@@ -11674,12 +11674,12 @@ PrefabInstance:
     - target: {fileID: 3812625358182860973, guid: 4d47858c7cc1b494192c129c3f635af8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8955638
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 3812625358182860973, guid: 4d47858c7cc1b494192c129c3f635af8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.850718
+      value: -3.04
       objectReference: {fileID: 0}
     - target: {fileID: 3812625358182860973, guid: 4d47858c7cc1b494192c129c3f635af8,
         type: 3}
@@ -20147,7 +20147,7 @@ PrefabInstance:
     - target: {fileID: 3609500132581494936, guid: da418bb638856e046abc0e29ca2b21f4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.30183172
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 3609500132581494936, guid: da418bb638856e046abc0e29ca2b21f4,
         type: 3}
@@ -22059,10 +22059,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1939786763}
     m_Modifications:
-    - target: {fileID: 652640794, guid: 4a027bb090af141dd969079578712b18, type: 3}
-      propertyPath: _maxParticles
-      value: 600
-      objectReference: {fileID: 0}
     - target: {fileID: 1277356487242329220, guid: 4a027bb090af141dd969079578712b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22071,7 +22067,7 @@ PrefabInstance:
     - target: {fileID: 1277356487242329220, guid: 4a027bb090af141dd969079578712b18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 1277356487242329220, guid: 4a027bb090af141dd969079578712b18,
         type: 3}
@@ -22118,25 +22114,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2922908174760162811, guid: 4a027bb090af141dd969079578712b18,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922908174760162811, guid: 4a027bb090af141dd969079578712b18,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 2922908174760162811, guid: 4a027bb090af141dd969079578712b18,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 600
-      objectReference: {fileID: 0}
     - target: {fileID: 3835152322311996491, guid: 4a027bb090af141dd969079578712b18,
         type: 3}
       propertyPath: m_Name
       value: Weather_Vfx_Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835152322311996491, guid: 4a027bb090af141dd969079578712b18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a027bb090af141dd969079578712b18, type: 3}
