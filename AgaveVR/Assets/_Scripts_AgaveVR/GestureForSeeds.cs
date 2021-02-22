@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class GestureForSeeds : GestureBase
 {
+
+
+   
+
     public AgaveObject.WhichSeed whichSeed;
     public AgaveObject.AgaveObjectsInteractables wutToGive;
 
     public bool hasGivenSeed = false;
     public Transform seedSpawnPos;
 
-    
 
 
-    
+   
+
     // public ParticleSystem[] seedPrefab = new ParticleSystem[4];
 
     public void SeedHasBeenGiven()
@@ -46,7 +50,8 @@ public class GestureForSeeds : GestureBase
 
         }
 
-
+        PlayGestureSoudn();
+       
         hasGivenSeed = true;
     }
 

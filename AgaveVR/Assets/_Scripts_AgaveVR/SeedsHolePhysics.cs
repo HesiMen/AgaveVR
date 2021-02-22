@@ -113,10 +113,10 @@ public class SeedsHolePhysics : BeatEvent
 
 
 
-        if (other.gameObject.GetComponent<AgaveObject>() != null && other.gameObject.GetComponent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
+        if (other.gameObject.GetComponentInParent<AgaveObject>() != null && other.gameObject.GetComponentInParent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.Seed)
         {
 
-            AgaveObject seed = other.gameObject.GetComponent<AgaveObject>();
+            AgaveObject seed = other.gameObject.GetComponentInParent<AgaveObject>();
 
             //Debug.Log(other.gameObject.name);
 
@@ -133,7 +133,7 @@ public class SeedsHolePhysics : BeatEvent
                 seedsInHole.Add(seed);
                 _SeedCount += 1;
             }
-
+            seed.gameObject.SetActive(false);
             StartCoroutine(SeedWasPlanted(secondsToWaitEvent));
 
         }

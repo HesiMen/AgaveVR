@@ -10,15 +10,31 @@ public class GestureBase : MonoBehaviour
     //FireMaking - Place Hand and move back and forward - Once inside 
     //
 
+    [FMODUnity.EventRef]
+    [SerializeField] private string soundClip;
+
+    FMOD.Studio.EventInstance soundState;
+
+
     public enum Gesture { Receiving, FireMaking, MakingHole, None }
 
     public Gesture gesture = Gesture.None;
 
     public GameObject meshToShow;
 
+    protected virtual void Start()
+    {
+        soundState = FMODUnity.RuntimeManager.CreateInstance(soundClip);    //call sound  via event ref
+    }
+
     public virtual void ActivateGesture()
     {
+      
+    }
 
+    public virtual void PlayGestureSoudn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(soundClip);
     }
 
     public virtual void ShowMesh()

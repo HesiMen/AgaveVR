@@ -38,8 +38,11 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         }
 
         base.OnSelectEntered(interactor);
-    }
 
+        IgnorePlayerCollision(true);
+    }
+    
+    
     //ignore player collision if being grabbed
 
  
@@ -48,6 +51,8 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         base.OnSelectExiting(interactor);
 
 
+
+        IgnorePlayerCollision(false);
         //IgnorePlayerCollision(false);// moving this when object is held
 
     }

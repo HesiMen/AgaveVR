@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class AgaveObject : MonoBehaviour
 {
 
@@ -21,8 +22,18 @@ public class AgaveObject : MonoBehaviour
     public bool _isEdible = false;
     public bool _isHeld = false;
 
+    [SerializeField] public Consumable consumable;  
+
     private void Start()
     {
+
+        if(_isEdible && consumable == null)
+        {
+            Debug.Log("You need a consumable Scriptable Object");
+
+
+            
+        }
 
         col = GetComponentsInChildren<Collider>();
 

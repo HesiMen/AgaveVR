@@ -10,23 +10,24 @@ public class EatingScript : MonoBehaviour
     public delegate void AteSomething(float energy);// how much energy to add?
     public event AteSomething ateEvent;
 
-    public float energyAdded = 10f; // Should all food same energy? for now yes
+    //public float energyAdded = 10f; // Should all food same energy? for now yes
     //This can be changed in AgabeObject to each have different values. for now lets keep it simple
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<AgaveObject>() != null)
+        if (other.GetComponentInParent<AgaveObject>() != null)
         {
-            AgaveObject aObject = other.GetComponent<AgaveObject>();
+            AgaveObject aObject = other.GetComponentInParent<AgaveObject>();
             //Check for when its grabed
             if (aObject._isEdible)
             {
                 //JustMakeitGo away for now.  
+                aObject.consumable.Use();
                 aObject.gameObject.SetActive(false);
-                if(ateEvent != null)
-                {
-                    ateEvent(energyAdded);
-                }
+                //if(ateEvent != null)
+                //{
+                //    ateEvent(energyAdded);
+                //}
             }
         }
     }

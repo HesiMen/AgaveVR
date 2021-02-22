@@ -8,7 +8,7 @@ public class GlobalParticles : MonoBehaviour
 
     public enum SeedParticles { Agave, Nopal, Sunflower, Papalo,Sticks }
 
-    public ParticleSystem[] seedsPrefabs = new ParticleSystem[4];
+    public SpawnSeeds[] seedsPrefabs = new SpawnSeeds[5];
     private void Awake()
     {
         i = this;
@@ -17,9 +17,10 @@ public class GlobalParticles : MonoBehaviour
 
     public void PlayParticleOnPlace(Transform place, SeedParticles seed)
     {
+        Debug.Log("PlayParticleOnplace");
         seedsPrefabs[(int)seed].transform.position = place.position;
         seedsPrefabs[(int)seed].transform.rotation = place.rotation;
-        seedsPrefabs[(int)seed].Play();
+        seedsPrefabs[(int)seed].SpawnAgaveObjecNow();
     }
 
 }

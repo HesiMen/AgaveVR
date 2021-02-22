@@ -472,6 +472,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GestureReceive
       objectReference: {fileID: 0}
+    - target: {fileID: 2880716920567162109, guid: 76d27b7bba3801546a2caf78ac26bec6,
+        type: 3}
+      propertyPath: whichSeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880716920567162109, guid: 76d27b7bba3801546a2caf78ac26bec6,
+        type: 3}
+      propertyPath: wutToGive
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d27b7bba3801546a2caf78ac26bec6, type: 3}
 --- !u!1 &1537327798179522245 stripped

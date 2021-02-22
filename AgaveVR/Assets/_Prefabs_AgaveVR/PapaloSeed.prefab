@@ -102,6 +102,7 @@ MonoBehaviour:
   whichSeed: 3
   _isEdible: 1
   _isHeld: 0
+  consumable: {fileID: 11400000, guid: f15e304dba8af3f45a16660a03c3f056, type: 2}
 --- !u!54 &4436678062102737030
 Rigidbody:
   m_ObjectHideFlags: 0

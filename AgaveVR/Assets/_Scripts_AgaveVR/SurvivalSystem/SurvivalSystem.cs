@@ -78,7 +78,7 @@ public class SurvivalSystem : MonoBehaviour
         currentHealth += healthDelta;
         currentHealth = Mathf.Clamp(currentHealth, 0.0f, maxHealth);
 
-        Debug.Log("Player health changed by " + healthDelta + ".");
+      //  Debug.Log("Player health changed by " + healthDelta + ".");
     }
 
     public void UpdateHunger(float hungerDelta)
@@ -86,7 +86,7 @@ public class SurvivalSystem : MonoBehaviour
         currentHunger += hungerDelta;
         currentHunger = Mathf.Clamp(currentHunger, 0.0f, maxHunger);
 
-        Debug.Log("Player hunger changed by " + hungerDelta + ".");
+        //Debug.Log("Player hunger changed by " + hungerDelta + ".");
     }
 
     public void UpdateTemperature(float temperatureDelta)
@@ -94,7 +94,7 @@ public class SurvivalSystem : MonoBehaviour
         currentTemperature += temperatureDelta;
         currentTemperature = Mathf.Clamp(currentTemperature, 0.0f, maxTemperature);
 
-        Debug.Log("Player body temperature changed by " + temperatureDelta + ".");
+       // Debug.Log("Player body temperature changed by " + temperatureDelta + ".");
 
     }
 

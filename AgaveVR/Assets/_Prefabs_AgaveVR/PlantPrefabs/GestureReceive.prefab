@@ -5295,7 +5295,7 @@ MonoBehaviour:
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8192
   m_OnFirstHoverEntered:
     m_PersistentCalls:
       m_Calls:
@@ -5393,9 +5393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1b59fbe98dda64693938120d98dbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundClip: event:/Maguey/Player/Interactions/Seed/SeedSpawn
   gesture: 0
   meshToShow: {fileID: 2880716920359337394}
   whichSeed: 1
+  wutToGive: 0
   hasGivenSeed: 0
   seedSpawnPos: {fileID: 8164928767967837065}
 --- !u!114 &2880716920567162110

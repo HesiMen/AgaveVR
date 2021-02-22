@@ -173,7 +173,7 @@ public class MovingRockInstructions : MonoBehaviour
         int numColl = Physics.OverlapSphereNonAlloc(agaveCenter.position, radiousCheck, hitColliders, layerToHit);
         for (int i = 0; i < numColl; i++)
         {
-             //Debug.Log(hitColliders[i]);
+            //Debug.Log(hitColliders[i].);
 
             if (hitColliders[i].CompareTag("Player"))
             {
