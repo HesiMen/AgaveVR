@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Weather_Mat_Snow_Particle
   m_Shader: {fileID: 4800000, guid: a1d6b1b2235d54fd8bbda85a561ba674, type: 3}
-  m_ShaderKeywords: CUTOFF_ON MAINTEX_ON _ALPHATEST_ON _COLORADDSUBDIFF_ON _CUTOFFTOGGLE_ON
-    _MAINTEXTOGGLE_ON
+  m_ShaderKeywords: CUTOFF_ON ETC1_EXTERNAL_ALPHA MAINTEX_ON _ALPHATEST_ON _COLORADDSUBDIFF_ON
+    _CUTOFFTOGGLE_ON _MAINTEXTOGGLE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1

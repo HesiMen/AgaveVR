@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: AN_Bush_Flowers
   m_Shader: {fileID: 4800000, guid: 0154318cd2c5a3747a66420b5d885dd5, type: 3}
-  m_ShaderKeywords: _TREETYPE_BUSH _WIND_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _TREETYPE_BUSH _WIND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

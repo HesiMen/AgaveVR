@@ -6,8 +6,16 @@ public enum WeatherStartupPresets
 {
     Light, Mid, Heavy, Custom
 }
+
+
 public class WeatherManager : MonoBehaviour
 {  
+    
+    public enum WeatherState { Rain, Snow, Wind, }
+
+
+
+
     [SerializeField, Range(0,1)] private float intensity;
     [SerializeField] public NormalizedIntensitySO _normalizedInternalIntensity;
 
