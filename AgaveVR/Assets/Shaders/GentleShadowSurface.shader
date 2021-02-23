@@ -4,6 +4,8 @@
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _NormalMap("Normal" , 2D) = "bump" {}
+    
         _FakeAmbienValue ("Fake Ambient Occlusion", Float) = 1
         [Toggle] _AmbientOcclusion ("Ambient Occlusion", Float) = 0
         _YBrightnessCutoff("Y Brightness Cutoff", Float) = 1
@@ -35,10 +37,12 @@
         }
 
         sampler2D _MainTex;
+        sampler2D _NormalMap;
 
         struct Input
         {
             float2 uv_MainTex;
+            float2 uv_NormalMap;
             float3 worldPos;
         };
 
@@ -71,6 +75,7 @@
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb *
                 (yAmbientOcclusion + xzAmbientOcclusion);
+            o.Normal = UnpackNormal (tex2D (_NormalMap, IN.uv_NormalMap));
             // Metallic and smoothness come from slider variables
             //o.Metallic = _Metallic;
             //o.Smoothness = _Glossiness;
