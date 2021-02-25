@@ -9,20 +9,20 @@ public enum WeatherStartupPresets
 
 
 public class WeatherManager : MonoBehaviour
-{  
-    
-    public enum WeatherState { Rain, Snow, Wind, Hot, None}
+{
+
+    public enum WeatherState { Rain, Snow, Wind, Hot, None }
 
     public WeatherState currentWeatherState = WeatherState.None;
 
 
-    [SerializeField, Range(0,1)] private float intensity;
+    [SerializeField, Range(0, 1)] private float intensity;
     [SerializeField] public NormalizedIntensitySO _normalizedInternalIntensity;
 
     [SerializeField] private WeatherStartupPresets _startUpRatePreset;
 
     [SerializeField] private float startupRate;
-    [SerializeField, Range(0,1)] private float intensityTarget;
+    [SerializeField, Range(0, 1)] public float intensityTarget;
     [SerializeField] private bool DebugMode;
 
     [Header("Weather")]
@@ -35,7 +35,7 @@ public class WeatherManager : MonoBehaviour
     [SerializeField] private float t = 0.0f;
 
     // Start is called before the first frame update
-    private void Start() 
+    private void Start()
     {
 
         foreach (var whichWeather in _weatherSystem)
@@ -46,7 +46,7 @@ public class WeatherManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
         WeatherEasing();
 
         for (int i = 0; i < weatherSystemComms.Count; i++)
@@ -64,7 +64,7 @@ public class WeatherManager : MonoBehaviour
 
     public void WeatherEasing()
     {
-        switch(_startUpRatePreset)
+        switch (_startUpRatePreset)
         {
             case WeatherStartupPresets.Light:
                 startupRate = .01f;
@@ -74,14 +74,14 @@ public class WeatherManager : MonoBehaviour
                 break;
             case WeatherStartupPresets.Heavy:
                 startupRate = 0.5f;
-                 break;
+                break;
             case WeatherStartupPresets.Custom:
                 break;
             default:
                 break;
         }
- 
-        switch(activateWeather && intensityTarget > t)
+
+        switch (activateWeather && intensityTarget > t)
         {
             case true:
                 intensity = Mathf.Lerp(minLerp, maxLerp, t);
@@ -90,7 +90,7 @@ public class WeatherManager : MonoBehaviour
                 if (t > intensityTarget)
                     t = intensityTarget;
                 break;
-            
+
             case false:
                 intensity = Mathf.Lerp(minLerp, maxLerp, t);
                 if (t != intensityTarget)
@@ -99,32 +99,35 @@ public class WeatherManager : MonoBehaviour
                     t = intensityTarget;
                 break;
         }
-    } 
+    }
 
-    public void WeatherSetState(WeatherState weatherState, WeatherStartupPresets weatherStrenght)
+    public void WeatherSetState(WeatherState weatherState)//, WeatherStartupPresets weatherStrenght)
     {
-        _startUpRatePreset = weatherStrenght;
+        //_startUpRatePreset = weatherStrenght;
         foreach (var weather in _weatherSystem)
         {
             weather.SetActive(false);
         }
         _weatherSystem[(int)weatherState].SetActive(true);
-       
+
     }
 
     public void StartRain(int strength)
     {
-        
-        WeatherSetState(WeatherState.Rain,(WeatherStartupPresets)strength);
+
+        WeatherSetState(WeatherState.Rain);//,(WeatherStartupPresets)strength);
+        intensity = strength / 3f;
     }
 
     public void StartSnow(int strength)
     {
-        WeatherSetState(WeatherState.Snow, (WeatherStartupPresets)strength);
+        WeatherSetState(WeatherState.Snow);//, (WeatherStartupPresets)strength);
+        intensity = strength / 3f;
     }
 
     public void StartWind(int strength)
     {
-        WeatherSetState(WeatherState.Wind, (WeatherStartupPresets)strength);
+        WeatherSetState(WeatherState.Wind);//, (WeatherStartupPresets)strength);
+        intensity = strength / 3f;
     }
 }

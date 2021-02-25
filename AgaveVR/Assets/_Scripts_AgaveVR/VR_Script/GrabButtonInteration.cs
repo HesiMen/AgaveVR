@@ -29,7 +29,7 @@ public class GrabButtonInteration : MonoBehaviour
     private void OnGrabAction(InputAction.CallbackContext context)
     {
 
-
+       // Debug.Log(context);
         bool pressed = context.ReadValueAsButton();
 
         if (pressed)
