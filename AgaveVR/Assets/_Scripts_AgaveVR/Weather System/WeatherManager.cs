@@ -51,7 +51,7 @@ public class WeatherManager : MonoBehaviour
 
         for (int i = 0; i < weatherSystemComms.Count; i++)
         {
-            _normalizedInternalIntensity.normalizedIntensity = intensity;
+            //_normalizedInternalIntensity.normalizedIntensity = intensity;
 
             weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
 
@@ -116,18 +116,18 @@ public class WeatherManager : MonoBehaviour
     {
 
         WeatherSetState(WeatherState.Rain);//,(WeatherStartupPresets)strength);
-        intensity = strength / 3f;
+        _normalizedInternalIntensity.normalizedIntensity =  strength / 3f;
     }
 
     public void StartSnow(int strength)
     {
         WeatherSetState(WeatherState.Snow);//, (WeatherStartupPresets)strength);
-        intensity = strength / 3f;
+        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
     }
 
     public void StartWind(int strength)
     {
         WeatherSetState(WeatherState.Wind);//, (WeatherStartupPresets)strength);
-        intensity = strength / 3f;
+        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
     }
 }
