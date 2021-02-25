@@ -11,9 +11,9 @@ public enum WeatherStartupPresets
 public class WeatherManager : MonoBehaviour
 {  
     
-    public enum WeatherState { Rain, Snow, Wind, }
+    public enum WeatherState { Rain, Snow, Wind, Hot, None}
 
-
+    public WeatherState currentWeatherState = WeatherState.None;
 
 
     [SerializeField, Range(0,1)] private float intensity;
@@ -37,6 +37,11 @@ public class WeatherManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start() 
     {
+
+        foreach (var whichWeather in _weatherSystem)
+        {
+            whichWeather.SetActive(false);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -95,4 +100,31 @@ public class WeatherManager : MonoBehaviour
                 break;
         }
     } 
+
+    public void WeatherSetState(WeatherState weatherState, WeatherStartupPresets weatherStrenght)
+    {
+        _startUpRatePreset = weatherStrenght;
+        foreach (var weather in _weatherSystem)
+        {
+            weather.SetActive(false);
+        }
+        _weatherSystem[(int)weatherState].SetActive(true);
+       
+    }
+
+    public void StartRain(int strength)
+    {
+        
+        WeatherSetState(WeatherState.Rain,(WeatherStartupPresets)strength);
+    }
+
+    public void StartSnow(int strength)
+    {
+        WeatherSetState(WeatherState.Snow, (WeatherStartupPresets)strength);
+    }
+
+    public void StartWind(int strength)
+    {
+        WeatherSetState(WeatherState.Wind, (WeatherStartupPresets)strength);
+    }
 }
