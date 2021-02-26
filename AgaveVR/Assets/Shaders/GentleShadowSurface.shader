@@ -5,13 +5,16 @@
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _NormalMap("Normal" , 2D) = "bump" {}
+        _NormalStrength("Normal Strength", Range(0,1)) = 1
     
-        _FakeAmbienValue ("Fake Ambient Occlusion", Float) = 1
+
+        [Space(10)]
+        [Header(Ambient Occlusion)]
         [Toggle] _AmbientOcclusion ("Ambient Occlusion", Float) = 0
+        _YBaseLine("YBaseLine", Float) = 0
+        _FakeAmbienValue ("Fake Ambient Occlusion", Float) = 1
         _YBrightnessCutoff("Y Brightness Cutoff", Float) = 1
         _XZBrightnessCutoff ("XZ Brightness Cutoff", Float) =  1
-        //_Glossiness ("Smoothness", Range(0,1)) = 0.5
-        //_Metallic ("Metallic", Range(0,1)) = 0.0
     }
 
     SubShader
@@ -46,13 +49,13 @@
             float3 worldPos;
         };
 
-        //half _Glossiness;
-       //half _Metallic;
         fixed4 _Color;
         fixed _FakeAmbienValue;
         fixed _AmbientOcclusion;
+        half _YBaseLine;
         half _YBrightnessCutoff;
         half _XZBrightnessCutoff;
+        fixed _NormalStrength;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -65,21 +68,17 @@
         {
             // Albedo comes from a texture tinted by color
             half yAmbientOcclusion = 
-                pow((IN.worldPos.y / _FakeAmbienValue), _AmbientOcclusion) > _YBrightnessCutoff ? _YBrightnessCutoff : pow((IN.worldPos.y / _FakeAmbienValue), _AmbientOcclusion);
+                (IN.worldPos.y + _YBaseLine) > _YBrightnessCutoff ? _YBrightnessCutoff : (IN.worldPos.y +_YBaseLine);
 
             half xzAmbientOcclusion = 
-                (pow((abs(IN.worldPos.x) / _FakeAmbienValue), _AmbientOcclusion) > _XZBrightnessCutoff ? _XZBrightnessCutoff : pow((abs(IN.worldPos.x) / _FakeAmbienValue), _AmbientOcclusion));
-                /*+
-                (pow((abs(IN.worldPos.z) / _FakeAmbienValue), _AmbientOcclusion) > _XZBrightnessCutoff.y ? _XZBrightnessCutoff.y : pow((abs(IN.worldPos.z) / _FakeAmbienValue), _AmbientOcclusion));*/
+                (pow(abs(IN.worldPos.x / _FakeAmbienValue), _AmbientOcclusion) > _XZBrightnessCutoff ? _XZBrightnessCutoff : pow(abs(IN.worldPos.x / _FakeAmbienValue), _AmbientOcclusion));
 
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb *
-                (yAmbientOcclusion + xzAmbientOcclusion);
-            o.Normal = UnpackNormal (tex2D (_NormalMap, IN.uv_NormalMap));
-            // Metallic and smoothness come from slider variables
-            //o.Metallic = _Metallic;
-            //o.Smoothness = _Glossiness;
-            //o.Alpha = c.a;
+            o.Albedo = c.rgb * pow((yAmbientOcclusion + xzAmbientOcclusion) / _FakeAmbienValue, _AmbientOcclusion);
+
+            half3 normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
+            normal.z *= (1-_NormalStrength);
+            o.Normal = normalize(normal);
         }
         ENDCG
     }
