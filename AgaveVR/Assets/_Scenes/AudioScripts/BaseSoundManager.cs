@@ -16,5 +16,6 @@ public class BaseSoundManager : MonoBehaviour
     public virtual void PlayAndAttach(FMOD.Studio.EventInstance fmodInstance , Transform trans, Rigidbody rb)
     {
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(fmodInstance, trans, rb);
+        fmodInstance.start();
     }
 }

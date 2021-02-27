@@ -8,9 +8,9 @@ public class PlayerSoundManager : BaseSoundManager
 {
 
     public static PlayerSoundManager i;
-
+    [Header ("Player Sounds")]
     [FMODUnity.EventRef]
-    public string eatingPlantString, eatingBugString, stepsString, seedSpawnString, grabSeedsString, grabbingObjectString, hungerString, teethChatteringString;
+    public string eatingPlantString, eatingBugString, stepsString, seedSpawnString, grabSeedsString, grabbingObjectString, hungerString, teethChatteringString, body_tempColdString;
 
    
     //public List<string> bankPath;

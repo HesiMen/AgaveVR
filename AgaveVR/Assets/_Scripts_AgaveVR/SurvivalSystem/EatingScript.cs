@@ -24,6 +24,7 @@ public class EatingScript : MonoBehaviour
                 //JustMakeitGo away for now.  
                 aObject.consumable.Use();
                 aObject.gameObject.SetActive(false);
+
                 //if(ateEvent != null)
                 //{
                 //    ateEvent(energyAdded);

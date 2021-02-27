@@ -57,6 +57,11 @@ public class PlayerStateObjects : MonoBehaviour
                 break;
         }
 
-        }
+    }
+
+    public void PlaySoundOnHead(string soundString)
+    {
+        PlayerSoundManager.i.PlaySoundSimple(soundString, head.position);
+    }
 
 }

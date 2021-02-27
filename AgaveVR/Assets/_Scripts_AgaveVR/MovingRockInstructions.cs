@@ -39,6 +39,8 @@ public class MovingRockInstructions : MonoBehaviour
     public StonePosEvent ArraviedTeachingFood;
 
     Vector3 nextPos;
+
+    public Rigidbody rb;
     private void Update()
     {
         StoneStatePosUpdate();
@@ -50,18 +52,24 @@ public class MovingRockInstructions : MonoBehaviour
         switch (positionState)
         {
             case BeatPosition.Moving:
+                WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform,rb );
                 Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
                 agent.transform.DOLookAt(targetPos, lookAtSpeed);
                 bool closeToNext = Vector3.Distance(agent.transform.position, nextPos) < .01f;
-                Debug.Log(Vector3.Distance(transform.position, nextPos));
+               // Debug.Log(Vector3.Distance(transform.position, nextPos));
                 if (closeToNext)
                 {
+                   
+                    Debug.Log(whichBeatCount);
                     switch (whichBeatCount)
                     {
                         case 0:
                             whichBeatCount = 1;
                             ArrivedTeachingGrabSeed.Invoke();
                             positionState = BeatPosition.TeachingGrabSeeds;
+                            WorldSoundManager.i.stoneRiseInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                            WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.stoneKill, agent.transform.position);
+
                             break;
 
                         case 1:
@@ -88,6 +96,7 @@ public class MovingRockInstructions : MonoBehaviour
                 {
                     agent.SetDestination(stoneStop);
                     positionState = BeatPosition.Moving;
+                    
                 }
 
                 break;
