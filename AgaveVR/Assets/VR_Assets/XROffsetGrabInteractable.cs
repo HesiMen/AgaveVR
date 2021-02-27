@@ -11,7 +11,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
     void Start()
     {
 
-      
+
         // Create attach point
         if (!attachTransform)
         {
@@ -36,21 +36,38 @@ public class XROffsetGrabInteractable : XRGrabInteractable
             attachTransform.localPosition = initialAttachLocalPos;
             attachTransform.localRotation = initialAttachLocalRot;
         }
+        if (GetComponent<AgaveObject>() != null && interactor.GetComponentInParent<Hand>() != null)
+        {
+            AgaveObject agaveObj = GetComponent<AgaveObject>();
+            Hand hand = interactor.GetComponentInParent<Hand>();
 
+            agaveObj.ObjectHeld(true, hand);
+
+        }
         base.OnSelectEntered(interactor);
 
         IgnorePlayerCollision(true);
     }
-    
-    
+
+
+
     //ignore player collision if being grabbed
 
- 
-    protected override void OnSelectExiting(XRBaseInteractor interactor)// This fucks up a bit when passing from one hand to another since that reads as exiting
+
+    protected override void OnSelectExiting(XRBaseInteractor interactor)
     {
         base.OnSelectExiting(interactor);
 
+        if (GetComponent<AgaveObject>() != null && interactor.GetComponentInParent<Hand>() != null)
+        {
+            AgaveObject agaveObj = GetComponent<AgaveObject>();
+            Hand hand = interactor.GetComponentInParent<Hand>();
 
+            agaveObj.ObjectHeld(false, hand);
+
+
+
+        }
 
         IgnorePlayerCollision(false);
         //IgnorePlayerCollision(false);// moving this when object is held
@@ -69,7 +86,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         }
     }
 
-    public void IgnorePlayerCollision(bool _active) 
+    public void IgnorePlayerCollision(bool _active)
     {
         Debug.Log("Ignoring PlayerCollision: " + _active);
         if (playerCollider != null)
@@ -82,7 +99,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
                 }
             }
         }
-        
+
     }
 
 

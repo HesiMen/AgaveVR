@@ -22,17 +22,17 @@ public class AgaveObject : MonoBehaviour
     public bool _isEdible = false;
     public bool _isHeld = false;
 
-    [SerializeField] public Consumable consumable;  
+    [SerializeField] public Consumable consumable;
 
     private void Start()
     {
 
-        if(_isEdible && consumable == null)
+        if (_isEdible && consumable == null)
         {
             Debug.Log("You need a consumable Scriptable Object");
 
 
-            
+
         }
 
         col = GetComponentsInChildren<Collider>();
@@ -42,12 +42,24 @@ public class AgaveObject : MonoBehaviour
             interactable = GetComponent<XROffsetGrabInteractable>();
         }
     }
-    public void ObjectHeld(bool held)
+    public void ObjectHeld(bool held, Hand whichHand)
     {
+       
         _isHeld = held;
+        if (held)
+        {
+            PlayerStateObjects.i.AgaveObjectToAdd(this, whichHand);// adding to list of objects bing held
+            //PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.grabSeedsString)
+            Debug.Log(this.gameObject.name + "--- Has been grabbed");
+        }
+        else
+        {
+            PlayerStateObjects.i.AgaveObjectToRemove(this, whichHand);
+            Debug.Log(this.gameObject.name + "--- Has been dropped");
+        }
         if (interactable != null)
         {
-            Debug.Log("interactable ignores cols" + held);
+           // Debug.Log("interactable ignores cols" + held);
             interactable.IgnorePlayerCollision(held);
         }
 

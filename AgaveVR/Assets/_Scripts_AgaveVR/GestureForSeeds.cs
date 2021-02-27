@@ -50,8 +50,8 @@ public class GestureForSeeds : GestureBase
 
         }
 
-        PlayGestureSoudn();
-       
+        // PlayGestureSoudn();
+        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.seedSpawnString, PlayerStateObjects.i.leftHand.position);
         hasGivenSeed = true;
     }
 
