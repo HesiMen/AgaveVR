@@ -52,7 +52,7 @@ public class MovingRockInstructions : MonoBehaviour
         switch (positionState)
         {
             case BeatPosition.Moving:
-                WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform,rb );
+
                 Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
                 agent.transform.DOLookAt(targetPos, lookAtSpeed);
                 bool closeToNext = Vector3.Distance(agent.transform.position, nextPos) < .01f;
@@ -66,21 +66,23 @@ public class MovingRockInstructions : MonoBehaviour
                         case 0:
                             whichBeatCount = 1;
                             ArrivedTeachingGrabSeed.Invoke();
+                            PlayStopRockSound();
                             positionState = BeatPosition.TeachingGrabSeeds;
-                            WorldSoundManager.i.stoneRiseInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-                            WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.stoneKill, agent.transform.position);
+                            
 
                             break;
 
                         case 1:
                             whichBeatCount = 2;
                             ArraviedTeachingFire.Invoke();
+                            PlayStopRockSound();
                             positionState = BeatPosition.TeachingFire;
                             break;
 
                         case 2:
                             whichBeatCount = 3;
                             ArraviedTeachingFood.Invoke();
+                            PlayStopRockSound();
                             positionState = BeatPosition.TeachingFood;
                             break;
                         
@@ -94,6 +96,8 @@ public class MovingRockInstructions : MonoBehaviour
             case BeatPosition.TeachingGrabSeeds:
                 if (FoundPlayerAroundAgave()) //go to position near player if found
                 {
+                    WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
+
                     agent.SetDestination(stoneStop);
                     positionState = BeatPosition.Moving;
                     
@@ -107,6 +111,7 @@ public class MovingRockInstructions : MonoBehaviour
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingFire))
                     {
+                        WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
 
                         positionState = BeatPosition.Moving;
                     }
@@ -120,6 +125,8 @@ public class MovingRockInstructions : MonoBehaviour
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingFood))
                     {
+                        WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
+
                         positionState = BeatPosition.Moving;
                     }
 
@@ -132,6 +139,8 @@ public class MovingRockInstructions : MonoBehaviour
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingTemp))
                     {
+                        WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
+
                         positionState = BeatPosition.Moving;
                     }
 
@@ -150,6 +159,13 @@ public class MovingRockInstructions : MonoBehaviour
 
 
     }
+
+    private void PlayStopRockSound()
+    {
+        WorldSoundManager.i.stoneRiseInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.stoneKill, agent.transform.position);
+    }
+
     private bool FoundRandomPointAroundNavMesh(Transform trans)
     {
         bool foundPos = false;
@@ -174,6 +190,7 @@ public class MovingRockInstructions : MonoBehaviour
     }
     private bool FoundPlayerAroundAgave()
     {
+
         bool playerWasFound = false;
 
         int maxCol = 3;

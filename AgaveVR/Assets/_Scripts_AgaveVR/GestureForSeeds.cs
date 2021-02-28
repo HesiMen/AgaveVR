@@ -6,7 +6,7 @@ public class GestureForSeeds : GestureBase
 {
 
 
-   
+
 
     public AgaveObject.WhichSeed whichSeed;
     public AgaveObject.AgaveObjectsInteractables wutToGive;
@@ -16,46 +16,49 @@ public class GestureForSeeds : GestureBase
 
 
 
-   
+
 
     // public ParticleSystem[] seedPrefab = new ParticleSystem[4];
 
     public void SeedHasBeenGiven()
     {
-        Debug.Log(whichSeed);
-        switch (whichSeed)
+        if (!hasGivenSeed)
         {
-            case AgaveObject.WhichSeed.Nopal:
-                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Nopal);
+            Debug.Log(whichSeed);
+            switch (whichSeed)
+            {
+                case AgaveObject.WhichSeed.Nopal:
+                    GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Nopal);
 
-                //Instantiate(seedPrefab[0], seeSpawnPos.position, seeSpawnPos.rotation, transform); // Instantiate will make the game lag. 
-                break;
+                    //Instantiate(seedPrefab[0], seeSpawnPos.position, seeSpawnPos.rotation, transform); // Instantiate will make the game lag. 
+                    break;
 
-            case AgaveObject.WhichSeed.Agave:
-                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Agave);
-                //Instantiate(seedPrefab[1], seeSpawnPos.position, seeSpawnPos.rotation, transform);
+                case AgaveObject.WhichSeed.Agave:
+                    GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Agave);
+                    //Instantiate(seedPrefab[1], seeSpawnPos.position, seeSpawnPos.rotation, transform);
 
-                break;
+                    break;
 
-            case AgaveObject.WhichSeed.Sunflower:
-                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sunflower);
-                break;
+                case AgaveObject.WhichSeed.Sunflower:
+                    GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sunflower);
+                    break;
 
-            case AgaveObject.WhichSeed.Papalo:
-                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Papalo);
-                break;
-            case AgaveObject.WhichSeed.NotASeed:
-                GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sticks);
-                break;
+                case AgaveObject.WhichSeed.Papalo:
+                    GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Papalo);
+                    break;
+                case AgaveObject.WhichSeed.NotASeed:
+                    GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sticks);
+                    break;
 
+            }
+
+            // PlayGestureSoudn();
+
+            hasGivenSeed = true;
         }
-
-        // PlayGestureSoudn();
-        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.seedSpawnString, PlayerStateObjects.i.leftHand.position);
-        hasGivenSeed = true;
     }
 
-  
+
 
     public override void ShowMesh()
     {

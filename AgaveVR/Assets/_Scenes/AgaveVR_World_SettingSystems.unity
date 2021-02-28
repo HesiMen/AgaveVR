@@ -2044,6 +2044,29 @@ MonoBehaviour:
   body_tempColdString: 
   pressForSound: 000100000101000014010000
   timeTillNextSound: 3
+--- !u!114 &151249302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151249293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Maguey/Music/AgaveVR_mixdown
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &151249319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10672,7 +10695,7 @@ PrefabInstance:
     - target: {fileID: 2063600005611634127, guid: 2868002278fdb4c6a9a480e9750fddae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5390645
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2063600005611634127, guid: 2868002278fdb4c6a9a480e9750fddae,
         type: 3}
@@ -16409,6 +16432,7 @@ GameObject:
   - component: {fileID: 903374899}
   - component: {fileID: 903374898}
   - component: {fileID: 903374900}
+  - component: {fileID: 903374901}
   m_Layer: 0
   m_Name: TeachingEventManager
   m_TagString: Untagged
@@ -16618,6 +16642,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 0}
+--- !u!114 &903374901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903374897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Maguey/Music/AgaveVR_mixdown
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &906223342
 PrefabInstance:
   m_ObjectHideFlags: 0

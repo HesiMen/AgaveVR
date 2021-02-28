@@ -37,6 +37,8 @@ public class WeatherManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        currentWeatherState = WeatherState.None;
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.wind1, transform.position);
 
         foreach (var whichWeather in _weatherSystem)
         {
@@ -116,6 +118,7 @@ public class WeatherManager : MonoBehaviour
     {
 
         WeatherSetState(WeatherState.Rain);//,(WeatherStartupPresets)strength);
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.rain1, transform.position);
         _normalizedInternalIntensity.normalizedIntensity =  strength / 3f;
     }
 
