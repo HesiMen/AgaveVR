@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Workspace" id="{18047d8b-d6a1-491c-b5a0-c3abe6f2d26f}">
 		<property name="builtBanksOutputDirectory">
-			<value>../../Desktop</value>
+			<value>../../</value>
 		</property>
 		<relationship name="masterEventFolder">
 			<destination>{aaca7875-0c8b-44ab-a752-12acc872908e}</destination>

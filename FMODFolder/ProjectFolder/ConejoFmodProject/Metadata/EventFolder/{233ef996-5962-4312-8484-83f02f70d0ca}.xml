@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EventFolder" id="{233ef996-5962-4312-8484-83f02f70d0ca}">
+		<property name="name">
+			<value>Obsidian</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a67bbeeb-855d-4aab-9988-cba2d9d17352}</destination>
+		</relationship>
+	</object>
+</objects>

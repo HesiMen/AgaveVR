@@ -5,7 +5,7 @@
 			<value>SeedGather</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{72ea59f1-67cc-4798-8e28-3666c29fdb64}</destination>
@@ -121,7 +121,11 @@
 			<destination>{3d37b679-9b29-4e82-9a8c-fb9e1858fc95}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{acc04a88-13b0-443f-9856-4841b33a0f92}" />
+	<object class="MixerBusPanner" id="{acc04a88-13b0-443f-9856-4841b33a0f92}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{2a5c4209-0ca0-4c6b-8615-1bd094e1d757}" />
 	<object class="SingleSound" id="{b30b11ea-e624-47ab-a149-0a4094e452d2}">
 		<relationship name="audioFile">
