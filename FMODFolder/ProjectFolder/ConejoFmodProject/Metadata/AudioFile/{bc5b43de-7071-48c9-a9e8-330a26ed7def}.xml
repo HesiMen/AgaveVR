@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{bc5b43de-7071-48c9-a9e8-330a26ed7def}">
+		<property name="assetPath">
+			<value>Player/Interactions/Eat/EatAnt3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.56249433106575963</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f6897975-54f6-43b3-8b5c-6d5e8d75476b}</destination>
+		</relationship>
+	</object>
+</objects>

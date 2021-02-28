@@ -5,7 +5,7 @@
 			<value>SeedSpawn</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{72ea59f1-67cc-4798-8e28-3666c29fdb64}</destination>
@@ -116,7 +116,11 @@
 			<destination>{691e24e2-e9ce-4046-973a-fc21f903a9b2}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{6dbe8f7d-86c5-4a4e-a772-59d87b3555d4}" />
+	<object class="MixerBusPanner" id="{6dbe8f7d-86c5-4a4e-a772-59d87b3555d4}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{f72e677c-8848-48e3-8b48-c9c35e60ae35}" />
 	<object class="MixerBusEffectChain" id="{fbc9e0cd-c5d6-4b85-aaac-2717909a5dd4}">
 		<relationship name="effects">
