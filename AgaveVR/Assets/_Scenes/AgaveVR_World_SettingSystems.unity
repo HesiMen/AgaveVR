@@ -1655,6 +1655,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9011035977782009746, guid: 9373f69e167d50246b365124cce419e7,
+        type: 3}
+      propertyPath: m_EnableTurnAround
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9011035977782009757, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
       propertyPath: m_Name
@@ -1729,6 +1734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011035977782009759, guid: 9373f69e167d50246b365124cce419e7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9011035978027126041, guid: 9373f69e167d50246b365124cce419e7,
         type: 3}
@@ -1950,7 +1960,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9011035977782009746, guid: 9373f69e167d50246b365124cce419e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9373f69e167d50246b365124cce419e7, type: 3}
 --- !u!1 &151249293 stripped
 GameObject:
@@ -2033,7 +2044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1912b594e4b337a4d8924001ccf1f201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eatingPlantString: 
+  eatingPlantString: event:/Maguey/Player/Eat/EatPlant
   eatingBugString: 
   stepsString: event:/Maguey/Player/Footsteps/GenericFootsteps
   seedSpawnString: event:/Maguey/Player/Interactions/Seed/SeedSpawn
@@ -2057,7 +2068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Maguey/Music/AgaveVR_mixdown
+  Event: event:/Maguey/Music/Atahualpa Yupanqui - Los ejes de mi carreta
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -2067,6 +2078,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
+--- !u!114 &151249316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151249293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5d7985573c7145bc93fbd70a63615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 1853817598}
+  m_TurnAmount: 0.5
+  m_DebounceTime: 0.5
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 0
+  smoothTurning: 0
+  speedTurn: 0.2
+  m_RightHandSnapTurnAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Snap Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5772a479-0909-4578-b6c6-4f1d24fc5d7e
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!114 &151249319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16432,7 +16474,6 @@ GameObject:
   - component: {fileID: 903374899}
   - component: {fileID: 903374898}
   - component: {fileID: 903374900}
-  - component: {fileID: 903374901}
   m_Layer: 0
   m_Name: TeachingEventManager
   m_TagString: Untagged
@@ -16642,29 +16683,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 0}
---- !u!114 &903374901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903374897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Maguey/Music/AgaveVR_mixdown
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1001 &906223342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30483,6 +30501,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 662348017}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853817598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9011035977347286515, guid: 9373f69e167d50246b365124cce419e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 151249292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1856488344
 GameObject:
   m_ObjectHideFlags: 0
