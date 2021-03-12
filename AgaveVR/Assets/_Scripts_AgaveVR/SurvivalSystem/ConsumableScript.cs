@@ -13,6 +13,7 @@ public class ConsumableScript : MonoBehaviour
 		if(gameObject != null)
         {
 			Destroy(gameObject);
+			
 		}
 	}
 }

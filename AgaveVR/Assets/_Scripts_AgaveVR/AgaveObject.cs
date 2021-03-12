@@ -17,7 +17,7 @@ public class AgaveObject : MonoBehaviour
 
     public AgaveObjectsInteractables agaveObject = AgaveObjectsInteractables.None;
     public WhichSeed whichSeed = WhichSeed.NotASeed;
-
+    private ObjectSpawner sourceSpawner;
 
     public bool _isEdible = false;
     public bool _isHeld = false;
@@ -63,6 +63,11 @@ public class AgaveObject : MonoBehaviour
             interactable.IgnorePlayerCollision(held);
         }
 
+    }
+
+    public void SetSourceSpawner(ObjectSpawner spawner)
+    {
+        sourceSpawner = spawner;
     }
 
 
