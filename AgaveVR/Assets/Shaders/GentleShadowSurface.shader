@@ -7,6 +7,9 @@
         _NormalMap("Normal" , 2D) = "bump" {}
         _NormalStrength("Normal Strength", Range(0,1)) = 1
     
+        [Enum(UnityEngine.Rendering.CullMode)]
+        _CullModel("Cull", Float) = 2
+        [Enume(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
 
         [Space(10)]
         [Header(Ambient Occlusion)]
@@ -15,16 +18,34 @@
         _FakeAmbienValue ("Fake Ambient Occlusion", Float) = 1
         _YBrightnessCutoff("Y Brightness Cutoff", Float) = 1
         _XZBrightnessCutoff ("XZ Brightness Cutoff", Float) =  1
+
+        [Space(10)]
+        [Header(Stencil Properties)]
+        _SRef ("Stencil Refrence", Float) = 1
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+        _SComp ("Stencil Comparison", Float) = 8
+        [Enum(UnityEngine.Rendering.StencilOp)]
+        _SOp("StencilOperation", Float) = 2
+        [Emum(UnityEngine.Rendering.ColorWriteMask)] _ColorMask("Color Mask", Int) = 14
+
     }
 
     SubShader
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
+        Cull [_CullModel]
+
+        Stencil
+        {
+            Ref[_SRef]
+            Comp[_SComp]
+            Pass[_SOp]
+        }
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf WrapLambert fullforwardshadows
+        #pragma surface surf WrapLambert fullforwardshadows exclude_path:deferred
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0

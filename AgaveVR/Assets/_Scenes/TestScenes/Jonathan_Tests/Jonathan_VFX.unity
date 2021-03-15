@@ -183,6 +183,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1642637266389984651, guid: 35bde8a0b3aae436db4450b429519ec5,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -212,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Agave_Seed_Hole_Hesi
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685066022327938666, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35bde8a0b3aae436db4450b429519ec5, type: 3}
@@ -6360,7 +6380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1952637028
 MeshCollider:
   m_ObjectHideFlags: 0
