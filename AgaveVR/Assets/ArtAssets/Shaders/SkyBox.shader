@@ -21,6 +21,7 @@
         Tags { "RenderType"="Transparent" }
         LOD 100
         Cull Front
+        ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha
 
         Pass

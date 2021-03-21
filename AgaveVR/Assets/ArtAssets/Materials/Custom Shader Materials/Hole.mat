@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Hole
   m_Shader: {fileID: 4800000, guid: eb8053b46e3bc40b89c3c385cc88cf10, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _AMBIENTOCCLUSION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,23 +28,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientOcclusion: 0
+    - _AmbientOcclusion: 1
     - _ColorMask: 14
-    - _CullModel: 2
+    - _CullModel: 0
     - _DarkSideStrength: 0.012
     - _FakeAmbienValue: 1
-    - _NormalStrength: 0.736
+    - _NormalStrength: 0.839
     - _RimAmount: 0.622
     - _RimThreshold: 0.815
     - _SComp: 0
     - _SOp: 0
     - _SRef: 0
-    - _XZBrightnessCutoff: 1
-    - _YBaseLine: 0
-    - _YBrightnessCutoff: 1
+    - _XZBrightnessCutoff: 0.97
+    - _YBaseLine: -111
+    - _YBrightnessCutoff: 0.7
     - _ZWrite: 0
     m_Colors:
     - _AmbientColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
-    - _Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    - _Color: {r: 0.7735849, g: 0.748042, b: 0.748042, a: 1}
     - _PrimaryColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
