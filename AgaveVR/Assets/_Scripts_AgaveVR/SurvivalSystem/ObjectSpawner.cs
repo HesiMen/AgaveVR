@@ -13,6 +13,7 @@ public class ObjectSpawner : MonoBehaviour
 
     private int spawnedObjects = 0;
     private bool maxSpawned = false;
+    private bool spawnCoroutineRunning = false;
 
     public AgaveObject[] spawnableObjects;
     Coroutine spawnCoroutine;
@@ -22,33 +23,51 @@ public class ObjectSpawner : MonoBehaviour
     {
         // Begin spawning
         spawnCoroutine = StartCoroutine(Spawn(spawnInterval));
+        spawnCoroutineRunning = true;
+}
 
+// Update is called once per frame
+void Update()
+    {
+        // Check if we can spawn
+        if ((spawnedObjects < spawnMax) && spawnCoroutineRunning == false)
+        {
+            spawnCoroutine = StartCoroutine(Spawn(spawnInterval));
+            spawnCoroutineRunning = true;
+            Debug.Log("Starting object spawns.");
+        }
+
+        // Check if we need to stop spawns
+        if (spawnedObjects >= spawnMax && spawnCoroutineRunning == true)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutineRunning = false;
+            Debug.Log("Stopping object spawns.");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateSpawns()
     {
-        maxSpawned = spawnedObjects >= spawnMax;
+        Vector3 spawnPos = gameObject.transform.position;
+
+        Vector2 radiusPos = Random.insideUnitCircle.normalized * spawnRadius;
+
+        spawnPos.x += radiusPos.x;
+        spawnPos.y += 0.5f;
+        spawnPos.z += radiusPos.y;
+
+        AgaveObject spawnedObject = Instantiate(spawnableObjects[(int)Random.Range(0, spawnableObjects.Length)], spawnPos, Quaternion.identity);
+        spawnedObject.SetSourceSpawner(this);
+
+        spawnedObjects++;
     }
 
     IEnumerator Spawn(float interval) 
     {
         while (true)
         {
-            if (!maxSpawned)
-            {
-                yield return new WaitForSeconds(interval);
-                Vector3 spawnPos = gameObject.transform.position;
-
-                Vector2 radiusPos = Random.insideUnitCircle.normalized * spawnRadius;
-
-                spawnPos.x += radiusPos.x;
-                spawnPos.z += radiusPos.y;
-                
-                Instantiate(spawnableObjects[Random.Range(0, spawnableObjects.Length)], spawnPos, Quaternion.identity);
-
-                spawnedObjects++;
-            }
+            yield return new WaitForSeconds(interval);
+            UpdateSpawns();
         }
     }
 

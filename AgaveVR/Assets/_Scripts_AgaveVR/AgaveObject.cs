@@ -69,6 +69,11 @@ public class AgaveObject : MonoBehaviour
     {
         sourceSpawner = spawner;
     }
-
-
+    public void RemoveFromSpawner()
+    {
+        if(sourceSpawner != null)
+        {
+            sourceSpawner.LowerSpawnCount();
+        }
+    }
 }
