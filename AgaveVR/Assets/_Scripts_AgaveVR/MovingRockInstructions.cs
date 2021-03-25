@@ -11,7 +11,7 @@ public class MovingRockInstructions : MonoBehaviour
     // Start is called before the first frame update
     [Serializable]
     public class StonePosEvent : UnityEvent { }
-    public enum BeatPosition { TeachingGrabSeeds, TeachingFire, TeachingFood, TeachingBodyTemp, Moving, NotMoving }
+    public enum BeatPosition { TeachingGrabSeeds, TeachingFire, TeachingFood, TeachingBodyTemp, Moving, NotMoving, TeachingGrabObjects }
 
     public BeatPosition positionState;
     [SerializeField] NavMeshAgent agent;
@@ -56,10 +56,10 @@ public class MovingRockInstructions : MonoBehaviour
                 Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
                 agent.transform.DOLookAt(targetPos, lookAtSpeed);
                 bool closeToNext = Vector3.Distance(agent.transform.position, nextPos) < .01f;
-               // Debug.Log(Vector3.Distance(transform.position, nextPos));
+                // Debug.Log(Vector3.Distance(transform.position, nextPos));
                 if (closeToNext)
                 {
-                   
+
                     Debug.Log(whichBeatCount);
                     switch (whichBeatCount)
                     {
@@ -68,7 +68,7 @@ public class MovingRockInstructions : MonoBehaviour
                             ArrivedTeachingGrabSeed.Invoke();
                             PlayStopRockSound();
                             positionState = BeatPosition.TeachingGrabSeeds;
-                            
+
 
                             break;
 
@@ -85,22 +85,30 @@ public class MovingRockInstructions : MonoBehaviour
                             PlayStopRockSound();
                             positionState = BeatPosition.TeachingFood;
                             break;
-                        
+
                     }
 
 
                 }
                 break;
 
+            case BeatPosition.TeachingGrabObjects:
+                if (FoundPlayerAroundObject(teachingRockCenter))
+                {
 
+
+                    agent.SetDestination(stoneStop);
+                    positionState = BeatPosition.Moving;
+                }
+                break;
             case BeatPosition.TeachingGrabSeeds:
-                if (FoundPlayerAroundAgave()) //go to position near player if found
+                if (FoundPlayerAroundObject(agaveCenter)) //go to position near player if found
                 {
                     WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
 
                     agent.SetDestination(stoneStop);
                     positionState = BeatPosition.Moving;
-                    
+
                 }
 
                 break;
@@ -147,7 +155,7 @@ public class MovingRockInstructions : MonoBehaviour
                 }
                 break;
 
-           
+
 
             case BeatPosition.NotMoving:
 
@@ -181,14 +189,14 @@ public class MovingRockInstructions : MonoBehaviour
             Debug.DrawLine(agent.transform.position, hit.position);
             return foundPos;
         }
-      
+
 
         // NavMesh.SamplePosition(possiblePos, out hit, 1.0f, NavMesh.AllAreas)
 
 
         return foundPos;
     }
-    private bool FoundPlayerAroundAgave()
+    private bool FoundPlayerAroundObject(Transform transObj)
     {
 
         bool playerWasFound = false;
@@ -196,7 +204,7 @@ public class MovingRockInstructions : MonoBehaviour
         int maxCol = 3;
         Vector3 possiblePos;
         Collider[] hitColliders = new Collider[maxCol];
-        int numColl = Physics.OverlapSphereNonAlloc(agaveCenter.position, radiousCheck, hitColliders, layerToHit);
+        int numColl = Physics.OverlapSphereNonAlloc(transObj.position, radiousCheck, hitColliders, layerToHit);
         for (int i = 0; i < numColl; i++)
         {
             //Debug.Log(hitColliders[i].);
