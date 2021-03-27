@@ -55,6 +55,11 @@ public class GestureForSeeds : GestureBase
             // PlayGestureSoudn();
 
             hasGivenSeed = true;
+
+            if (GetComponent<PlayerTrigger>() != null)
+            {
+                GetComponent<PlayerTrigger>().WasSeeded(true);
+            }
         }
     }
 

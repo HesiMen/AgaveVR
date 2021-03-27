@@ -265,15 +265,9 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  - Desktop/Master
   Banks:
   - ConejoBankTest
   - CoyoteSFX
-  - Desktop/ConejoBankTest
-  - Desktop/CoyoteSFX
-  - Desktop/Environment
-  - Desktop/Music
-  - Desktop/Player
   - Environment
   - Music
   - Player
