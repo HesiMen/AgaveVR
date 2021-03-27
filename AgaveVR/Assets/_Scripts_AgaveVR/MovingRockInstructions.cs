@@ -11,11 +11,13 @@ public class MovingRockInstructions : MonoBehaviour
     // Start is called before the first frame update
     [Serializable]
     public class StonePosEvent : UnityEvent { }
-    public enum BeatPosition { TeachingGrabSeeds, TeachingFire, TeachingFood, TeachingBodyTemp, Moving, NotMoving, TeachingGrabObjects }
+    public enum BeatPosition { TeachingGrabObjects, TeachingGrabSeeds, TeachingFire, TeachingFood, TeachingBodyTemp, Moving, NotMoving }
 
     public BeatPosition positionState;
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform agaveCenter;
+    [SerializeField] Transform teachingGrabSeed;
+    [SerializeField] Transform teachingRockCenter;
+
 
     public Transform TeachingFire;
     public Transform TeachingFood;
@@ -34,6 +36,7 @@ public class MovingRockInstructions : MonoBehaviour
 
     public bool[] beatComplete = { false, false, false, false };//beat 1, 2, 3,4
 
+    public StonePosEvent ArriveTeachingGrab;
     public StonePosEvent ArrivedTeachingGrabSeed;
     public StonePosEvent ArraviedTeachingFire;
     public StonePosEvent ArraviedTeachingFood;
@@ -64,26 +67,39 @@ public class MovingRockInstructions : MonoBehaviour
                     switch (whichBeatCount)
                     {
                         case 0:
-                            whichBeatCount = 1;
-                            ArrivedTeachingGrabSeed.Invoke();
+
+
+                            ArriveTeachingGrab.Invoke();
                             PlayStopRockSound();
+                            whichBeatCount = 1;
+
                             positionState = BeatPosition.TeachingGrabSeeds;
-
-
                             break;
 
                         case 1:
-                            whichBeatCount = 2;
-                            ArraviedTeachingFire.Invoke();
+
+                            ArrivedTeachingGrabSeed.Invoke();
                             PlayStopRockSound();
+                            whichBeatCount = 2;
                             positionState = BeatPosition.TeachingFire;
+
+
                             break;
 
                         case 2:
+
+                            ArraviedTeachingFire.Invoke();
+                            PlayStopRockSound();
                             whichBeatCount = 3;
+                            positionState = BeatPosition.TeachingFood;
+                            break;
+
+                        case 3:
+
                             ArraviedTeachingFood.Invoke();
                             PlayStopRockSound();
-                            positionState = BeatPosition.TeachingFood;
+                            whichBeatCount = 4;
+                            positionState = BeatPosition.NotMoving;
                             break;
 
                     }
@@ -93,7 +109,7 @@ public class MovingRockInstructions : MonoBehaviour
                 break;
 
             case BeatPosition.TeachingGrabObjects:
-                if (FoundPlayerAroundObject(teachingRockCenter))
+                if (FoundPlayerAroundObject(teachingRockCenter, 1f))
                 {
 
 
@@ -102,20 +118,23 @@ public class MovingRockInstructions : MonoBehaviour
                 }
                 break;
             case BeatPosition.TeachingGrabSeeds:
-                if (FoundPlayerAroundObject(agaveCenter)) //go to position near player if found
+                if (beatComplete[0])
                 {
-                    WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
 
-                    agent.SetDestination(stoneStop);
-                    positionState = BeatPosition.Moving;
+                    if (FoundRandomPointAroundNavMesh(teachingGrabSeed)) //go to position near player if found
+                    {
+                        WorldSoundManager.i.PlayAndAttach(WorldSoundManager.i.stoneRiseInstance, agent.transform, rb);
 
+                        //agent.SetDestination(stoneStop);
+                        positionState = BeatPosition.Moving;
+
+                    }
                 }
-
                 break;
 
             case BeatPosition.TeachingFire:
                 // Just Chilling until Beat Pos 2 Happens
-                if (beatComplete[0])
+                if (beatComplete[1])
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingFire))
                     {
@@ -129,7 +148,7 @@ public class MovingRockInstructions : MonoBehaviour
                 break;
 
             case BeatPosition.TeachingFood:
-                if (beatComplete[1])
+                if (beatComplete[2])
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingFood))
                     {
@@ -143,7 +162,7 @@ public class MovingRockInstructions : MonoBehaviour
 
             case BeatPosition.TeachingBodyTemp:
 
-                if (beatComplete[2])
+                if (beatComplete[3])
                 {
                     if (FoundRandomPointAroundNavMesh(TeachingTemp))
                     {
@@ -196,7 +215,7 @@ public class MovingRockInstructions : MonoBehaviour
 
         return foundPos;
     }
-    private bool FoundPlayerAroundObject(Transform transObj)
+    private bool FoundPlayerAroundObject(Transform transObj, float radiousTravel)
     {
 
         bool playerWasFound = false;
@@ -212,7 +231,7 @@ public class MovingRockInstructions : MonoBehaviour
             if (hitColliders[i].CompareTag("Player"))
             {
 
-                possiblePos = (3 * UnityEngine.Random.insideUnitSphere) + (hitColliders[0].transform.position + (hitColliders[0].transform.forward * 2));
+                possiblePos = transObj.position + (radiousTravel * UnityEngine.Random.insideUnitSphere); //+ (hitColliders[0].transform.position + (hitColliders[0].transform.forward));
 
                 //Debug.Log("I have possible Pos:" + possiblePos);
                 NavMeshHit hit;

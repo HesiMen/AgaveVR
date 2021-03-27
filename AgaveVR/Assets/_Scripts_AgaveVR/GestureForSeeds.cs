@@ -24,7 +24,7 @@ public class GestureForSeeds : GestureBase
     {
         if (!hasGivenSeed)
         {
-            Debug.Log(whichSeed);
+          //  Debug.Log(whichSeed);
             switch (whichSeed)
             {
                 case AgaveObject.WhichSeed.Nopal:
