@@ -17,7 +17,7 @@ public class AgaveObject : MonoBehaviour
 
     public AgaveObjectsInteractables agaveObject = AgaveObjectsInteractables.None;
     public WhichSeed whichSeed = WhichSeed.NotASeed;
-
+    private ObjectSpawner sourceSpawner;
 
     public bool _isEdible = false;
     public bool _isHeld = false;
@@ -35,6 +35,8 @@ public class AgaveObject : MonoBehaviour
 
         }
 
+        rb = GetComponent<Rigidbody>();
+
         col = GetComponentsInChildren<Collider>();
 
         if (GetComponent<XROffsetGrabInteractable>() != null)
@@ -50,12 +52,12 @@ public class AgaveObject : MonoBehaviour
         {
             PlayerStateObjects.i.AgaveObjectToAdd(this, whichHand);// adding to list of objects bing held
             //PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.grabSeedsString)
-            Debug.Log(this.gameObject.name + "--- Has been grabbed");
+           // Debug.Log(this.gameObject.name + "--- Has been grabbed");
         }
         else
         {
             PlayerStateObjects.i.AgaveObjectToRemove(this, whichHand);
-            Debug.Log(this.gameObject.name + "--- Has been dropped");
+            //Debug.Log(this.gameObject.name + "--- Has been dropped");
         }
         if (interactable != null)
         {
@@ -65,5 +67,15 @@ public class AgaveObject : MonoBehaviour
 
     }
 
-
+    public void SetSourceSpawner(ObjectSpawner spawner)
+    {
+        sourceSpawner = spawner;
+    }
+    public void RemoveFromSpawner()
+    {
+        if(sourceSpawner != null)
+        {
+            sourceSpawner.LowerSpawnCount();
+        }
+    }
 }

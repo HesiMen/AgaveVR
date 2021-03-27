@@ -122,6 +122,73 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1939265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1104862351353750445, guid: f370d7fc096ce6e45b44dec90fe54c46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1891604536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1939272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2e0170da7dfee45b2e35ac4c1dcb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumable: {fileID: 11400000, guid: 5d858f55bab5ca2428a76a3ebb23bf9c, type: 2}
+--- !u!1 &218165567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218165569}
+  - component: {fileID: 218165568}
+  m_Layer: 0
+  m_Name: InsectSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &218165568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218165567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419467f8193587247b05ffe1ca037985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 2
+  spawnInterval: 1
+  spawnMax: 2
+  spawnableObjects:
+  - {fileID: 4436678062102737025, guid: 393173e354593cc4696b3cfd4594d837, type: 3}
+--- !u!4 &218165569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218165567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &348675408
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +221,8 @@ MonoBehaviour:
   temperatureDisplay: {fileID: 722143953}
   hungerDisplay: {fileID: 850727450}
   healthDisplay: {fileID: 726378835}
-  normalizedIntensity: {fileID: 0}
+  normalizedIntensity: {fileID: 11400000, guid: b99012da085304c908bc93e74a19b863,
+    type: 2}
   currentHealth: 0
   currentTemperature: 0
   currentHunger: 0
@@ -162,6 +230,8 @@ MonoBehaviour:
   healthIntervalLoss: -20
   hungerIntervalLoss: -8
   temperatureIntervalLoss: 0
+  hungerBar: {fileID: 0}
+  temperatureBar: {fileID: 0}
 --- !u!4 &348675410
 Transform:
   m_ObjectHideFlags: 0
@@ -1674,6 +1744,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100754641222772495, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_OnActivate.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100754641222772495, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1939272}
+    - target: {fileID: 4100754641222772495, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Use
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100754641222772495, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100754641222772495, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f370d7fc096ce6e45b44dec90fe54c46, type: 3}

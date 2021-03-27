@@ -88,7 +88,7 @@ public class SurvivalSystem : MonoBehaviour
     {
         currentHunger += hungerDelta;
         currentHunger = Mathf.Clamp(currentHunger, 0.0f, maxHunger);
-        hungerBar.AngRadiansEnd = currentHunger * Mathf.Deg2Rad;
+        //hungerBar.AngRadiansEnd = currentHunger * Mathf.Deg2Rad;
         //Debug.Log("Player hunger changed by " + hungerDelta + ".");
     }
 
@@ -96,8 +96,8 @@ public class SurvivalSystem : MonoBehaviour
     {
         currentTemperature += temperatureDelta;
         currentTemperature = Mathf.Clamp(currentTemperature, 0.0f, maxTemperature);
-        temperatureBar.AngRadiansEnd = currentTemperature * Mathf.Deg2Rad;
-        // Debug.Log("Player body temperature changed by " + temperatureDelta + ".");
+        //temperatureBar.AngRadiansEnd = currentTemperature * Mathf.Deg2Rad;
+        //Debug.Log("Player body temperature changed by " + temperatureDelta + ".");
 
     }
 

@@ -18,7 +18,7 @@ public class GlobalParticles : MonoBehaviour
     public void PlayParticleOnPlace(Transform place, SeedParticles seed)
     {
         PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.seedSpawnString, PlayerStateObjects.i.leftHand.position);
-        Debug.Log("PlayParticleOnplace");
+        //Debug.Log("PlayParticleOnplace");
         seedsPrefabs[(int)seed].transform.position = place.position;
         seedsPrefabs[(int)seed].transform.rotation = place.rotation;
         seedsPrefabs[(int)seed].SpawnAgaveObjecNow();

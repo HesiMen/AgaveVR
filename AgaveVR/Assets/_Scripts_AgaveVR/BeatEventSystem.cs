@@ -11,7 +11,11 @@ public class BeatEventSystem : MonoBehaviour
     [Header("Beat Events Go Here")]
     [Tooltip("Add the BeatEvents Here!")]// writing this because I(hesi)forgot where to add it
     public BeatEvent[] beatEvents;
-    [Header ("Events For Learning How To Plant")]
+
+    [Header("Events for learning how to grab objects")]
+    public MyTasksEvents HeldObject;
+
+    [Header("Events For Learning How To Plant")]
     public MyTasksEvents HoldingSeeds;
     public MyTasksEvents PlantingSeeds;
     public MyTasksEvents PlantingReward;
@@ -46,10 +50,24 @@ public class BeatEventSystem : MonoBehaviour
 
     private void TaskCompleted(BeatEvent.Beats whichBeat, BeatEvent.WhichTask whichTask)
     {
-        //Debug.Log(whichBeat);
-        //Debug.Log(whichTask);
+        Debug.Log(whichBeat);
+        Debug.Log(whichTask);
         switch (whichBeat)
         {
+
+            case BeatEvent.Beats.IntroTeachingGrab:
+
+                switch (whichTask)
+                {
+                    case BeatEvent.WhichTask.HeldObject:
+
+                        HeldObject.Invoke();
+                        break;
+
+                }
+
+                break;
+
             case BeatEvent.Beats.IntroTeachingPlanting:
 
                 switch (whichTask)

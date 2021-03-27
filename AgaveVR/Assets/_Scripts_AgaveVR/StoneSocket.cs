@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class StoneSocket : MonoBehaviour
 {
 
-    public RewardStoneEvent ReardInStone;
+    public RewardStoneEvent RewardInStone;
     private void OnTriggerEnter(Collider other)
     {
        // Debug.Log(other.name);
@@ -18,7 +18,7 @@ public class StoneSocket : MonoBehaviour
         if (other.GetComponentInParent<AgaveObject>() != null && other.GetComponentInParent<AgaveObject>().agaveObject == AgaveObject.AgaveObjectsInteractables.SmallRock)
         {
             AgaveObject reward = other.GetComponentInParent<AgaveObject>();
-            Debug.Log(reward.name);
+           // Debug.Log(reward.name);
             Destroy(reward.GetComponent<XROffsetGrabInteractable>());
             reward.rb.isKinematic = true;
             foreach (var item in reward.col)
@@ -29,14 +29,14 @@ public class StoneSocket : MonoBehaviour
            
             
 
-            MoveStickTween(reward);
+            MovingObject(reward);
            
 
         }
     }
 
     private Rigidbody rb;
-    private void MoveStickTween(AgaveObject _reward)
+    private void MovingObject(AgaveObject _reward)
     {
         //_reward.GetComponentInParent<Collider>().enabled = false;
         //_reward.GetComponentInParent<Rigidbody>().isKinematic = true;
@@ -59,6 +59,6 @@ public class StoneSocket : MonoBehaviour
         rb.useGravity = false;
         rb.isKinematic = true;
 
-        ReardInStone.Invoke();
+        RewardInStone.Invoke();
     }
 }

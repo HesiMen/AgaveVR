@@ -12,7 +12,12 @@ public class ConsumableScript : MonoBehaviour
 		consumable.Use();
 		if(gameObject != null)
         {
-			Destroy(gameObject);
+			if(gameObject.GetComponent<AgaveObject>() != null)
+            {
+				gameObject.GetComponent<AgaveObject>().RemoveFromSpawner();
+			}
+
+			gameObject.SetActive(false);
 		}
 	}
 }

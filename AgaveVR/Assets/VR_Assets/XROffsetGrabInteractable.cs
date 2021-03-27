@@ -88,7 +88,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
 
     public void IgnorePlayerCollision(bool _active)
     {
-        Debug.Log("Ignoring PlayerCollision: " + _active);
+       // Debug.Log("Ignoring PlayerCollision: " + _active);
         if (playerCollider != null)
         {
             foreach (var coll in colliders)
