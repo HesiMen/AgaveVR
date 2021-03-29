@@ -171,10 +171,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRadius: 2
-  spawnInterval: 1
-  spawnMax: 2
+  spawnInterval: 0.54
+  spawnMax: 10
   spawnableObjects:
   - {fileID: 4436678062102737025, guid: 393173e354593cc4696b3cfd4594d837, type: 3}
+  - {fileID: 4436678062102737025, guid: e7c31517b0cc16a46bff624630dd28d0, type: 3}
 --- !u!4 &218165569
 Transform:
   m_ObjectHideFlags: 0
@@ -1690,6 +1691,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Consumable
       objectReference: {fileID: 0}
+    - target: {fileID: 1104862351353750445, guid: f370d7fc096ce6e45b44dec90fe54c46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3258822038940007596, guid: f370d7fc096ce6e45b44dec90fe54c46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1779,10 +1785,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8175275839076633164, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175275839076633164, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175275839076633164, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8175275839975546149, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
         type: 3}
       propertyPath: m_Name
       value: NopalComplete
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175275839975546149, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8175275839975546170, guid: 2c6bdb9315a7aa346a9eaf9fa3f4a0bc,
         type: 3}

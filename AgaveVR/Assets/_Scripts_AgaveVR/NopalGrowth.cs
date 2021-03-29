@@ -32,7 +32,7 @@ public class NopalGrowth : MonoBehaviour
     private int maxInst;
     private int rootCount = 0;
 
-
+    public int previousInt = -1;
 
     private void Start()
     {
@@ -56,8 +56,29 @@ public class NopalGrowth : MonoBehaviour
     public Transform GetRandomSpawn()
     {
         Transform randTransform;
+        int randInt = 0;
 
-        int randInt = Random.Range(1, spawnPoints.Length);
+
+        if (previousInt == -1)
+        {
+
+            randInt = Random.Range(1, spawnPoints.Length);
+            previousInt = randInt;
+
+        }
+        if (previousInt > 3)
+        {
+            randInt = Random.Range(1, 3);
+            previousInt = randInt;
+        }
+        else
+        {
+            randInt = Random.Range(4, spawnPoints.Length);
+            previousInt = randInt;
+        }
+
+
+
         //Debug.Log(randInt);
         randTransform = spawnPoints[randInt];
         return randTransform;
@@ -98,7 +119,7 @@ public class NopalGrowth : MonoBehaviour
                 newLeafNopal.leafPrefab = rootObject.GetComponentInParent<NopalGrowth>().leafPrefab;
                 newLeafNopal.pearObject = rootObject.GetComponentInParent<NopalGrowth>().pearObject;
                 newLeafNopal.activateGesture = rootObject.GetComponentInParent<NopalGrowth>().activateGesture;
-
+                newLeafNopal.previousInt = previousInt;
 
                 newLeafNopal.rootObject = rootObject;
                 rootObject.GetComponent<NopalGrowth>().AddOneInRoot(newLeafNopal);
