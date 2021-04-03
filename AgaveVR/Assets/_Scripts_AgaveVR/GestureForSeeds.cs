@@ -56,10 +56,10 @@ public class GestureForSeeds : GestureBase
 
             hasGivenSeed = true;
 
-            if (GetComponent<PlayerTrigger>() != null)
-            {
-                GetComponent<PlayerTrigger>().WasSeeded(true);
-            }
+            //if (GetComponent<PlayerTrigger>() != null)
+            //{
+            //    GetComponent<PlayerTrigger>().WasSeeded(true);
+            //}
         }
     }
 

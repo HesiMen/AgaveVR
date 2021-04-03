@@ -8,6 +8,12 @@
         _NormalMap("Normal" , 2D) = "bump" {}
         _NormalStrength("Normal Strength", Range(0,1)) = 1
         _LightRampStrength("Ramp Strength", Range(0, 10)) = 1
+
+
+        //Dissolve properties
+		_DissolveTexture("Dissolve Texutre", 2D) = "white" {} 
+		_Amount("Amount", Range(0,1)) = 0
+
     
         [Enum(UnityEngine.Rendering.CullMode)]
         _CullModel("Cull", Float) = 2
@@ -77,6 +83,13 @@
         fixed _NormalStrength;
         half _LightRampStrength;
 
+
+        //Dissolve properties
+		sampler2D _DissolveTexture;
+		half _Amount;
+
+
+
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
@@ -91,6 +104,22 @@
             half3 normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
             normal.z *= (1-_NormalStrength);
             o.Normal = normalize(normal);
+
+
+            half dissolve_value = tex2D(_DissolveTexture, IN.uv_MainTex).r;
+			clip(dissolve_value - _Amount);
+ 
+			//Basic shader function
+			//fixed4 d = tex2D (_MainTex, IN.uv_MainTex) * _Color; 
+			 o.Emission = fixed3(1, 1, 1) * step( dissolve_value - _Amount, 0.005f);
+ 
+			//o.Albedo = d.rgb;
+			//o.Metallic = _Metallic;
+			//o.Smoothness = _Glossiness;
+			o.Alpha = c.a;
+
+
+
         }
         ENDCG
     }

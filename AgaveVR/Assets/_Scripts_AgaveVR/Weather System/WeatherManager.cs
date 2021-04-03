@@ -38,7 +38,7 @@ public class WeatherManager : MonoBehaviour
     private void Start()
     {
         currentWeatherState = WeatherState.None;
-        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.wind1, transform.position);
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.ambNight, transform.position);
 
         foreach (var whichWeather in _weatherSystem)
         {
@@ -50,12 +50,12 @@ public class WeatherManager : MonoBehaviour
     {
 
         WeatherEasing();
-
+        _normalizedInternalIntensity.normalizedIntensity = intensity;
         for (int i = 0; i < weatherSystemComms.Count; i++)
         {
-            //_normalizedInternalIntensity.normalizedIntensity = intensity;
+          //  _normalizedInternalIntensity.normalizedIntensity = intensity;
 
-            weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
+           // weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
 
             if (DebugMode)
                 intensity = intensityTarget;
@@ -119,18 +119,21 @@ public class WeatherManager : MonoBehaviour
 
         WeatherSetState(WeatherState.Rain);//,(WeatherStartupPresets)strength);
         WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.rain1, transform.position);
-        _normalizedInternalIntensity.normalizedIntensity =  strength / 3f;
+        intensityTarget = 1f/ strength;
+
     }
 
     public void StartSnow(int strength)
     {
         WeatherSetState(WeatherState.Snow);//, (WeatherStartupPresets)strength);
-        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
+        intensityTarget = 1f / strength;
+       // _normalizedInternalIntensity.normalizedIntensity = intensity;
     }
 
     public void StartWind(int strength)
     {
         WeatherSetState(WeatherState.Wind);//, (WeatherStartupPresets)strength);
-        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
+        intensityTarget = 1f / strength;
+        //_normalizedInternalIntensity.normalizedIntensity = intensity;
     }
 }

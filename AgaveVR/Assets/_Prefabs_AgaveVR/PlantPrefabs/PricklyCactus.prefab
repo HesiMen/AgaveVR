@@ -98,7 +98,29 @@ MonoBehaviour:
   activateGesture: {fileID: 8613485736515485597}
   ReadyForSeeds:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8613485736515485599}
+        m_MethodName: WasSeeded
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8613485736706139859}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &3510660536438403159
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +316,7 @@ PrefabInstance:
     - target: {fileID: 2880716920567162108, guid: 76d27b7bba3801546a2caf78ac26bec6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2880716920567162109, guid: 76d27b7bba3801546a2caf78ac26bec6,
         type: 3}
@@ -317,6 +339,24 @@ GameObject:
 --- !u!4 &8613485736515485571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2880716920567162082, guid: 76d27b7bba3801546a2caf78ac26bec6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5797086421910739809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8613485736515485599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2880716920567162110, guid: 76d27b7bba3801546a2caf78ac26bec6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5797086421910739809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613485736515485597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be888121db0526c4ba97e39233840e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8613485736706139859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2880716920359337394, guid: 76d27b7bba3801546a2caf78ac26bec6,
     type: 3}
   m_PrefabInstance: {fileID: 5797086421910739809}
   m_PrefabAsset: {fileID: 0}

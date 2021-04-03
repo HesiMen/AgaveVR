@@ -49,7 +49,12 @@ public class MovingRockInstructions : MonoBehaviour
         StoneStatePosUpdate();
     }
 
+    public void LookAtPlayer()
+    {
+        Vector3 targetPos = new Vector3(Camera.main.transform.position.x, this.transform.position.y, Camera.main.transform.position.z);
+        agent.transform.DOLookAt(targetPos, lookAtSpeed);
 
+    }
     private void StoneStatePosUpdate()
     {
         switch (positionState)
