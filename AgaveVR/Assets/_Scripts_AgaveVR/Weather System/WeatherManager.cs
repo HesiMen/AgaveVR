@@ -51,15 +51,15 @@ public class WeatherManager : MonoBehaviour
 
         WeatherEasing();
         _normalizedInternalIntensity.normalizedIntensity = intensity;
-        for (int i = 0; i < weatherSystemComms.Count; i++)
-        {
-          //  _normalizedInternalIntensity.normalizedIntensity = intensity;
+        //for (int i = 0; i < weatherSystemComms.Count; i++)
+        //{
+        //  //  _normalizedInternalIntensity.normalizedIntensity = intensity;
 
-           // weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
+        //   // weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
 
-            if (DebugMode)
-                intensity = intensityTarget;
-        }
+        //    if (DebugMode)
+        //        intensity = intensityTarget;
+        //}
     }
 
 

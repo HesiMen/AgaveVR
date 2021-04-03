@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 [Serializable]
 public class MyTasksEvents : UnityEvent { }
 public class BeatEventSystem : MonoBehaviour
 {
+    public PlayableDirector daylight;
+
+
     [Header("Beat Events Go Here")]
     [Tooltip("Add the BeatEvents Here!")]// writing this because I(hesi)forgot where to add it
     public BeatEvent[] beatEvents;
@@ -31,6 +35,10 @@ public class BeatEventSystem : MonoBehaviour
     public MyTasksEvents EatingReward;
     public MyTasksEvents RewardInStoneEating;
 
+    private void Start()
+    {
+        StartCoroutine(WaitSomeSecond());
+    }
     private void OnEnable()
     {
         foreach (BeatEvent beat in beatEvents)
@@ -138,5 +146,13 @@ public class BeatEventSystem : MonoBehaviour
 
                 break;
         }
+    }
+
+    IEnumerator WaitSomeSecond()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        daylight.Pause();
     }
 }
