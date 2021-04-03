@@ -38,6 +38,9 @@
                 float4 vertex : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 worldNormal : NORMAL;
+
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+                UNITY_VERTEX_OUTPUT_STEREO
             };
 
             sampler2D _MainTex;
@@ -68,7 +71,7 @@
             {
                 UNITY_SETUP_INSTANCE_ID(i);
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
-                
+
                 fixed3 normal = normalize(i.worldNormal);
                 fixed NdotL = dot(_WorldSpaceLightPos0, normal);
                 fixed lightIntensity = NdotL * 0.5 + 0.75;

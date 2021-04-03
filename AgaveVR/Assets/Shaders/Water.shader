@@ -42,6 +42,9 @@
                 float2 uv2 : TEXCOORD1;
                 float3 viewDir : TEXCOORD2;
                 float3 tangentSpaceLight : TEXCOORD3;
+
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+                UNITY_VERTEX_OUTPUT_STEREO
             };
 
             sampler2D _PrimaryNormal;
