@@ -13,43 +13,77 @@
         LOD 200
         Blend SrcAlpha OneMinusSrcAlpha
         Cull Off
+        ZWrite Off
 
-        CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard alpha
-
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
-
-        sampler2D _MainTex;
-
-        struct Input
+        Pass
         {
-            float2 uv_MainTex;
-        };
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
 
-       // half _Glossiness;
-        //half _Metallic;
-        fixed4 _Color;
+            #include "UnityCG.cginc"
+            #include "Lighting.cginc"
+            // Use shader model 3.0 target, to get nicer looking lighting
+            #pragma target 3.0
 
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
+            struct appdata
+            {
+                float4 vertex :POSITION;
+                float2 uv : TEXCOORD0;
+                float3 normal : NORMAL;
+            };
 
-        void surf (Input IN, inout SurfaceOutputStandard o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
-            //o.Metallic = _Metallic;
-            //o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
+                float3 worldNormal : NORMAL;
+            };
+
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+            fixed4 _Color;
+
+            v2f vert (appdata v)
+            {
+                v2f o;
+                UNITY_SETUP_INSTANCE_ID(v);
+                UNITY_TRANSFER_INSTANCE_ID(v, o);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.worldNormal = UnityObjectToWorldNormal(v.normal);
+                return o;
+            }
+
+            // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
+            // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
+            // #pragma instancing_options assumeuniformscaling
+            UNITY_INSTANCING_BUFFER_START(Props)
+                // put more per-instance properties here
+            UNITY_INSTANCING_BUFFER_END(Props)
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                UNITY_SETUP_INSTANCE_ID(i);
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
+                
+                fixed3 normal = normalize(i.worldNormal);
+                fixed NdotL = dot(_WorldSpaceLightPos0, normal);
+                fixed lightIntensity = NdotL * 0.5 + 0.75;
+                //lightIntensity = smoothstep(-.5, 1, NdotL);
+                fixed4 light = lightIntensity * (_LightColor0);
+
+
+                // Albedo comes from a texture tinted by color
+                fixed4 c = tex2D (_MainTex, i.uv) * _Color;
+                c *= light;
+
+                return c;
+            }
+            ENDCG
         }
-        ENDCG
     }
     FallBack "Diffuse"
 }
