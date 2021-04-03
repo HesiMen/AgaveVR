@@ -11,7 +11,7 @@ public class PlayerTrigger : MonoBehaviour
     public PlayerOnTriggerEnvet onPlayerTrigger;
     public PlayerOnTriggerEnvet onPlayerOffTrigger;
 
-    public bool notShow = false;
+    public bool shuoldShow = false;
 
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +21,7 @@ public class PlayerTrigger : MonoBehaviour
         //    _HasSeed = true;
         //}
 
-        if (other.CompareTag("Player") && !notShow)
+        if (other.CompareTag("Player") && shuoldShow)
         {
             onPlayerTrigger.Invoke();
         }
@@ -36,9 +36,9 @@ public class PlayerTrigger : MonoBehaviour
         }
     }
 
-    public void WasSeeded(bool hasSeed)
+    public void ChangeShow(bool canShow)
     {
-        notShow = hasSeed;
+        shuoldShow = canShow;
 
         
     }

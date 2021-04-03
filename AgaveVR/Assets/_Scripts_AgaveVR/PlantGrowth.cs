@@ -156,6 +156,8 @@ public class PlantGrowth : MonoBehaviour
 
         if (!usingMultipleModels)
         {
+
+            Debug.Log("OnlyOne Scale End");
             activateGesture.SetActive(true);
             ReadyForSeeds.Invoke();
         }
@@ -168,6 +170,7 @@ public class PlantGrowth : MonoBehaviour
         if (currPlantState == PlantState.Old && usingMultipleModels)
         {
             activateGesture.SetActive(true);
+            Debug.Log("multiple mesh Scale End");
             ReadyForSeeds.Invoke();
         }
     }

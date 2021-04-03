@@ -129,7 +129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2345954158318521184}
-        m_MethodName: WasSeeded
+        m_MethodName: ChangeShow
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
