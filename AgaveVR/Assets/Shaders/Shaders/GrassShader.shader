@@ -31,6 +31,7 @@
                 float4 vertex :POSITION;
                 float2 uv : TEXCOORD0;
                 float3 normal : NORMAL;
+                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f

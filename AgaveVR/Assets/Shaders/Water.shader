@@ -33,6 +33,7 @@
                 float2 uv2 : TEXCOORD1;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
+                  UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct v2f

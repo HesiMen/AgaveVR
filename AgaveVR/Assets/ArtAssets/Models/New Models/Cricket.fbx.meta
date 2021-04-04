@@ -3,7 +3,13 @@ guid: c0d37f10a4b3bb748bdbc7adff3d663b
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 5561349426305759274, guid: c0d37f10a4b3bb748bdbc7adff3d663b,
+      type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -69,7 +75,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
