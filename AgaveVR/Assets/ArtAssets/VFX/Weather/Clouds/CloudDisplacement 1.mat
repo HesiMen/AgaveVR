@@ -70,7 +70,7 @@ Material:
     m_Floats:
     - _AnotherValue: 200
     - _BumpScale: 1
-    - _Coverage: 0.26
+    - _Coverage: 0.2
     - _Cutoff: 0.5
     - _DarkSideStrength: 0.412
     - _DetailNormalMapScale: 1
