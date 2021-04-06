@@ -3,15 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 [Serializable]
 public class MyTasksEvents : UnityEvent { }
 public class BeatEventSystem : MonoBehaviour
 {
+    public PlayableDirector daylight;
+
+
     [Header("Beat Events Go Here")]
     [Tooltip("Add the BeatEvents Here!")]// writing this because I(hesi)forgot where to add it
     public BeatEvent[] beatEvents;
-    [Header ("Events For Learning How To Plant")]
+
+    [Header("Events for learning how to grab objects")]
+    public MyTasksEvents HeldObject;
+
+    [Header("Events For Learning How To Plant")]
     public MyTasksEvents HoldingSeeds;
     public MyTasksEvents PlantingSeeds;
     public MyTasksEvents PlantingReward;
@@ -27,6 +35,10 @@ public class BeatEventSystem : MonoBehaviour
     public MyTasksEvents EatingReward;
     public MyTasksEvents RewardInStoneEating;
 
+    private void Start()
+    {
+        StartCoroutine(WaitSomeSecond());
+    }
     private void OnEnable()
     {
         foreach (BeatEvent beat in beatEvents)
@@ -46,10 +58,24 @@ public class BeatEventSystem : MonoBehaviour
 
     private void TaskCompleted(BeatEvent.Beats whichBeat, BeatEvent.WhichTask whichTask)
     {
-        //Debug.Log(whichBeat);
-        //Debug.Log(whichTask);
+        Debug.Log(whichBeat);
+        Debug.Log(whichTask);
         switch (whichBeat)
         {
+
+            case BeatEvent.Beats.IntroTeachingGrab:
+
+                switch (whichTask)
+                {
+                    case BeatEvent.WhichTask.HeldObject:
+
+                        HeldObject.Invoke();
+                        break;
+
+                }
+
+                break;
+
             case BeatEvent.Beats.IntroTeachingPlanting:
 
                 switch (whichTask)
@@ -120,5 +146,13 @@ public class BeatEventSystem : MonoBehaviour
 
                 break;
         }
+    }
+
+    IEnumerator WaitSomeSecond()
+    {
+
+        yield return new WaitForSeconds(2f);
+
+        daylight.Pause();
     }
 }

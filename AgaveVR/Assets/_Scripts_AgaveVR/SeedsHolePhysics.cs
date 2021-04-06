@@ -81,7 +81,7 @@ public class SeedsHolePhysics : BeatEvent
                 if (seedsInHole.Count >= 1)
                 {
                     wutSeed = seedsInHole[0];
-                    Debug.Log(wutSeed);
+                    //Debug.Log(wutSeed);
                     seedWasPlanted.Invoke(wutSeed);
                 }
                 else

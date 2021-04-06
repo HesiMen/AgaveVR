@@ -8,26 +8,43 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hole
-  m_Shader: {fileID: 4800000, guid: 9c29e1122d4004b74844e7f28262d3f5, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: eb8053b46e3bc40b89c3c385cc88cf10, type: 3}
+  m_ShaderKeywords: _AMBIENTOCCLUSION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 453b8044c69c747e1b23cc9b28cfca6a, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
+        m_Texture: {fileID: 2800000, guid: 84f9b6a8e019af24ebc4a521ac75c0e0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: be4df11aeb0577749a01f3b66aea10af, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AmbientOcclusion: 1
+    - _ColorMask: 14
+    - _CullModel: 0
     - _DarkSideStrength: 0.012
+    - _FakeAmbienValue: 1
+    - _NormalStrength: 0.839
     - _RimAmount: 0.622
     - _RimThreshold: 0.815
+    - _SComp: 0
+    - _SOp: 0
+    - _SRef: 0
+    - _XZBrightnessCutoff: 0.97
+    - _YBaseLine: -111
+    - _YBrightnessCutoff: 0.7
+    - _ZWrite: 0
     m_Colors:
     - _AmbientColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+    - _Color: {r: 0.7735849, g: 0.748042, b: 0.748042, a: 1}
     - _PrimaryColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}

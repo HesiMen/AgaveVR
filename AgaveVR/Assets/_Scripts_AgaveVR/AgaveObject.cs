@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using UnityEngine.Events;
 
 public class AgaveObject : MonoBehaviour
 {
@@ -11,18 +11,22 @@ public class AgaveObject : MonoBehaviour
     public Collider[] col;//Get all colliders
 
     private XROffsetGrabInteractable interactable;
-    public enum AgaveObjectsInteractables { Sticks, FireStick, SmallRock, BigRock, Seed, AgaveLeaf, None }
+    public enum AgaveObjectsInteractables { Sticks, FireStick, SmallRock, BigRock, Seed, AgaveLeaf, None, Bug }
     public enum WhichSeed { Nopal, Agave, Sunflower, Papalo, NotASeed }
 
 
     public AgaveObjectsInteractables agaveObject = AgaveObjectsInteractables.None;
     public WhichSeed whichSeed = WhichSeed.NotASeed;
-
+    private ObjectSpawner sourceSpawner;
 
     public bool _isEdible = false;
     public bool _isHeld = false;
 
     [SerializeField] public Consumable consumable;
+
+
+    public UnityEvent HeldNow;
+    public UnityEvent Dropped;
 
     private void Start()
     {
@@ -35,6 +39,8 @@ public class AgaveObject : MonoBehaviour
 
         }
 
+        rb = GetComponent<Rigidbody>();
+
         col = GetComponentsInChildren<Collider>();
 
         if (GetComponent<XROffsetGrabInteractable>() != null)
@@ -44,26 +50,38 @@ public class AgaveObject : MonoBehaviour
     }
     public void ObjectHeld(bool held, Hand whichHand)
     {
-       
+
         _isHeld = held;
         if (held)
         {
             PlayerStateObjects.i.AgaveObjectToAdd(this, whichHand);// adding to list of objects bing held
             //PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.grabSeedsString)
-            Debug.Log(this.gameObject.name + "--- Has been grabbed");
+            // Debug.Log(this.gameObject.name + "--- Has been grabbed");
+            HeldNow.Invoke();
         }
         else
         {
             PlayerStateObjects.i.AgaveObjectToRemove(this, whichHand);
-            Debug.Log(this.gameObject.name + "--- Has been dropped");
+            Dropped.Invoke();
+            //Debug.Log(this.gameObject.name + "--- Has been dropped");
         }
         if (interactable != null)
         {
-           // Debug.Log("interactable ignores cols" + held);
+            // Debug.Log("interactable ignores cols" + held);
             interactable.IgnorePlayerCollision(held);
         }
 
     }
 
-
+    public void SetSourceSpawner(ObjectSpawner spawner)
+    {
+        sourceSpawner = spawner;
+    }
+    public void RemoveFromSpawner()
+    {
+        if (sourceSpawner != null)
+        {
+            sourceSpawner.LowerSpawnCount();
+        }
+    }
 }

@@ -40,7 +40,7 @@ public class EmergeScript : MonoBehaviour
         directionShake = new Vector3(shakeAmmount.x, 0, shakeAmmount.y);
 
         startValueY = rock.transform.position.y;
-        Debug.Log(startValueY);
+       // Debug.Log(startValueY);
 
         if (emergeNow)
         {
@@ -51,7 +51,7 @@ public class EmergeScript : MonoBehaviour
 
     public void EmergeNowEventActive()
     {
-        Debug.Log("EmergeNow");
+       // Debug.Log("EmergeNow");
         //_emergeNow = true;
         Emerge(endValueY);
         

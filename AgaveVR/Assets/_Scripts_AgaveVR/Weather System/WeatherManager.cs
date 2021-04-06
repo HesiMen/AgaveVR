@@ -37,6 +37,8 @@ public class WeatherManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        currentWeatherState = WeatherState.None;
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.ambNight, transform.position);
 
         foreach (var whichWeather in _weatherSystem)
         {
@@ -48,16 +50,16 @@ public class WeatherManager : MonoBehaviour
     {
 
         WeatherEasing();
+        _normalizedInternalIntensity.normalizedIntensity = intensity;
+        //for (int i = 0; i < weatherSystemComms.Count; i++)
+        //{
+        //  //  _normalizedInternalIntensity.normalizedIntensity = intensity;
 
-        for (int i = 0; i < weatherSystemComms.Count; i++)
-        {
-            //_normalizedInternalIntensity.normalizedIntensity = intensity;
+        //   // weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
 
-            weatherSystemComms[i].normalizedIntensity = _normalizedInternalIntensity.normalizedIntensity;
-
-            if (DebugMode)
-                intensity = intensityTarget;
-        }
+        //    if (DebugMode)
+        //        intensity = intensityTarget;
+        //}
     }
 
 
@@ -116,18 +118,22 @@ public class WeatherManager : MonoBehaviour
     {
 
         WeatherSetState(WeatherState.Rain);//,(WeatherStartupPresets)strength);
-        _normalizedInternalIntensity.normalizedIntensity =  strength / 3f;
+        WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.rain1, transform.position);
+        intensityTarget = 1f/ strength;
+
     }
 
     public void StartSnow(int strength)
     {
         WeatherSetState(WeatherState.Snow);//, (WeatherStartupPresets)strength);
-        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
+        intensityTarget = 1f / strength;
+       // _normalizedInternalIntensity.normalizedIntensity = intensity;
     }
 
     public void StartWind(int strength)
     {
         WeatherSetState(WeatherState.Wind);//, (WeatherStartupPresets)strength);
-        _normalizedInternalIntensity.normalizedIntensity = strength / 3f;
+        intensityTarget = 1f / strength;
+        //_normalizedInternalIntensity.normalizedIntensity = intensity;
     }
 }

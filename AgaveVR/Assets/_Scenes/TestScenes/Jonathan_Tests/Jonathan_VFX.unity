@@ -183,6 +183,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642637266389984648, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1642637266389984651, guid: 35bde8a0b3aae436db4450b429519ec5,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -212,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Agave_Seed_Hole_Hesi
+      objectReference: {fileID: 0}
+    - target: {fileID: 6685066022327938666, guid: 35bde8a0b3aae436db4450b429519ec5,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35bde8a0b3aae436db4450b429519ec5, type: 3}
@@ -6237,7 +6257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1885368995
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6256,7 +6276,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
+  m_BackGroundColor: {r: 0.6132076, g: 0.44178116, b: 0.3268512, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7432,6 +7452,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a027bb090af141dd969079578712b18, type: 3}
+--- !u!1001 &4085617925322250507
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4085617924613020227, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerWeather_Vfx_Cold_Breath
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085617924613020231, guid: f120377a78dce47c99cf02395f2ce53e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f120377a78dce47c99cf02395f2ce53e, type: 3}
 --- !u!1001 &4305537413696405195
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UiCommon
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 17c1a2ffe887c854ebd62055796b1e7e, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d7168a01a1903aa40b8254fe68632309, type: 3}
+  - {fileID: 21300000, guid: 958c42b2c74117e46a74c01c9000abd4, type: 3}
+  - {fileID: 21300000, guid: 4b6160c394d8bb04cbec45042db41d6b, type: 3}
+  - {fileID: 21300000, guid: c7f1e6f3f7b5fbe45a6727fc07322fd3, type: 3}
+  - {fileID: 21300000, guid: d1a45c45933c7d045a68525e46235ec0, type: 3}
+  - {fileID: 21300000, guid: aedf7c69db917c24a9f4275f1217d046, type: 3}
+  - {fileID: 21300000, guid: f65718bbfb609074e9aed101d1dc1b45, type: 3}
+  - {fileID: 21300000, guid: a78f4b1c6ec1c4839bb761d054d8b59f, type: 3}
+  - {fileID: 21300000, guid: f375c8bc06148d84683cd0d35bad378f, type: 3}
+  - {fileID: 21300000, guid: 3154af5df521eae44bba8d0576470506, type: 3}
+  - {fileID: 21300000, guid: eabfa97ed6eab6f46afafae8e6468bc1, type: 3}
+  - {fileID: 21300000, guid: 29657fbe1ad26de4cb5192b8a988bafa, type: 3}
+  - {fileID: 21300000, guid: 8a88e0cef4b004247b91f45798062dbc, type: 3}
+  - {fileID: 21300000, guid: 8b4ae54f323702f4c89b64583262182b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - whiteSun
+  - GrabUIGrab
+  - HalfOctagonMask
+  - cold-forecast-low-temperature-thermometer-weather-winter-icon-low-temperature-png-512_512
+  - LifeIcon3x
+  - HotMarker
+  - BG_OllinUI
+  - _Square
+  - AimUIGrab
+  - DeathIcon3x
+  - ColdMarker
+  - TeleportUI
+  - MovementUI
+  - pngtree-cream-sunflower-seeds-decoration-illustration-png-image_4758544
+  m_Tag: UiCommon
+  m_IsVariant: 0
