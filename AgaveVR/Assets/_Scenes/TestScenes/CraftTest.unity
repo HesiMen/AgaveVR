@@ -141,55 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumable: {fileID: 11400000, guid: 5d858f55bab5ca2428a76a3ebb23bf9c, type: 2}
---- !u!1 &218165567
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 218165569}
-  - component: {fileID: 218165568}
-  m_Layer: 0
-  m_Name: InsectSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &218165568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218165567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419467f8193587247b05ffe1ca037985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRadius: 2
-  spawnInterval: 0.54
-  spawnMax: 10
-  spawnableObjects:
-  - {fileID: 4436678062102737025, guid: 393173e354593cc4696b3cfd4594d837, type: 3}
-  - {fileID: 4436678062102737025, guid: e7c31517b0cc16a46bff624630dd28d0, type: 3}
---- !u!4 &218165569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218165567}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &348675408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1729,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f370d7fc096ce6e45b44dec90fe54c46, type: 3}
+--- !u!1001 &4532040642888906738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532040643073427149, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
+        type: 3}
+      propertyPath: m_Name
+      value: InsectSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681, type: 3}
 --- !u!1001 &8175275839462017930
 PrefabInstance:
   m_ObjectHideFlags: 0

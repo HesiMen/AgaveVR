@@ -147,6 +147,12 @@ MonoBehaviour:
   _isEdible: 1
   _isHeld: 0
   consumable: {fileID: 11400000, guid: f15e304dba8af3f45a16660a03c3f056, type: 2}
+  HeldNow:
+    m_PersistentCalls:
+      m_Calls: []
+  Dropped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &4436678062102737030
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -321,7 +327,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b459e04a707404ed0ae12432f8bb8b6f, type: 2}
+      objectReference: {fileID: 2100000, guid: f5bb11380ead00e41a0473237ffc43a6, type: 2}
     - target: {fileID: -927199367670048503, guid: aa8d40be1760d7c47838a214b1ee57bd,
         type: 3}
       propertyPath: m_Name
