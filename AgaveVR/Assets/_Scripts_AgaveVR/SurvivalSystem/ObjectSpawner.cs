@@ -8,7 +8,10 @@ public class ObjectSpawner : MonoBehaviour
 
     [SerializeField]
     public float spawnRadius = 10.0f;
-    public float spawnInterval = 10.0f;
+    public Vector2 intervalRange = new Vector2(5f, 10f);
+    private float spawnInterval;
+
+
     public int spawnMax = 5;
 
     private int spawnedObjects = 0;
@@ -22,12 +25,13 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
         // Begin spawning
+        spawnInterval = Random.Range(intervalRange.x, intervalRange.y);
         spawnCoroutine = StartCoroutine(Spawn(spawnInterval));
         spawnCoroutineRunning = true;
-}
+    }
 
-// Update is called once per frame
-void Update()
+    // Update is called once per frame
+    void Update()
     {
         // Check if we can spawn
         if ((spawnedObjects < spawnMax) && spawnCoroutineRunning == false)
@@ -62,7 +66,7 @@ void Update()
         spawnedObjects++;
     }
 
-    IEnumerator Spawn(float interval) 
+    IEnumerator Spawn(float interval)
     {
         while (true)
         {
