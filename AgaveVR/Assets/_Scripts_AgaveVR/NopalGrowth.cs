@@ -34,6 +34,8 @@ public class NopalGrowth : MonoBehaviour
 
     public int previousInt = -1;
 
+    public PlantEvent ReadyForSeedDrop;
+
     private void Start()
     {
         spawnPoints = spawnPointParent.GetComponentsInChildren<Transform>();
@@ -139,7 +141,7 @@ public class NopalGrowth : MonoBehaviour
             var newPear = Instantiate(pearObject, spawnTransform.position, spawnTransform.rotation, rootObject.transform);
 
             ScaleAnimation(newPear.transform, false);
-
+            ReadyForSeedDrop.Invoke();
             activateGesture.SetActive(true);
         }
 

@@ -48,6 +48,8 @@ public class GestureForSeeds : GestureBase
                     break;
                 case AgaveObject.WhichSeed.NotASeed:
                     GlobalParticles.i.PlayParticleOnPlace(seedSpawnPos, GlobalParticles.SeedParticles.Sticks);
+                    WorldSoundManager.i.PlaySoundSimple(WorldSoundManager.i.sticksSound, transform.position);
+
                     break;
 
             }

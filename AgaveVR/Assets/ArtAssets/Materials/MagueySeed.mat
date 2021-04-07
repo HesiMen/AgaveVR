@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: YoungMaguey
+  m_Name: MagueySeed
   m_Shader: {fileID: 4800000, guid: 07aff2fdcc4054f2ba14cb99485955cb, type: 3}
   m_ShaderKeywords: _AMBIENTOCCLUSION_ON _CELPRIMARYMODE_SINGLE _EMISSION _GLOSSYREFLECTIONS_OFF
     _METALLICGLOSSMAP _METALLICSPECGLOSSMAP _NORMALMAP _TEXTUREBLENDINGMODE_MULTIPLY
