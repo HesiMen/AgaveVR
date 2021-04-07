@@ -85,6 +85,8 @@ public class BeatEventSystem : MonoBehaviour
                     case BeatEvent.WhichTask.HoldingSeeds:
                         HoldingSeeds.Invoke();
                         Debug.Log("HoldingSeedsDone");
+
+              
                         break;
 
                     case BeatEvent.WhichTask.PlantingSeeds:
