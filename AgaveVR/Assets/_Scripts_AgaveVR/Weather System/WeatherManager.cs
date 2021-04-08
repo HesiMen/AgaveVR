@@ -51,6 +51,19 @@ public class WeatherManager : MonoBehaviour
 
         WeatherEasing();
         _normalizedInternalIntensity.normalizedIntensity = intensity;
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StartWind(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            StartRain(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            StartSnow(1);
+        }
         //for (int i = 0; i < weatherSystemComms.Count; i++)
         //{
         //  //  _normalizedInternalIntensity.normalizedIntensity = intensity;

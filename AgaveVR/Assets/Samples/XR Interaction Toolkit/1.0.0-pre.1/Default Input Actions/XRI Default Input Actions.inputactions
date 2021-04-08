@@ -618,8 +618,8 @@
                 {
                     "name": "",
                     "id": "92bb5b8f-bf48-4dab-af05-50a865773895",
-                    "path": "<XRController>{RightHand}/triggerPressed",
-                    "interactions": "",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "UI Press",

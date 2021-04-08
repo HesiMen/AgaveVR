@@ -55,10 +55,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 26.7
+    value: 8.7
   threshold:
     overrideState: 1
-    value: 1.08
+    value: 5.3
   softKnee:
     overrideState: 1
     value: 0.475
@@ -83,7 +83,7 @@ MonoBehaviour:
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 3.1
+    value: 0.9
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,7 +1441,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.485
+    value: 0.393
   smoothness:
     overrideState: 0
     value: 0.2
