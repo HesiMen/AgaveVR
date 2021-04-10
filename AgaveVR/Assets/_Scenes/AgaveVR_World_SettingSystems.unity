@@ -1040,7 +1040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 151249302, guid: 9373f69e167d50246b365124cce419e7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 151249302, guid: 9373f69e167d50246b365124cce419e7, type: 3}
+      propertyPath: Event
+      value: event:/Maguey/Music and UX/AgaveVR_mixdown
       objectReference: {fileID: 0}
     - target: {fileID: 151249316, guid: 9373f69e167d50246b365124cce419e7, type: 3}
       propertyPath: m_TurnAmount
