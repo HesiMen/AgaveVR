@@ -10,7 +10,16 @@ public class PlayerSoundManager : BaseSoundManager
     public static PlayerSoundManager i;
     [Header ("Player Sounds")]
     [FMODUnity.EventRef]
-    public string eatingPlantString, eatingBugString, stepsString, seedSpawnString, grabSeedsString, grabbingObjectString, hungerString, teethChatteringString, body_tempColdString;
+    public string eatingPlantString, 
+        eatingBugString, 
+        stepsString, 
+        seedSpawnString, 
+        grabSeedsString,
+        grabbingObjectString, 
+        hungerString, 
+        taskCompleteString,
+        body_tempColdString, 
+        dirtScoopString;
 
    
     //public List<string> bankPath;
@@ -20,14 +29,15 @@ public class PlayerSoundManager : BaseSoundManager
     
 
 
-    FMOD.Studio.EventInstance eatingPlant;
-    FMOD.Studio.EventInstance eatingBug;
-    FMOD.Studio.EventInstance steps;
-    FMOD.Studio.EventInstance seedSpawn;
-    FMOD.Studio.EventInstance seedGrab;
-    FMOD.Studio.EventInstance grabbingObject;
-    FMOD.Studio.EventInstance teethChattering;
-    FMOD.Studio.EventInstance hunger;
+   // FMOD.Studio.EventInstance eatingPlant;
+   // FMOD.Studio.EventInstance eatingBug;
+   // FMOD.Studio.EventInstance steps;
+   // FMOD.Studio.EventInstance seedSpawn;
+   // FMOD.Studio.EventInstance seedGrab;
+   // FMOD.Studio.EventInstance grabbingObject;
+   //// FMOD.Studio.EventInstance teethChattering;
+   // FMOD.Studio.EventInstance hunger;
+   // FMOD.Studio.EventInstance taskComplete;
 
    
     public KeyCode[] pressForSound;
@@ -102,9 +112,9 @@ public class PlayerSoundManager : BaseSoundManager
         }
     }
 
-    IEnumerator PlaySoundOverTime()
-    {
-        eatingBug.start();
-        yield return new WaitForSeconds(5f);
-    }
+    //IEnumerator PlaySoundOverTime()
+    //{
+    //    eatingBug.start();
+    //    yield return new WaitForSeconds(5f);
+    //}
 }

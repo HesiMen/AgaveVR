@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/AgaveMEnu.unity
+    guid: 297288054db93c24badaa8d7846e1056
+  - enabled: 1
     path: Assets/_Scenes/AgaveVR_World_SettingSystems.unity
     guid: 00b50fff7b5f5d8408b598a05eb0cc09
   m_configObjects:

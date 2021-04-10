@@ -56,6 +56,7 @@ public class BeatEventSystem : MonoBehaviour
     }
 
 
+
     private void TaskCompleted(BeatEvent.Beats whichBeat, BeatEvent.WhichTask whichTask)
     {
         Debug.Log(whichBeat);
@@ -68,6 +69,7 @@ public class BeatEventSystem : MonoBehaviour
                 switch (whichTask)
                 {
                     case BeatEvent.WhichTask.HeldObject:
+                        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.taskCompleteString, transform.position);
 
                         HeldObject.Invoke();
                         break;
@@ -96,6 +98,8 @@ public class BeatEventSystem : MonoBehaviour
 
                     case BeatEvent.WhichTask.RewardInStonePlanting:
                         RewardInStonePlanting.Invoke();
+                        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.taskCompleteString, transform.position);
+
                         break;
 
                 }
@@ -119,6 +123,8 @@ public class BeatEventSystem : MonoBehaviour
                         break;
 
                     case BeatEvent.WhichTask.RewardInStoneFire:
+                        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.taskCompleteString, transform.position);
+
                         RewardInStoneFire.Invoke();
                         break;
                 }
@@ -134,6 +140,8 @@ public class BeatEventSystem : MonoBehaviour
                         break;
 
                     case BeatEvent.WhichTask.RewardInStoneEat:
+                        PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.taskCompleteString, transform.position);
+
                         RewardInStoneEating.Invoke();
                         break;
 

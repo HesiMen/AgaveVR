@@ -13,6 +13,7 @@
         LOD 200
         Blend SrcAlpha OneMinusSrcAlpha
         Cull Off
+        ZWrite Off
 
         Pass
         {

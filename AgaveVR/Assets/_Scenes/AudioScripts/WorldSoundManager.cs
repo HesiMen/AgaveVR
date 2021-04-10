@@ -12,7 +12,9 @@ public class WorldSoundManager : BaseSoundManager
     [Header(" Ambience Sounds")]
     [FMODUnity.EventRef]
     public string ambDay, ambNight, rain1, rain2, rain3, wind1, wind2, wind3;
-
+    [Header(" Ambience Sounds")]
+    [FMODUnity.EventRef]
+    public string sticksSound;
 
     //rockInstance
 

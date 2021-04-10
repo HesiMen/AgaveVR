@@ -6621,7 +6621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2007d1af7eb0f49af89d856fe9b81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whichBeat: 3
+  whichBeat: 7
   whichTask: 10
   seedWasPlanted:
     m_PersistentCalls:
@@ -15618,7 +15618,7 @@ PrefabInstance:
     - target: {fileID: 4532040643073427122, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
         type: 3}
       propertyPath: spawnMax
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4532040643073427123, guid: ab6fb16d8ac1a724a8a6fdbc9bec3681,
         type: 3}
@@ -15695,6 +15695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3359429151789279884}
     m_Modifications:
+    - target: {fileID: 1984508107929951193, guid: 933d1bf883215db43b270c3b826fb262,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1984508108564772804, guid: 933d1bf883215db43b270c3b826fb262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15780,6 +15785,11 @@ PrefabInstance:
       propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3359429152495716337}
+    - target: {fileID: 1984508109019148520, guid: 933d1bf883215db43b270c3b826fb262,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1984508109019148521, guid: 933d1bf883215db43b270c3b826fb262,
         type: 3}
       propertyPath: m_Enabled

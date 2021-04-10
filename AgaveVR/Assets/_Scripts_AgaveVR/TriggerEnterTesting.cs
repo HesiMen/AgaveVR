@@ -19,6 +19,8 @@ public class TriggerEnterTesting : MonoBehaviour
         {
             //triggerPlayer.Invoke();
             followHand.FollowNow(other.transform);
+            PlayerSoundManager.i.PlaySoundSimple(PlayerSoundManager.i.dirtScoopString, transform.position);
+
         }
 
     }
