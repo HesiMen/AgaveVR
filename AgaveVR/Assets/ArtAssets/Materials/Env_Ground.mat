@@ -35,6 +35,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissolveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -44,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 84f9b6a8e019af24ebc4a521ac75c0e0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 68ab68dcf2798bc4cb433bf9bdc71ee8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -65,6 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AmbientOcclusion: 0
+    - _Amount: 0
     - _BumpScale: 1
     - _ColorMask: 14
     - _CullModel: 2
