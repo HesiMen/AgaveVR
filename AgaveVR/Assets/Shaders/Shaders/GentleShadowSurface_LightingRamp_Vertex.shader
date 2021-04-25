@@ -9,13 +9,18 @@
         _NormalStrength("Normal Strength", Range(0,1)) = 1
         _LightRampStrength("Ramp Strength", Range(0, 10)) = 1
         
-        [Header(Noise)]
-        _NoiseTex("Noise", 2D) = "white" {}
-        _DisplacementScale("Displacement Scale", Float) = 0
-        _Frequency("Frequency", Float) = 0
-        _ScrollSpeed("Scroll Speed Damper", Range(0,1)) = 0
-        _WindStrength("Wind Strength", Float) = 0
+        [Header(Wind)]
+        //_NoiseTex("Noise", 2D) = "white" {}
+        _DisplacementScale("Displacement Scale", Range(-25, 25)) = 0
+        _IndividualVFrequency("Vertex Frequency", Range(0,20)) = 0
+        _BounceFrequency("Bounce Frequency", Range(0,25)) = 0
+        _WindStrength("Wind Strength", Range(0,3)) = 0
         _DispCutoff("Displacement Cutoff", Range(-1,1)) = 0
+        [ToolTip(Positive if off, Negative if on)]
+        _XWindDirection ("_XWindDirection", Range(-1,1)) = 0
+        _ZWindDirection ("_ZWindDirection", Range(-1,1)) = 0
+        _WindLean ("Wind Lean", Float) = 0
+        _WindFrequency("Wind Frequency", Float) = 0
 
 
         //Dissolve properties
@@ -26,16 +31,7 @@
     
         [Enum(UnityEngine.Rendering.CullMode)]
         _CullModel("Cull", Float) = 2
-        [Enume(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
-
-        [Space(10)]
-        [Header(Stencil Properties)]
-        _SRef ("Stencil Refrence", Float) = 1
-        [Enum(UnityEngine.Rendering.CompareFunction)]
-        _SComp ("Stencil Comparison", Float) = 8
-        [Enum(UnityEngine.Rendering.StencilOp)]
-        _SOp("StencilOperation", Float) = 2
-        [Emum(UnityEngine.Rendering.ColorWriteMask)] _ColorMask("Color Mask", Int) = 14
+        [Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
 
     }
 
@@ -44,13 +40,6 @@
         Tags { "RenderType"="Opaque" }
         LOD 200
         Cull [_CullModel]
-
-        Stencil
-        {
-            Ref[_SRef]
-            Comp[_SComp]
-            Pass[_SOp]
-        }
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
@@ -73,8 +62,6 @@
         sampler2D _MainTex;
         sampler2D _NormalMap;
         sampler2D _LightRamp;
-        sampler2D _NoiseTex;
-        float4 _NoiseTex_ST;
 
         struct Input
         {
@@ -91,14 +78,18 @@
         fixed4 _Color;
         fixed _NormalStrength;
         half _LightRampStrength;
+        half _XWindDirection;
+        half _ZWindDirection;
+        half _WindLean;
+        half _WindFrequency;
 
 
         //Dissolve properties
 		sampler2D _DissolveTexture;
 		half _Amount;
         half _DisplacementScale;
-        half _Frequency;
-        half _ScrollSpeed;
+        half _IndividualVFrequency;
+        half _BounceFrequency;
         float _WindStrength;
         float _DispCutoff;
 
@@ -114,24 +105,24 @@
         void vert (inout appdata_full v, out Input o)
         {
             UNITY_INITIALIZE_OUTPUT(Input, o);
-            //float4 anchorTex = tex2Dlod(_AnchorMap, float4 (v.texcoord3.xy,0,0));
-            float3 gWorldPos = UnityObjectToWorldNormal(v.vertex);
-            float2 noiseTex = tex2Dlod(_NoiseTex, float4(gWorldPos.xz * _NoiseTex_ST.xy + _Time.y * _ScrollSpeed * (v.texcoord.y * _DispCutoff), 0.0, 0.0)).xy;
+            _DisplacementScale *= .0001;
+            _WindStrength *= .002;
+            _IndividualVFrequency *= 400;
+            _WindLean -= 1;
+            _WindLean += _WindStrength;
 
-            //o.viewDir = WorldSpaceViewDir(v.vertex);
-            //v.texcoord.x += _Time.y / (_ScrollSpeed / 600);
-            //v.texcoord2.x += _Time.y / _ScrollSpeed;
-
-            //Bounce Grass
-            //v.vertex.xyz += (_DisplacementScale * (sin((_Time.y * _ScrollSpeed) + UnityObjectToWorldNormal(v.vertex) * _Frequency)) * v.texcoord.y);
-
-            float2 wind = (noiseTex * 2.0 - 1.0) * _WindStrength;
-            v.vertex.xy += wind;
+            float commonWind = _WindLean + (1 - sin(_Time.y * _WindFrequency)) * _WindStrength;
+            clamp(commonWind, 0, 1);
+            float xWindPlane = (v.vertex.x + (commonWind * _XWindDirection) * v.texcoord.y);
+            float zWindPlane = (v.vertex.z + (commonWind * _ZWindDirection) * v.texcoord.y);
+            float yContract = v.vertex.y - (_WindLean - sin(_Time.y)) * (_WindStrength /3) * v.texcoord.y;
+            float3 vertexBounce = (_DisplacementScale * (sin((_Time.y * _BounceFrequency) + (v.vertex) * _IndividualVFrequency)) * v.texcoord.y * sin(_Time.y));
+            v.vertex.x = xWindPlane;
+            v.vertex.z = zWindPlane;
+            v.vertex.y = yContract;
+            v.vertex.xyz += + vertexBounce;
 
             o.vertexCoord = UnityObjectToClipPos(v.vertex);
-            //o.uv = TRANSFORM_TEX (v.uv, _MainTex);
-
-            o.worldNormal = UnityObjectToWorldNormal(v.normal);
         }
 
         void surf (Input IN, inout SurfaceOutput o)
@@ -142,21 +133,11 @@
             normal.z *= (1-_NormalStrength);
             o.Normal = normalize(normal);
 
-
+            //Dissolve
             half dissolve_value = tex2D(_DissolveTexture, IN.uv_MainTex).r;
 			clip(dissolve_value - _Amount);
- 
-			//Basic shader function
-			//fixed4 d = tex2D (_MainTex, IN.uv_MainTex) * _Color; 
-			 o.Emission = fixed3(1, 1, 1) * step( dissolve_value - _Amount, 0.005f);
- 
-			//o.Albedo = d.rgb;
-			//o.Metallic = _Metallic;
-			//o.Smoothness = _Glossiness;
+			o.Emission = fixed3(1, 1, 1) * step( dissolve_value - _Amount, 0.005f);
 			o.Alpha = c.a;
-
-
-
         }
         ENDCG
     }
