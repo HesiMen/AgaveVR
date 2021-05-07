@@ -35,6 +35,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissolveTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -44,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dfd1b1bc058f4094a830a5e98d34bd15, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0692e5d9fd21bad46a9549747faf637d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -52,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 43644b9ae2b44fb43bd1298a5858f3d9, type: 3}
+        m_Texture: {fileID: 2800000, guid: ff296cf5db68aac49afbcd1034b28f95, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -65,6 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AmbientOcclusion: 0
+    - _Amount: 0
     - _BumpScale: 1
     - _ColorMask: 14
     - _CullModel: 2
@@ -78,7 +83,7 @@ Material:
     - _LightRampStrength: 1
     - _Metallic: 0
     - _Mode: 2
-    - _NormalStrength: 0.9
+    - _NormalStrength: 0.8
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SComp: 8
@@ -93,5 +98,5 @@ Material:
     - _YBrightnessCutoff: 1
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.9056604, g: 0.86436886, b: 0.74759704, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GentleShadowSurface_LightingRamp-Vertex
+  m_Shader: {fileID: 4800000, guid: be6549c8924644b9aabbacc284a80652, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AnchorMap:
+        m_Texture: {fileID: 2800000, guid: 096744f485b944cfe8e3290453466139, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveTexture:
+        m_Texture: {fileID: 2800000, guid: 643789cda138a334f82d3fa7e1f1ada0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightRamp:
+        m_Texture: {fileID: 2800000, guid: f0ef428c7286d4338a65b0ec2b73d075, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 8316c649b12f4485c811d707f6316577, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: cee744302f4864d05a8d0d429f44e133, type: 3}
+        m_Scale: {x: 1, y: -0.25}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AmbientOcclusion: 0
+    - _Amount: 0
+    - _BounceFrequency: 15.9
+    - _ColorMask: 14
+    - _CullModel: 0
+    - _DispCutoff: -1
+    - _DisplacementScale: 1
+    - _FakeAmbienValue: 1
+    - _Frequency: 400
+    - _IndividualVFrequency: 1
+    - _LightRampStrength: 1.03
+    - _NormalStrength: 0.9
+    - _SComp: 8
+    - _SOp: 2
+    - _SRef: 1
+    - _ScrollSpeed: 10
+    - _ScrollSpeedDamper: 3
+    - _WindFrequency: 1
+    - _WindLean: 1
+    - _WindStrength: 1.52
+    - _XWindDirection: 1
+    - _XZBrightnessCutoff: 1
+    - _YBaseLine: 0
+    - _YBrightnessCutoff: 1
+    - _ZWindDirection: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.6118952, g: 0.8773585, b: 0.3517711, a: 1}
