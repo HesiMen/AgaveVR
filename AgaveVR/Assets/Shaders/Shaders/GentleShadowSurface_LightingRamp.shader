@@ -9,7 +9,13 @@
         _NormalStrength("Normal Strength", Range(0,1)) = 1
         _LightRampStrength("Ramp Strength", Range(0, 10)) = 1
 
-
+        [Header(Snow)]
+        [Toggle(SNOW_ON)]
+        _SnowToggle("Snow Toggle", Int) = 0
+        _SnowTex("Snow Texture", 2D) = "white"{}
+        _BlendSnow("Blend Amount", Range(0,1)) = 1
+        
+        [Header(Dissolve)]
         //Dissolve properties
 		_DissolveTexture("Dissolve Texutre", 2D) = "white" {} 
 		_Amount("Amount", Range(0,1)) = 0
@@ -17,15 +23,7 @@
     
         [Enum(UnityEngine.Rendering.CullMode)]
         _CullModel("Cull", Float) = 2
-        [Enume(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
-
-        [Space(10)]
-        [Header(Ambient Occlusion)]
-        [Toggle] _AmbientOcclusion ("Ambient Occlusion", Float) = 0
-        _YBaseLine("YBaseLine", Float) = 0
-        _FakeAmbienValue ("Fake Ambient Occlusion", Float) = 1
-        _YBrightnessCutoff("Y Brightness Cutoff", Float) = 1
-        _XZBrightnessCutoff ("XZ Brightness Cutoff", Float) =  1
+        [Enum(Off,0,On,1)] _ZWrite("ZWrite", Int) = 0
 
         [Space(10)]
         [Header(Stencil Properties)]
@@ -54,6 +52,7 @@
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf WrapLambert fullforwardshadows exclude_path:deferred
+        #pragma multi_compile_local SNOW_OFF SNOW_ON
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -71,6 +70,7 @@
         sampler2D _MainTex;
         sampler2D _NormalMap;
         sampler2D _LightRamp;
+        sampler2D _SnowTex;
 
         struct Input
         {
@@ -80,8 +80,10 @@
         };
 
         fixed4 _Color;
-        fixed _NormalStrength;
+        float _NormalStrength;
         half _LightRampStrength;
+        half _BlendSnow;
+        int _SnowToggle;
 
 
         //Dissolve properties
@@ -99,12 +101,21 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 c = (tex2D (_MainTex, IN.uv_MainTex) * _Color) * (tex2D(_LightRamp, IN.uv_MainTex) * _LightRampStrength);
+            fixed4 c;
+            fixed4 mainTex = tex2D(_MainTex, IN.uv_MainTex);
+            c = mainTex * _Color;
+            #if SNOW_ON
+                fixed4 snowTex = tex2D(_SnowTex, IN.uv_MainTex);
+                c = lerp(mainTex, snowTex, saturate((_BlendSnow - tex2D(_DissolveTexture, IN.uv_MainTex).r)));
+            #endif
+
+            c *= (tex2D(_LightRamp, IN.uv_MainTex) * _LightRampStrength);
             o.Albedo = c.rgb;
-            half3 normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
+
+            // Normals
+            float3 normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
             normal.z *= (1-_NormalStrength);
             o.Normal = normalize(normal);
-
 
             half dissolve_value = tex2D(_DissolveTexture, IN.uv_MainTex).r;
 			clip(dissolve_value - _Amount);
