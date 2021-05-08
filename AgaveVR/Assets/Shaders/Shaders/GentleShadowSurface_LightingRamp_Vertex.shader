@@ -16,7 +16,8 @@
         _BounceFrequency("Bounce Frequency", Range(0,25)) = 0
         _WindStrength("Wind Strength", Range(0,3)) = 0
         _DispCutoff("Displacement Cutoff", Range(-1,1)) = 0
-        [ToolTip(Positive if off, Negative if on)]
+        
+
         _XWindDirection ("_XWindDirection", Range(-1,1)) = 0
         _ZWindDirection ("_ZWindDirection", Range(-1,1)) = 0
         _WindLean ("Wind Lean", Float) = 0
@@ -26,7 +27,7 @@
         //Dissolve properties
         [Header(Dissolve)]
 		_DissolveTexture("Dissolve Texutre", 2D) = "white" {} 
-		_Amount("Amount", Range(0,1)) = 0
+		_DissolveAmount("Amount", Range(0,1)) = 0
 
     
         [Enum(UnityEngine.Rendering.CullMode)]
@@ -45,6 +46,7 @@
         // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf WrapLambert fullforwardshadows exclude_path:deferred vertex:vert
         #pragma target 3.0
+        #pragma multi_compile_instancing
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -78,19 +80,20 @@
         fixed4 _Color;
         fixed _NormalStrength;
         half _LightRampStrength;
-        half _XWindDirection;
-        half _ZWindDirection;
-        half _WindLean;
-        half _WindFrequency;
+        //half _XWindDirection;
+        //half _ZWindDirection;
+        //half _WindLean;
+        //half _WindFrequency;
+
+
 
 
         //Dissolve properties
 		sampler2D _DissolveTexture;
-		half _Amount;
-        half _DisplacementScale;
-        half _IndividualVFrequency;
-        half _BounceFrequency;
-        float _WindStrength;
+		half _DissolveAmount;
+        //half _IndividualVFrequency;
+        //half _BounceFrequency;
+        //float _WindStrength;
         float _DispCutoff;
 
 
@@ -99,28 +102,50 @@
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
         UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
+            UNITY_DEFINE_INSTANCED_PROP(half, _DisplacementScale)
+            UNITY_DEFINE_INSTANCED_PROP(half, _WindLean)
+            UNITY_DEFINE_INSTANCED_PROP(half, _WindFrequency)
+            UNITY_DEFINE_INSTANCED_PROP(half, _XWindDirection)
+            UNITY_DEFINE_INSTANCED_PROP(half, _ZWindDirection)
+            UNITY_DEFINE_INSTANCED_PROP(float, _WindStrength)
+            UNITY_DEFINE_INSTANCED_PROP(half, _BounceFrequency)
+            UNITY_DEFINE_INSTANCED_PROP(half, _IndividualVFrequency)
         UNITY_INSTANCING_BUFFER_END(Props)
 
         void vert (inout appdata_full v, out Input o)
         {
             UNITY_INITIALIZE_OUTPUT(Input, o);
-            _DisplacementScale *= .0001;
-            _WindStrength *= .002;
-            _IndividualVFrequency *= 400;
-            _WindLean -= 1;
-            _WindLean += _WindStrength;
+            
+            UNITY_SETUP_INSTANCE_ID(v);
 
-            float commonWind = _WindLean + (1 - sin(_Time.y * _WindFrequency)) * _WindStrength;
+            half displacmentVal = UNITY_ACCESS_INSTANCED_PROP(Props, _DisplacementScale);
+            displacmentVal *= .0001;
+
+            float windStrength = UNITY_ACCESS_INSTANCED_PROP(Props, _WindStrength);
+            windStrength *= .002;
+
+            half individualVFreq = UNITY_ACCESS_INSTANCED_PROP(Props, _IndividualVFrequency);
+            individualVFreq *= 400;
+
+            half windLean = UNITY_ACCESS_INSTANCED_PROP(Props, _WindLean);
+            windLean -= 1;
+            windLean += windStrength;
+
+            float commonWind = windLean + (1 - sin(_Time.y * UNITY_ACCESS_INSTANCED_PROP(Props, _WindFrequency))) * windStrength;
             clamp(commonWind, 0, 1);
-            float xWindPlane = (v.vertex.x + (commonWind * _XWindDirection) * v.texcoord.y);
-            float zWindPlane = (v.vertex.z + (commonWind * _ZWindDirection) * v.texcoord.y);
-            float yContract = v.vertex.y - (_WindLean - sin(_Time.y)) * (_WindStrength /3) * v.texcoord.y;
-            float3 vertexBounce = (_DisplacementScale * (sin((_Time.y * _BounceFrequency) + (v.vertex) * _IndividualVFrequency)) * v.texcoord.y * sin(_Time.y));
+
+            float xWindPlane = (v.vertex.x + (commonWind * UNITY_ACCESS_INSTANCED_PROP(Props, _XWindDirection)) * v.texcoord.y);
+            float zWindPlane = (v.vertex.z + (commonWind * UNITY_ACCESS_INSTANCED_PROP(Props, _ZWindDirection)) * v.texcoord.y);
+
+            float yContract = v.vertex.y - (windLean - sin(_Time.y)) * (windStrength /3) * v.texcoord.y;
+            float3 vertexBounce = (displacmentVal *
+                (sin((_Time.y * UNITY_ACCESS_INSTANCED_PROP(Props, _BounceFrequency)) + (v.vertex) * 
+                individualVFreq)) * v.texcoord.y * sin(_Time.y));
+
             v.vertex.x = xWindPlane;
             v.vertex.z = zWindPlane;
             v.vertex.y = yContract;
-            v.vertex.xyz += + vertexBounce;
+            v.vertex.xyz += vertexBounce;
 
             o.vertexCoord = UnityObjectToClipPos(v.vertex);
         }
@@ -135,8 +160,8 @@
 
             //Dissolve
             half dissolve_value = tex2D(_DissolveTexture, IN.uv_MainTex).r;
-			clip(dissolve_value - _Amount);
-			o.Emission = fixed3(1, 1, 1) * step( dissolve_value - _Amount, 0.005f);
+			clip(dissolve_value - _DissolveAmount);
+			o.Emission = fixed3(1, 1, 1) * step( dissolve_value - _DissolveAmount, 0.005f);
 			o.Alpha = c.a;
         }
         ENDCG
