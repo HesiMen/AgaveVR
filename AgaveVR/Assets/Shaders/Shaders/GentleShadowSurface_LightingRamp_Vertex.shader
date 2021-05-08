@@ -77,7 +77,7 @@
             
         };
 
-        fixed4 _Color;
+        //fixed4 _Color;
         fixed _NormalStrength;
         half _LightRampStrength;
         //half _XWindDirection;
@@ -102,6 +102,7 @@
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
         UNITY_INSTANCING_BUFFER_START(Props)
+            UNITY_DEFINE_INSTANCED_PROP(fixed4, _Color)
             UNITY_DEFINE_INSTANCED_PROP(half, _DisplacementScale)
             UNITY_DEFINE_INSTANCED_PROP(half, _WindLean)
             UNITY_DEFINE_INSTANCED_PROP(half, _WindFrequency)
@@ -117,6 +118,7 @@
             UNITY_INITIALIZE_OUTPUT(Input, o);
             
             UNITY_SETUP_INSTANCE_ID(v);
+            //UNITY_TRANSFER_INSTANCE_ID(v, o);
 
             half displacmentVal = UNITY_ACCESS_INSTANCED_PROP(Props, _DisplacementScale);
             displacmentVal *= .0001;
@@ -152,7 +154,7 @@
 
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 c = (tex2D (_MainTex, IN.uv_MainTex) * _Color) * (tex2D(_LightRamp, IN.uv_MainTex) * _LightRampStrength);
+            fixed4 c = (tex2D (_MainTex, IN.uv_MainTex) * UNITY_ACCESS_INSTANCED_PROP(Props, _Color)) * (tex2D(_LightRamp, IN.uv_MainTex) * _LightRampStrength);
             o.Albedo = c.rgb;
             half3 normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
             normal.z *= (1-_NormalStrength);

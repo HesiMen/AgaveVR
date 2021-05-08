@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MaterialController : MonoBehaviour
 {
+    public Color32 grassColor;
     public float displacementScale;
-    public float windLeanScale;
+    //public float windLeanScale;
     public float windFrequency;
     public Vector2 XZWindDirection;
     public float windStregnth;
@@ -20,19 +21,21 @@ public class MaterialController : MonoBehaviour
     {
         _propBlock = new MaterialPropertyBlock();
         _renderer = this.GetComponent<Renderer>();
+        UpdateMaterialPropertyBlock();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateMaterialPropertyBlock();
+        //UpdateMaterialPropertyBlock();
     }
 
     void UpdateMaterialPropertyBlock()
     {
         _renderer.GetPropertyBlock(_propBlock);
+            _propBlock.SetColor("_Color", grassColor);
             _propBlock.SetFloat("_DisplacementScale", displacementScale);
-            _propBlock.SetFloat("_WindLean", windLeanScale);
+            //_propBlock.SetFloat("_WindLean", windLeanScale);
             _propBlock.SetFloat("_WindFrequency", windFrequency);
             _propBlock.SetFloat("_XWindDirection", XZWindDirection.x);
             _propBlock.SetFloat("_ZWindDirection", XZWindDirection.y);
