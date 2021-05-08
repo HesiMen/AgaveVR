@@ -15,6 +15,8 @@
         _FluffFactor ("Fluffiness", Range(-1, .4)) = .125
         _Coverage ("Coverage", Range(-1,.5)) = .25
 
+        _Attenuation("Attenuation", Float) = .02
+
         //[Header(Displacement)]
         //_DisplacementSpeed ("Displacement Speed", Range(0,1)) = 0
         //_DisplacementScale ("Displacement Scale", Range(0,1)) = 0
@@ -70,6 +72,7 @@
             fixed _ScrollSpeedDamper;
             half _FluffFactor;
             half _Coverage;
+            half _Attenuation;
 
             //half _DisplacementSpeed;
             //half _DisplacementScale;
@@ -108,7 +111,7 @@
                 fixed NdotL = dot(_WorldSpaceLightPos0, normal);
                 fixed lightIntensity = NdotL * 0.5 + 0.75;
                 //lightIntensity = smoothstep(-.5, 1, NdotL);
-                fixed4 light = lightIntensity * (_LightColor0);
+                fixed4 light = (_LightColor0) * (lightIntensity * _Attenuation);
 
                 //half3 viewDir = normalize(i.viewDir);
 

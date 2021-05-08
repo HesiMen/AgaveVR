@@ -76,6 +76,7 @@ Material:
     - _Alpha: 1
     - _AlphaClip: 0
     - _AmbientOcclusion: 0
+    - _Attenuation: 0.02
     - _Blend: 0
     - _BumpScale: 1
     - _CelExtraEnabled: 0

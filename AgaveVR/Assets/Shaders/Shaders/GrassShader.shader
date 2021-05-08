@@ -4,6 +4,7 @@
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _Attenuation("Attenuation", Float) = .02
         //_Glossiness ("Smoothness", Range(0,1)) = 0.5
         //_Metallic ("Metallic", Range(0,1)) = 0.0
     }
@@ -47,6 +48,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             fixed4 _Color;
+            half _Attenuation;
 
             v2f vert (appdata v)
             {
@@ -77,12 +79,12 @@
                 fixed NdotL = dot(_WorldSpaceLightPos0, normal);
                 fixed lightIntensity = NdotL * 0.5 + 0.75;
                 //lightIntensity = smoothstep(-.5, 1, NdotL);
-                fixed4 light = lightIntensity * (_LightColor0);
+                fixed4 light = (_LightColor0) * (lightIntensity * _Attenuation);
 
 
                 // Albedo comes from a texture tinted by color
-                fixed4 c = tex2D (_MainTex, i.uv) * _Color;
-                c *= light;
+                fixed4 c = tex2D (_MainTex, i.uv);
+                c.rgb *= saturate(light);
 
                 return c;
             }

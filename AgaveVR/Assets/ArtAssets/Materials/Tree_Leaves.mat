@@ -65,6 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AmbientOcclusion: 0
+    - _Attenuation: 0.02
     - _BumpScale: 1
     - _ColorMask: 14
     - _CullModel: 2
