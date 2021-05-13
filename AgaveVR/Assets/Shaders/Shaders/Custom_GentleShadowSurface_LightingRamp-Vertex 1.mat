@@ -46,14 +46,15 @@ Material:
     m_Floats:
     - _AmbientOcclusion: 0
     - _Amount: 0
-    - _BounceFrequency: 0
+    - _BounceFrequency: 25
     - _ColorMask: 14
     - _CullModel: 0
     - _DispCutoff: 1
-    - _DisplacementScale: 4.81
+    - _DisplacementScale: 25
+    - _DissolveAmount: 0
     - _FakeAmbienValue: 1
     - _Frequency: 300
-    - _IndividualVFrequency: 0
+    - _IndividualVFrequency: 20
     - _LightRampStrength: 1.03
     - _NormalStrength: 0.9
     - _SComp: 8
@@ -61,12 +62,14 @@ Material:
     - _SRef: 1
     - _ScrollSpeed: 1
     - _ScrollSpeedDamper: 3
-    - _WindStrength: 0.22
-    - _XWindDirection: 0
+    - _WindFrequency: 0
+    - _WindLean: 0
+    - _WindStrength: 3
+    - _XWindDirection: 1
     - _XZBrightnessCutoff: 1
     - _YBaseLine: 0
     - _YBrightnessCutoff: 1
-    - _ZWindDirection: 0
+    - _ZWindDirection: -1
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.3529412, g: 0.8784314, b: 0.71424276, a: 1}

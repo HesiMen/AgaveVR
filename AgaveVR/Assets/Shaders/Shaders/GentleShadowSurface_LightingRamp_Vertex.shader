@@ -11,17 +11,18 @@
         
         [Header(Wind)]
         //_NoiseTex("Noise", 2D) = "white" {}
-        _DisplacementScale("Displacement Scale", Range(-25, 25)) = 0
-        _IndividualVFrequency("Vertex Frequency", Range(0,20)) = 0
-        _BounceFrequency("Bounce Frequency", Range(0,25)) = 0
-        _WindStrength("Wind Strength", Range(0,3)) = 0
-        _DispCutoff("Displacement Cutoff", Range(-1,1)) = 0
+        [Toggle(REMAP_ON)] _RemapValues("RemapValues", Int) = 1
+        _DisplacementScale("Displacement Scale", Range(-25, 25)) = 1
+        _IndividualVFrequency("Vertex Frequency", Range(0,20)) = 1
+        _BounceFrequency("Bounce Frequency", Range(0,25)) = 15.9
+        _WindStrength("Wind Strength", Range(0,3)) = 1.52
+        _DispCutoff("Displacement Cutoff", Range(-1,1)) = -1
         
 
-        _XWindDirection ("_XWindDirection", Range(-1,1)) = 0
+        _XWindDirection ("_XWindDirection", Range(-1,1)) = 1
         _ZWindDirection ("_ZWindDirection", Range(-1,1)) = 0
-        _WindLean ("Wind Lean", Float) = 0
-        _WindFrequency("Wind Frequency", Float) = 0
+        _WindLean ("Wind Lean", Float) = 1
+        _WindFrequency("Wind Frequency", Float) = 1
 
 
         //Dissolve properties
@@ -41,11 +42,13 @@
         Tags { "RenderType"="Opaque" }
         LOD 200
         Cull [_CullModel]
+        ZWrite [_ZWrite]
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf WrapLambert fullforwardshadows exclude_path:deferred vertex:vert
         #pragma target 3.0
+        #pragma multi_compile_local REMAP_OFF REMAP_ON
         #pragma multi_compile_instancing
 
         // Use shader model 3.0 target, to get nicer looking lighting
@@ -80,6 +83,7 @@
         //fixed4 _Color;
         fixed _NormalStrength;
         half _LightRampStrength;
+        int _RemapValues;
         //half _XWindDirection;
         //half _ZWindDirection;
         //half _WindLean;
@@ -121,17 +125,17 @@
             //UNITY_TRANSFER_INSTANCE_ID(v, o);
 
             half displacmentVal = UNITY_ACCESS_INSTANCED_PROP(Props, _DisplacementScale);
-            displacmentVal *= .0001;
-
             float windStrength = UNITY_ACCESS_INSTANCED_PROP(Props, _WindStrength);
-            windStrength *= .002;
-
             half individualVFreq = UNITY_ACCESS_INSTANCED_PROP(Props, _IndividualVFrequency);
-            individualVFreq *= 400;
-
             half windLean = UNITY_ACCESS_INSTANCED_PROP(Props, _WindLean);
-            windLean -= 1;
-            windLean += windStrength;
+
+            #if REMAP_ON
+                displacmentVal *= .0001;
+                windStrength *= .002;
+                individualVFreq *= 400;
+                windLean -= 1;
+                windLean += windStrength;
+            #endif
 
             float commonWind = windLean + (1 - sin(_Time.y * UNITY_ACCESS_INSTANCED_PROP(Props, _WindFrequency))) * windStrength;
             clamp(commonWind, 0, 1);

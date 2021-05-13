@@ -428,7 +428,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 5955780
   displacementScale: 1
-  windLeanScale: 1
   windFrequency: 1
   XZWindDirection: {x: 1, y: 1}
   windStregnth: 1.52
@@ -662,7 +661,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9702bf05bf8d4c308c9c2c4a36159ae, type: 2}
+      objectReference: {fileID: 2100000, guid: d739853303af5453bac30045f40935d9, type: 2}
     - target: {fileID: 919132149155446097, guid: d72913b9d83364f9aa8fa20285909681,
         type: 3}
       propertyPath: m_Name

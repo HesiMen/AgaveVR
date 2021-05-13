@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Custom_GentleShadowSurface_LightingRamp-Vertex
   m_Shader: {fileID: 4800000, guid: be6549c8924644b9aabbacc284a80652, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: REMAP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -48,14 +48,16 @@ Material:
     - _Amount: 0
     - _BounceFrequency: 15.9
     - _ColorMask: 14
-    - _CullModel: 0
+    - _CullModel: 2
     - _DispCutoff: -1
     - _DisplacementScale: 1
+    - _DissolveAmount: 0
     - _FakeAmbienValue: 1
     - _Frequency: 400
     - _IndividualVFrequency: 1
     - _LightRampStrength: 1.03
     - _NormalStrength: 0.9
+    - _RemapValues: 1
     - _SComp: 8
     - _SOp: 2
     - _SRef: 1
